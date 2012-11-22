@@ -109,7 +109,7 @@ void HeroEditor::on_lineEdit_name_editingFinished()
 }
 
 void HeroEditor::on_listWidget_helden_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous)
-
+// Werte von dem gewaellten Charakter laden
 {
     QString helden_name = ui->listWidget_helden->currentItem()->text();
     ui->lineEdit_name->setText(helden_name);
@@ -165,5 +165,24 @@ void HeroEditor::on_listWidget_helden_currentItemChanged(QListWidgetItem *curren
     ui->spinBox_gift->setValue(gift_pro);
     ui->spinBox_wind->setValue(wind_pro);
 
+    /////////////////////////////////////////////////
+    // Beide Bilder laden (Gesicht und Körper)
+    /////////////////////////////////////////////////
+    path_gesicht = QApplication::applicationDirPath() + "/res/Gesicht.jpg";
+    path_koerper = QApplication::applicationDirPath() + "/res/Koerper.jpg";
+
+    QImage image_gesicht(path_gesicht);
+    QGraphicsScene *gesicht = new QGraphicsScene();
+    gesicht->addPixmap(QPixmap::fromImage(image_gesicht));
+    ui->graphicsView_gesicht->setScene(gesicht);
+
+
+    QImage image_koerper(path_koerper);
+    QGraphicsScene *koerper = new QGraphicsScene();
+    koerper->addPixmap(QPixmap::fromImage(image_koerper));
+    ui->graphicsView_koerper->setScene(koerper);
+    /////////////////////////////////////////////////
+    // ENDE
+    /////////////////////////////////////////////////
 
 }

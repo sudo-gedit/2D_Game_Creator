@@ -35,81 +35,6 @@ void HeroEditor::speichern_char() // Werte von dem gewaellten Charakter speicher
 
 }
 
-void HeroEditor::laden_char() // Werte von dem gewaellten Charakter laden
-
-{
-    //Laden der Settings aus der .ini
-    QSettings *settings = new QSettings (path_char, QSettings::IniFormat, this);
-
-    settings->beginGroup("Charakter");
-    QString name = settings->value("name").toString();
-    QString leben = settings->value("leben").toString();
-    QString mana = settings->value("mana").toString();
-    QString kraft = settings->value("kraft").toString();
-    QString ausdauer = settings->value("ausdauer").toString();
-    QString Intelligenz = settings->value("Intelligenz").toString();
-
-    bool feuer =settings->value("feuer").toBool();
-    bool wind = settings->value("wind").toBool();
-    bool gift = settings->value("gift").toBool();
-    bool betaeubt = settings->value("betaeubt").toBool();
-    bool eis = settings->value("eis").toBool();
-
-    qint16 feuer_pro = settings->value("feuer_pro").toInt();
-    qint16 eis_pro = settings->value("eis_pro").toInt();
-    qint16 betaeubt_pro = settings->value("betaeubt_pro").toInt();
-    qint16 gift_pro = settings->value("gift_pro").toInt();
-    qint16 wind_pro = settings->value("wind_pro").toInt();
-
-
-    settings->endGroup();
-
-
-    //Sttings in die GUI laden (lineedit)
-    ui->lineEdit_name->setText(name);
-    ui->lineEdit_Leben->setText(leben);
-    ui->lineEdit_Mana->setText(mana);
-    ui->lineEdit_Kraft->setText(kraft);
-    ui->lineEdit_ausdauer->setText(ausdauer);
-    ui->lineEdit_Intelligenz->setText(Intelligenz);
-
-    //Sttings in die GUI laden (checkbox)
-    ui->checkBox_feuer->setChecked(feuer);
-    ui->checkBox_wind->setChecked(wind);
-    ui->checkBox_gift->setChecked(gift);
-    ui->checkBox_betaeubt->setChecked(betaeubt);
-    ui->checkBox_eis->setChecked(eis);
-
-    ui->spinBox_feuer->setValue(feuer_pro);
-    ui->spinBox_eis->setValue(eis_pro);
-    ui->spinBox_betaeubt->setValue(betaeubt_pro);
-    ui->spinBox_gift->setValue(gift_pro);
-    ui->spinBox_wind->setValue(wind_pro);
-
-
-    /////////////////////////////////////////////////
-    // Beide Bilder laden (Gesicht und Körper)
-    /////////////////////////////////////////////////
-    path_gesicht = QApplication::applicationDirPath() + "/res/Gesicht.jpg";
-    path_koerper = QApplication::applicationDirPath() + "/res/Koerper.jpg";
-
-    QImage image_gesicht(path_gesicht);
-    QGraphicsScene *gesicht = new QGraphicsScene();
-    gesicht->addPixmap(QPixmap::fromImage(image_gesicht));
-    ui->graphicsView_gesicht->setScene(gesicht);
-
-
-    QImage image_koerper(path_koerper);
-    QGraphicsScene *koerper = new QGraphicsScene();
-    koerper->addPixmap(QPixmap::fromImage(image_koerper));
-    ui->graphicsView_koerper->setScene(koerper);
-    /////////////////////////////////////////////////
-    // ENDE
-    /////////////////////////////////////////////////
-
-
-}
-
 void HeroEditor::gesicht_char_laden()
 
 {
@@ -119,7 +44,7 @@ void HeroEditor::gesicht_char_laden()
     mdir.mkpath(mpath);
 
     //Auswahl Bild für Gesicht und Autoentfernung des alten Bildes
-    QString path_gesicht_open = QFileDialog::getOpenFileName(this, tr("Avatar Bild wählen"), "", tr("Images  (*.png *.xpm *.jpg)"));
+    QString path_gesicht_open = QFileDialog::getOpenFileName(this, tr("Avatar Bild waehlen"), "", tr("Images  (*.png *.xpm *.jpg)"));
     QFile::remove(path_gesicht);
     QFile::copy ( path_gesicht_open, path_gesicht);
     //Darstellung in GraphicsView
@@ -152,9 +77,9 @@ void HeroEditor::koerper_char_laden()
 void HeroEditor::qlist_namen_laden()
 
 {
-    for (int i = 0; i < 10; i)
+    for (int i = 0; i < 10; i++)
+
     {
-        i = i + 1;
         QString i_str;
 
         i_str.append(QString("%1").arg(i));
