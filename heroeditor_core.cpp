@@ -4,7 +4,7 @@
 //
 //
 //
-// Letzte Aenderung 23.11.2012
+// Letzte Aenderung 24.11.2012
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "heroeditor.h"
@@ -49,13 +49,14 @@ void HeroEditor::gesicht_char_laden()
 {
     //// verbessern
     QDir mdir;
-    QString mpath = QApplication::applicationDirPath() + "/res/";
+    QString mpath = QApplication::applicationDirPath() + "/game/res/";
     mdir.mkpath(mpath);
 
-    //Auswahl Bild für Gesicht und Autoentfernung des alten Bildes
+    //Auswahl Bild für Gesicht und Auto Entfernung des alten Bildes
     QString path_gesicht_open = QFileDialog::getOpenFileName(this, tr("Avatar Bild waehlen"), "", tr("Images  (*.png *.xpm *.jpg)"));
     QFile::remove(path_gesicht);
     QFile::copy ( path_gesicht_open, path_gesicht);
+
     //Darstellung in GraphicsView
     QImage image( path_gesicht );
     QGraphicsScene *gesicht = new QGraphicsScene();
@@ -67,6 +68,7 @@ void HeroEditor::gesicht_char_laden()
 void HeroEditor::koerper_char_laden()
 
 {
+    //// verbessern
     QDir mdir;
     QString mpath = QApplication::applicationDirPath() + "/res/";
     mdir.mkpath(mpath);
@@ -75,6 +77,7 @@ void HeroEditor::koerper_char_laden()
     QString path_koerper_open = QFileDialog::getOpenFileName(this, tr("Avatar Bild wählen"), "", tr("Images  (*.png *.xpm *.jpg)"));
     QFile::remove(path_koerper);
     QFile::copy ( path_koerper_open, path_koerper);
+
     //Darstellung in GraphicsView
     QImage image( path_koerper);
     QGraphicsScene *koerper = new QGraphicsScene();
@@ -85,7 +88,7 @@ void HeroEditor::koerper_char_laden()
 
 
 void HeroEditor::qlist_namen_laden()
-
+// Helden werden aus der ini in qlistWidget_helden geladen
 {
     QSettings settings (path_char, QSettings::IniFormat);
     QStringList group = settings.childGroups();
@@ -93,9 +96,7 @@ void HeroEditor::qlist_namen_laden()
 
     {
             QString childVersion = group.at(child);
-            settings.endGroup();
             ui->listWidget_helden->addItem(childVersion);
     }
-
 
 }

@@ -4,7 +4,7 @@
 //
 //
 //
-// Letzte Aenderung 22.11.2012
+// Letzte Aenderung 24.11.2012
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "heroeditor.h"
@@ -23,8 +23,8 @@ HeroEditor::HeroEditor(QWidget *parent) :
 
     // Umgebungs variabelen
     path_char = QApplication::applicationDirPath() + "/game/chars.ini";
-    path_gesicht = QApplication::applicationDirPath() + "/res/Gesicht.jpg";
-    path_koerper = QApplication::applicationDirPath() + "/res/Koerper.jpg";
+    path_gesicht = QApplication::applicationDirPath() + "/game/res/Gesicht.jpg";
+    path_koerper = QApplication::applicationDirPath() + "/game/res/Koerper.jpg";
 
     // LineEdit Buchstaben Sperre
     ui->lineEdit_name->setValidator(new QRegExpValidator( QRegExp("[0-9, A-Z, a-z]+"), this ));
@@ -87,10 +87,35 @@ void HeroEditor::on_pushButton_held_neu_clicked()
 }
 
 void HeroEditor::on_pushButton_held_entfernen_clicked()
-
+//
 {
-    QListWidgetItem *item = ui->listWidget_helden->currentItem();
-    delete item;
+    int count = ui->listWidget_helden->count();
+
+    if (count == 1)
+    {
+        QMessageBox::critical(this, "Achtung", "Du versuchst den letzten Helden zu loeschen, das ist nicht moeglich.", QMessageBox::Ok);
+    }
+
+        else
+        {
+
+            if    (ui->listWidget_helden->currentItem() == 0) {
+
+            QMessageBox::critical(this, "Achtung", "Es wurde kein Held gewaehlt.", QMessageBox::Ok);
+
+        }
+            else
+            {
+
+            QListWidgetItem *item = ui->listWidget_helden->currentItem();
+            QStringList qlistwidgetitem_convert;
+            qlistwidgetitem_convert << item->text();
+            QString qlistwidgetitem_convert_qstring = qlistwidgetitem_convert.at(0);
+            QSettings *settings = new QSettings(path_char,QSettings::IniFormat);
+            settings->remove(qlistwidgetitem_convert_qstring);
+            delete item;
+        }
+    }
 }
 
 void HeroEditor::on_lineEdit_name_editingFinished()
@@ -183,8 +208,8 @@ void HeroEditor::on_listWidget_helden_currentItemChanged(QListWidgetItem *curren
     /////////////////////////////////////////////////
     // Beide Bilder laden (Gesicht und Körper)
     /////////////////////////////////////////////////
-    path_gesicht = QApplication::applicationDirPath() + "/res/Gesicht.jpg";
-    path_koerper = QApplication::applicationDirPath() + "/res/Koerper.jpg";
+    path_gesicht = QApplication::applicationDirPath() + "/game/res/Gesicht.jpg";
+    path_koerper = QApplication::applicationDirPath() + "/game/res/Koerper.jpg";
 
     QImage image_gesicht(path_gesicht);
     QGraphicsScene *gesicht = new QGraphicsScene();

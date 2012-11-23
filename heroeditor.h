@@ -29,10 +29,9 @@ private slots:
 
     void on_pushButton_held_entfernen_clicked();
 
-
     void on_lineEdit_name_editingFinished();
 
-    void on_listWidget_helden_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous);
+    void on_listWidget_helden_currentItemChanged(QListWidgetItem *currentItem, QListWidgetItem *previous);
 
 private:
 
@@ -40,6 +39,7 @@ private:
     QString path_char;
     QString path_gesicht;
     QString path_koerper;
+    QString path_gesicht_copy;
     QString path_app;
     int16_t zaehlrt;
 

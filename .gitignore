@@ -10,12 +10,3 @@
 *.dll
 *.dylib
 
-# Qt-es
-
-*.pro.user
-*.pro.user.*
-*.pro
-moc_*.cpp
-qrc_*.cpp
-Makefile
-*-build-*
