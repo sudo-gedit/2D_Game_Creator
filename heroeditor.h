@@ -35,6 +35,7 @@ private slots:
     void on_listWidget_helden_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous);
 
 private:
+
     Ui::HeroEditor *ui;
     QString path_char;
     QString path_gesicht;

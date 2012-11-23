@@ -4,7 +4,7 @@
 //
 //
 //
-// Letzte Aenderung 19.11.2012
+// Letzte Aenderung 22.11.2012
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "heroeditor.h"
@@ -36,7 +36,6 @@ HeroEditor::HeroEditor(QWidget *parent) :
 
     // Funktionen die Geladen werden
     qlist_namen_laden();
-    //laden_char();
 
     //Statische werte
     zaehlrt = 0;
@@ -81,7 +80,7 @@ void HeroEditor::on_pushButton_held_neu_clicked()
     ui->lineEdit_name->setText("Neuer_Held" + zaehlrt_str);
 
     QSettings *settings = new QSettings(path_char,QSettings::IniFormat);
-    settings->beginGroup("Held_Neu" + zaehlrt_str);
+    settings->beginGroup("Neuer_Held" + zaehlrt_str);
     settings->setValue("name",  ui->lineEdit_name->text());
     settings->endGroup();
 
@@ -95,17 +94,33 @@ void HeroEditor::on_pushButton_held_entfernen_clicked()
 }
 
 void HeroEditor::on_lineEdit_name_editingFinished()
-
+// Bearbeitung des gewählten Helden's
 {
+    if    (ui->listWidget_helden->currentItem() == 0) {
+
+            QMessageBox::critical(this, "Achtung", "Es wurde kein Held gewaehlt.", QMessageBox::Ok);
+
+           }
+    else
+
+    {
+     //variablen sind zu lang!!!
+    QListWidgetItem *item = ui->listWidget_helden->currentItem();
+    QStringList qlistwidgetitem_convert;
+    qlistwidgetitem_convert << item->text();
+    QString qlistwidgetitem_convert_qstring = qlistwidgetitem_convert.at(0);
+
     QString name_vorher = ui->listWidget_helden->currentItem()->text();
     QString name_widget = ui->lineEdit_name->text();
     ui->listWidget_helden->currentItem()->setText(name_widget);
 
 
     QSettings *settings = new QSettings(path_char,QSettings::IniFormat);
-    settings->beginGroup(name_vorher);
-    settings->setValue("name",  name_widget);
-    settings->endGroup();
+    settings->remove(qlistwidgetitem_convert_qstring);
+
+    speichern_char();
+
+    }
 }
 
 void HeroEditor::on_listWidget_helden_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous)

@@ -1,3 +1,12 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Hero Editor version 0.01.2.1
+//
+//
+//
+// Letzte Aenderung 23.11.2012
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
 #include "heroeditor.h"
 #include "ui_heroeditor.h"
 
@@ -74,16 +83,19 @@ void HeroEditor::koerper_char_laden()
 
 }
 
+
 void HeroEditor::qlist_namen_laden()
 
 {
-    for (int i = 0; i < 10; i++)
+    QSettings settings (path_char, QSettings::IniFormat);
+    QStringList group = settings.childGroups();
+    for(int child = 0; child != group.size(); ++child)
 
     {
-        QString i_str;
-
-        i_str.append(QString("%1").arg(i));
-        ui->listWidget_helden->addItem("Neuer_Held" + i_str);
-        ui->lineEdit_name->setText("Neuer_Held" + i_str);
+            QString childVersion = group.at(child);
+            settings.endGroup();
+            ui->listWidget_helden->addItem(childVersion);
     }
+
+
 }
