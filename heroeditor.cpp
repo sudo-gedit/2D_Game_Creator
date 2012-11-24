@@ -22,6 +22,7 @@ HeroEditor::HeroEditor(QWidget *parent) :
     setWindowTitle(tr("Hero Editor[*]"));
 
     // Umgebungs variabelen
+    path_config = QApplication::applicationDirPath() + "/game/config.ini";
     path_char = QApplication::applicationDirPath() + "/game/chars.ini";
     path_gesicht = QApplication::applicationDirPath() + "/game/res/Gesicht.jpg";
     path_koerper = QApplication::applicationDirPath() + "/game/res/Koerper.jpg";
@@ -38,7 +39,7 @@ HeroEditor::HeroEditor(QWidget *parent) :
     qlist_namen_laden();
 
     //Statische werte
-    zaehlrt = 0;
+    zaehler = 0;
 }
 
 HeroEditor::~HeroEditor()
@@ -51,7 +52,6 @@ void HeroEditor::on_okay_clicked()
 
 {
     speichern_char();
-    close();
 }
 
 void HeroEditor::on_gesicht_clicked()
@@ -71,18 +71,31 @@ void HeroEditor::on_Koerper_clicked()
 void HeroEditor::on_pushButton_held_neu_clicked()
 
 {
-    zaehlrt = zaehlrt + 1;
-    QString zaehlrt_str;
+    //Letzter Zaehler wird geladen, damit bei der Erstellung des nächsten Helden die richtige Nummerierung erstellt werden kann.
+    QSettings *zaehler_laden = new QSettings (path_config, QSettings::IniFormat, this);
+        zaehler_laden->beginGroup("heroeditor");
+        zaehler = zaehler_laden->value("zaehler").toInt();
+        zaehler_laden->endGroup();
 
-    zaehlrt_str.append(QString("%1").arg(zaehlrt));
+    //Die erstellung des Helden
+    zaehler = zaehler + 1;
+    QString zaehler_str;
 
-    ui->listWidget_helden->addItem("Neuer_Held" + zaehlrt_str);
-    ui->lineEdit_name->setText("Neuer_Held" + zaehlrt_str);
+    zaehler_str.append(QString("%1").arg(zaehler));
+    ui->listWidget_helden->addItem("Neuer_Held" + zaehler_str);
+    ui->lineEdit_name->setText("Neuer_Held" + zaehler_str);
 
     QSettings *settings = new QSettings(path_char,QSettings::IniFormat);
-    settings->beginGroup("Neuer_Held" + zaehlrt_str);
-    settings->setValue("name",  ui->lineEdit_name->text());
-    settings->endGroup();
+        settings->beginGroup("Neuer_Held" + zaehler_str);
+        settings->setValue("name",  ui->lineEdit_name->text());
+        settings->endGroup();
+
+    //Letzter Zaehler wird gesichert, damit bei der Erstellung des nächsten Helden die richtige Nummerierung erstellt werden kann.
+    QSettings *zaehler = new QSettings(path_config,QSettings::IniFormat);
+        zaehler->beginGroup("heroeditor");
+        zaehler->setValue("zaehler", zaehler_str);
+        zaehler->endGroup();
+
 
 }
 
@@ -151,17 +164,17 @@ void HeroEditor::on_lineEdit_name_editingFinished()
 void HeroEditor::on_listWidget_helden_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous)
 // Werte von dem gewaellten Charakter laden
 {
+    //Bevor die neue werte geladen werden, werden die alten gespeichert.
+    speichern_char();
+
     QString helden_name = ui->listWidget_helden->currentItem()->text();
     ui->lineEdit_name->setText(helden_name);
-
-
 
 
     //Laden der Settings aus der .ini
     QSettings *settings = new QSettings (path_char, QSettings::IniFormat, this);
 
     settings->beginGroup(helden_name);
-  //  QString name = settings->value("name").toString();
     QString leben = settings->value("leben").toString();
     QString mana = settings->value("mana").toString();
     QString kraft = settings->value("kraft").toString();
@@ -174,11 +187,11 @@ void HeroEditor::on_listWidget_helden_currentItemChanged(QListWidgetItem *curren
     bool betaeubt = settings->value("betaeubt").toBool();
     bool eis = settings->value("eis").toBool();
 
-    qint16 feuer_pro = settings->value("feuer_pro").toInt();
-    qint16 eis_pro = settings->value("eis_pro").toInt();
-    qint16 betaeubt_pro = settings->value("betaeubt_pro").toInt();
-    qint16 gift_pro = settings->value("gift_pro").toInt();
-    qint16 wind_pro = settings->value("wind_pro").toInt();
+    int feuer_pro = settings->value("feuer_pro").toInt();
+    int eis_pro = settings->value("eis_pro").toInt();
+    int betaeubt_pro = settings->value("betaeubt_pro").toInt();
+    int gift_pro = settings->value("gift_pro").toInt();
+    int wind_pro = settings->value("wind_pro").toInt();
 
 
     settings->endGroup();

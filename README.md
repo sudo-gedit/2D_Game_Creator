@@ -14,3 +14,9 @@ Sortiert nach Priorität(Vorläufiger Plan):
 7. Beginn mit der Arbeit an der Engine
 8. Unterstürzung von mobilen Betriebssystemen (nur Engine)
 9. Netzwerkfähigkeit
+
+Changelog:
+
+24.11.12
+Bugfix bei der erstellung eines neuen Helden
+Config Datei erstellt

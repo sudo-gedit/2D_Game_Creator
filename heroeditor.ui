@@ -424,7 +424,7 @@
        <item>
         <widget class="QPushButton" name="okay">
          <property name="text">
-          <string>Okay und Sichern</string>
+          <string>Speichern</string>
          </property>
         </widget>
        </item>
@@ -447,7 +447,7 @@
        <item>
         <widget class="QPushButton" name="pushButton_6">
          <property name="text">
-          <string>Abbrechen</string>
+          <string>Schließen</string>
          </property>
         </widget>
        </item>

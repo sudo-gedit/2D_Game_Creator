@@ -36,12 +36,13 @@ private slots:
 private:
 
     Ui::HeroEditor *ui;
+    QString path_config;
     QString path_char;
     QString path_gesicht;
     QString path_koerper;
     QString path_gesicht_copy;
     QString path_app;
-    int16_t zaehlrt;
+    int zaehler;
 
 
     void speichern_char();      // Spieler Werte Speiechern
