@@ -21,11 +21,11 @@ HeroEditor::HeroEditor(QWidget *parent) :
     ui->setupUi(this);
     setWindowTitle(tr("Hero Editor[*]"));
 
+
     // Umgebungs variabelen
     path_config = QApplication::applicationDirPath() + "/game/config.ini";
     path_char = QApplication::applicationDirPath() + "/game/chars.ini";
-    path_gesicht = QApplication::applicationDirPath() + "/game/res/Gesicht.jpg";
-    path_koerper = QApplication::applicationDirPath() + "/game/res/Koerper.jpg";
+    path_res = QApplication::applicationDirPath() + "/game/res/";
 
     // LineEdit Buchstaben Sperre
     ui->lineEdit_name->setValidator(new QRegExpValidator( QRegExp("[0-9, A-Z, a-z]+"), this ));
@@ -34,12 +34,11 @@ HeroEditor::HeroEditor(QWidget *parent) :
     ui->lineEdit_Intelligenz->setValidator(new QRegExpValidator( QRegExp("[0-9]+"), this ));
     ui->lineEdit_Kraft->setValidator(new QRegExpValidator( QRegExp("[0-9]+"), this ));
     ui->lineEdit_Leben->setValidator(new QRegExpValidator( QRegExp("[0-9]+"), this ));
+    ui->lineEdit_verteidigung->setValidator(new QRegExpValidator( QRegExp("[0-9]+"), this ));
 
     // Funktionen die Geladen werden
     qlist_namen_laden();
 
-    //Statische werte
-    zaehler = 0;
 }
 
 HeroEditor::~HeroEditor()
@@ -57,15 +56,15 @@ void HeroEditor::on_okay_clicked()
 void HeroEditor::on_gesicht_clicked()
 
 {
-
-    gesicht_char_laden();
-
+    objekt = "gesicht_";
+    char_pic_speichern(objekt);
 }
 
 void HeroEditor::on_Koerper_clicked()
 
 {
-   koerper_char_laden();
+    objekt = "koerper_";
+    char_pic_speichern(objekt);
 }
 
 void HeroEditor::on_pushButton_held_neu_clicked()
@@ -118,15 +117,16 @@ void HeroEditor::on_pushButton_held_entfernen_clicked()
 
         }
             else
-            {
-
-            QListWidgetItem *item = ui->listWidget_helden->currentItem();
-            QStringList qlistwidgetitem_convert;
-            qlistwidgetitem_convert << item->text();
-            QString qlistwidgetitem_convert_qstring = qlistwidgetitem_convert.at(0);
-            QSettings *settings = new QSettings(path_char,QSettings::IniFormat);
-            settings->remove(qlistwidgetitem_convert_qstring);
-            delete item;
+            {     
+                QListWidgetItem *item = ui->listWidget_helden->currentItem();
+                QStringList qlistwidgetitem_convert;
+                qlistwidgetitem_convert << item->text();
+                qDebug() << qlistwidgetitem_convert;
+                QString qlistwidgetitem_convert_qstring = qlistwidgetitem_convert.at(0);
+                qDebug() << qlistwidgetitem_convert;
+                QSettings *loeschen = new QSettings(path_char,QSettings::IniFormat);
+                loeschen->remove (qlistwidgetitem_convert_qstring);
+                delete item;
         }
     }
 }
@@ -181,6 +181,10 @@ void HeroEditor::on_listWidget_helden_currentItemChanged(QListWidgetItem *curren
     QString ausdauer = settings->value("ausdauer").toString();
     QString Intelligenz = settings->value("Intelligenz").toString();
 
+    QString gesicht_ = settings->value("gesicht_").toString();
+    QString koerper_ = settings->value("koerper_").toString();
+
+
     bool feuer =settings->value("feuer").toBool();
     bool wind = settings->value("wind").toBool();
     bool gift = settings->value("gift").toBool();
@@ -218,24 +222,20 @@ void HeroEditor::on_listWidget_helden_currentItemChanged(QListWidgetItem *curren
     ui->spinBox_gift->setValue(gift_pro);
     ui->spinBox_wind->setValue(wind_pro);
 
-    /////////////////////////////////////////////////
-    // Beide Bilder laden (Gesicht und Körper)
-    /////////////////////////////////////////////////
-    path_gesicht = QApplication::applicationDirPath() + "/game/res/Gesicht.jpg";
-    path_koerper = QApplication::applicationDirPath() + "/game/res/Koerper.jpg";
 
-    QImage image_gesicht(path_gesicht);
+    path_res_ = QApplication::applicationDirPath() + "";
+
+    QImage image_gesicht(path_res_ + gesicht_);
+    image_gesicht = image_gesicht.scaled(this->ui->graphicsView_gesicht->width()-10,this->ui->graphicsView_gesicht->height()-10);
     QGraphicsScene *gesicht = new QGraphicsScene();
     gesicht->addPixmap(QPixmap::fromImage(image_gesicht));
     ui->graphicsView_gesicht->setScene(gesicht);
 
 
-    QImage image_koerper(path_koerper);
+    QImage image_koerper(path_res_ + koerper_);
+    image_koerper = image_koerper.scaled(this->ui->graphicsView_gesicht->width()-10,this->ui->graphicsView_gesicht->height()-10);
     QGraphicsScene *koerper = new QGraphicsScene();
     koerper->addPixmap(QPixmap::fromImage(image_koerper));
     ui->graphicsView_koerper->setScene(koerper);
-    /////////////////////////////////////////////////
-    // ENDE
-    /////////////////////////////////////////////////
 
 }

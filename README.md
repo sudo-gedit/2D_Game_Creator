@@ -17,6 +17,11 @@ Sortiert nach Priorität(Vorläufiger Plan):
 
 Changelog:
 
+25.11.12
+Bugfix
+code cleaned
+Pic load System / Pic save System created
+
 24.11.12
 Bugfix bei der erstellung eines neuen Helden
 Config Datei erstellt

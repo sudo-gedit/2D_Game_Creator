@@ -94,7 +94,7 @@
           <enum>Qt::Horizontal</enum>
          </property>
          <property name="sizeType">
-          <enum>QSizePolicy::Expanding</enum>
+          <enum>QSizePolicy::Maximum</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -232,9 +232,9 @@
               </widget>
              </item>
              <item>
-              <widget class="QLabel" name="label_3">
+              <widget class="QLabel" name="label_verteidigung">
                <property name="text">
-                <string>TextLabel</string>
+                <string>Verteidigung</string>
                </property>
               </widget>
              </item>
@@ -278,7 +278,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEdit_4">
+              <widget class="QLineEdit" name="lineEdit_verteidigung">
                <property name="maxLength">
                 <number>10</number>
                </property>

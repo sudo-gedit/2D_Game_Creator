@@ -36,19 +36,25 @@ private slots:
 private:
 
     Ui::HeroEditor *ui;
+
+    // QString Werte
     QString path_config;
     QString path_char;
-    QString path_gesicht;
+    QString path_res;
     QString path_koerper;
     QString path_gesicht_copy;
     QString path_app;
+    QString objekt;
+    QString path_koerper_;
+    QString path_res_;
+
+    // Int Werte
     int zaehler;
 
-
+    // Funktionen
     void speichern_char();      // Spieler Werte Speiechern
     void laden_char();          // Spieler Werte Laden
-    void gesicht_char_laden();  // Spieler Gesicht/Avatar Laden/Speichern
-    void koerper_char_laden();  // Spieler Körper Laden/Speichern
+    void char_pic_speichern(QString objekt);  // Spieler Gesicht/Avatar Laden/Speichern
     void qlist_namen_laden();   // Qlist alle namen einlesen
 
 };

@@ -10,6 +10,7 @@
 #include "heroeditor.h"
 #include "ui_heroeditor.h"
 
+
 void HeroEditor::speichern_char() // Werte von dem gewaellten Charakter speichern
 
 {
@@ -44,47 +45,49 @@ void HeroEditor::speichern_char() // Werte von dem gewaellten Charakter speicher
 
 }
 
-void HeroEditor::gesicht_char_laden()
+void HeroEditor::char_pic_speichern(QString objekt)
 
 {
-    //// verbessern
+
+    QString format = ".jpg"; //Workaround
+    QString name_held = ui->listWidget_helden->currentItem()->text();
+
+
+    //// verbessern (if?)
     QDir mdir;
     QString mpath = QApplication::applicationDirPath() + "/game/res/";
     mdir.mkpath(mpath);
 
     //Auswahl Bild für Gesicht und Auto Entfernung des alten Bildes
-    QString path_gesicht_open = QFileDialog::getOpenFileName(this, tr("Avatar Bild waehlen"), "", tr("Images  (*.png *.xpm *.jpg)"));
-    QFile::remove(path_gesicht);
-    QFile::copy ( path_gesicht_open, path_gesicht);
+    QString path_objekt_open = QFileDialog::getOpenFileName(this, tr("Avatar Bild waehlen"), "", tr("Images  (*.png *.xpm *.jpg)"));
+    QFile::remove(path_res + objekt + name_held + format);
+    QFile::copy ( path_objekt_open, path_res + objekt + name_held + format);
 
     //Darstellung in GraphicsView
-    QImage image( path_gesicht );
-    QGraphicsScene *gesicht = new QGraphicsScene();
-    gesicht->addPixmap(QPixmap::fromImage(image));
-    ui->graphicsView_gesicht->setScene(gesicht);
+    QImage image( path_res + objekt + name_held + format );
+    image = image.scaled(this->ui->graphicsView_gesicht->width()-10,ui->graphicsView_gesicht->height()-10);
+    QGraphicsScene *objekt_qgs = new QGraphicsScene();
+    objekt_qgs->addPixmap(QPixmap::fromImage(image));
+
+    if (objekt == "gesicht_")
+
+    {
+        ui->graphicsView_gesicht->setScene(objekt_qgs);
+    }
+
+    else
+
+    {
+        ui->graphicsView_koerper->setScene(objekt_qgs);
+    }
+
+    QSettings *objekt_qsettings_speichern_pic = new QSettings(path_char,QSettings::IniFormat);
+        objekt_qsettings_speichern_pic->beginGroup(name_held);
+        objekt_qsettings_speichern_pic->setValue(objekt, "/game/res/" + objekt + name_held + format);
+        objekt_qsettings_speichern_pic->endGroup();
 
 }
 
-void HeroEditor::koerper_char_laden()
-
-{
-    //// verbessern
-    QDir mdir;
-    QString mpath = QApplication::applicationDirPath() + "/res/";
-    mdir.mkpath(mpath);
-
-    //Auswahl Bild für K und Auto entfernung des alten Bildes
-    QString path_koerper_open = QFileDialog::getOpenFileName(this, tr("Avatar Bild wählen"), "", tr("Images  (*.png *.xpm *.jpg)"));
-    QFile::remove(path_koerper);
-    QFile::copy ( path_koerper_open, path_koerper);
-
-    //Darstellung in GraphicsView
-    QImage image( path_koerper);
-    QGraphicsScene *koerper = new QGraphicsScene();
-    koerper->addPixmap(QPixmap::fromImage(image));
-    ui->graphicsView_koerper->setScene(koerper);
-
-}
 
 
 void HeroEditor::qlist_namen_laden()
