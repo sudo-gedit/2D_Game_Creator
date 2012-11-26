@@ -17,11 +17,16 @@ Sortiert nach Priorität(Vorläufiger Plan):
 
 Changelog:
 
-25.11.12
+26.11.2012
+Kleine Fehler Behebung
+Dokumentation im Code hinzugefügt
+Code gesäubert
+
+25.11.2012
 Bugfix
-code cleaned
+Code gesäubert
 Pic load System / Pic save System created
 
-24.11.12
+24.11.2012
 Bugfix bei der erstellung eines neuen Helden
 Config Datei erstellt

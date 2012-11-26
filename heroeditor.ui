@@ -271,7 +271,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEdit_Intelligenz">
+              <widget class="QLineEdit" name="lineEdit_intelligenz">
                <property name="maxLength">
                 <number>10</number>
                </property>

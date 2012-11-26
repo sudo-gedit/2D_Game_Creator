@@ -42,8 +42,6 @@ private:
     QString path_char;
     QString path_res;
     QString path_koerper;
-    QString path_gesicht_copy;
-    QString path_app;
     QString objekt;
     QString path_koerper_;
     QString path_res_;

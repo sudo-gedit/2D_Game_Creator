@@ -18,8 +18,7 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     about.cpp \
     heroeditor.cpp \
-    entwicklungsplaner.cpp \
-    heroeditor_core.cpp
+    entwicklungsplaner.cpp
 
 HEADERS  += mainwindow.h \
     about.h \

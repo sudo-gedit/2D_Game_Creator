@@ -4,18 +4,16 @@
 //
 //
 //
-// Letzte Aenderung 24.11.2012
+// Letzte Aenderung 26.11.2012
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "heroeditor.h"
 #include "ui_heroeditor.h"
-#include "heroeditor_core.cpp"
 
 
 HeroEditor::HeroEditor(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::HeroEditor)
-
 
 {
     ui->setupUi(this);
@@ -31,7 +29,7 @@ HeroEditor::HeroEditor(QWidget *parent) :
     ui->lineEdit_name->setValidator(new QRegExpValidator( QRegExp("[0-9, A-Z, a-z]+"), this ));
     ui->lineEdit_Mana->setValidator(new QRegExpValidator( QRegExp("[0-9]+"), this ));
     ui->lineEdit_ausdauer->setValidator(new QRegExpValidator( QRegExp("[0-9]+"), this ));
-    ui->lineEdit_Intelligenz->setValidator(new QRegExpValidator( QRegExp("[0-9]+"), this ));
+    ui->lineEdit_intelligenz->setValidator(new QRegExpValidator( QRegExp("[0-9]+"), this ));
     ui->lineEdit_Kraft->setValidator(new QRegExpValidator( QRegExp("[0-9]+"), this ));
     ui->lineEdit_Leben->setValidator(new QRegExpValidator( QRegExp("[0-9]+"), this ));
     ui->lineEdit_verteidigung->setValidator(new QRegExpValidator( QRegExp("[0-9]+"), this ));
@@ -47,28 +45,126 @@ HeroEditor::~HeroEditor()
     delete ui;
 }
 
-void HeroEditor::on_okay_clicked()
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//Funktionen Start
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+void HeroEditor::speichern_char()
+// Werte von dem gewaellten Charakter speichern
+{
+    //Lineedit Speiern
+    QSettings *settings = new QSettings(path_char,QSettings::IniFormat);
+    settings->beginGroup(ui->lineEdit_name->text());
+
+    settings->setValue("name",  ui->lineEdit_name->text());
+    settings->setValue("leben", ui->lineEdit_Leben->text());
+    settings->setValue("mana",  ui->lineEdit_Mana->text());
+    settings->setValue("kraft", ui->lineEdit_Kraft->text());
+    settings->setValue("ausdauer", ui->lineEdit_ausdauer->text());
+    settings->setValue("intelligenz", ui->lineEdit_intelligenz->text());
+    settings->setValue("verteidigung", ui->lineEdit_verteidigung->text());
+
+    //Checkbox Speichern
+    settings->setValue("feuer", ui->checkBox_feuer->checkState());
+    settings->setValue("eis",   ui->checkBox_eis->checkState());
+    settings->setValue("betaeubt", ui->checkBox_betaeubt->checkState());
+    settings->setValue("gift",  ui->checkBox_gift->checkState());
+    settings->setValue("wind", ui->checkBox_wind->checkState());
+
+    //Spinbox Speichern
+
+    settings->setValue("feuer_pro", ui->spinBox_feuer->value());
+    settings->setValue("eis_pro", ui->spinBox_eis->value());
+    settings->setValue("betaeubt_pro", ui->spinBox_betaeubt->value());
+    settings->setValue("gift_pro", ui->spinBox_gift->value());
+    settings->setValue("wind_pro", ui->spinBox_wind->value());
+
+
+    settings->endGroup();
+
+}
+
+void HeroEditor::char_pic_speichern(QString objekt)
+// Speichern der Bild adresse in die ini
+{
+    QString format = ".jpg"; //Workaround
+    QString name_held = ui->listWidget_helden->currentItem()->text();
+
+
+    //// verbessern (if?)
+    QDir mdir;
+    QString mpath = QApplication::applicationDirPath() + "/game/res/";
+    mdir.mkpath(mpath);
+
+    //Auswahl Bild für Gesicht und Auto Entfernung des alten Bildes
+    QString path_objekt_open = QFileDialog::getOpenFileName(this, tr("Avatar Bild waehlen"), "", tr("Images  (*.png *.xpm *.jpg)"));
+    QFile::remove(path_res + objekt + name_held + format);
+    QFile::copy ( path_objekt_open, path_res + objekt + name_held + format);
+
+    //Darstellung in GraphicsView
+    QImage image( path_res + objekt + name_held + format );
+    image = image.scaled(this->ui->graphicsView_gesicht->width()-10,ui->graphicsView_gesicht->height()-10);
+    QGraphicsScene *objekt_qgs = new QGraphicsScene();
+    objekt_qgs->addPixmap(QPixmap::fromImage(image));
+
+    if (objekt == "gesicht_")
+
+    {
+        ui->graphicsView_gesicht->setScene(objekt_qgs);
+    }
+
+    else
+
+    {
+        ui->graphicsView_koerper->setScene(objekt_qgs);
+    }
+
+    QSettings *objekt_qsettings_speichern_pic = new QSettings(path_char,QSettings::IniFormat);
+        objekt_qsettings_speichern_pic->beginGroup(name_held);
+        objekt_qsettings_speichern_pic->setValue(objekt, "/game/res/" + objekt + name_held + format);
+        objekt_qsettings_speichern_pic->endGroup();
+
+}
+
+void HeroEditor::qlist_namen_laden()
+// Helden werden aus der ini in qlistWidget_helden geladen
+{
+    QSettings settings (path_char, QSettings::IniFormat);
+    QStringList group = settings.childGroups();
+    for(int child = 0; child != group.size(); ++child)
+
+    {
+            QString childVersion = group.at(child);
+            ui->listWidget_helden->addItem(childVersion);
+    }
+
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//Funktionen Ende
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void HeroEditor::on_okay_clicked()
+//Funktion um vom gewaellten Helden zu alle Werte zu Speichern (Button)
 {
     speichern_char();
 }
 
 void HeroEditor::on_gesicht_clicked()
-
+//Funktion um das Gesicht des Helden zu Speichern (laden)
 {
     objekt = "gesicht_";
     char_pic_speichern(objekt);
 }
 
 void HeroEditor::on_Koerper_clicked()
-
+//Funktion um das Koerper des Helden zu Speichern (laden)
 {
     objekt = "koerper_";
     char_pic_speichern(objekt);
 }
 
 void HeroEditor::on_pushButton_held_neu_clicked()
-
+//Funktion um einen neuen Helden zu erstellen
 {
     //Letzter Zaehler wird geladen, damit bei der Erstellung des nächsten Helden die richtige Nummerierung erstellt werden kann.
     QSettings *zaehler_laden = new QSettings (path_config, QSettings::IniFormat, this);
@@ -99,7 +195,7 @@ void HeroEditor::on_pushButton_held_neu_clicked()
 }
 
 void HeroEditor::on_pushButton_held_entfernen_clicked()
-//
+//Funktion um den gewaellten Helden zu loeschen (mit Pruefmechanismus)
 {
     int count = ui->listWidget_helden->count();
 
@@ -117,16 +213,20 @@ void HeroEditor::on_pushButton_held_entfernen_clicked()
 
         }
             else
-            {     
-                QListWidgetItem *item = ui->listWidget_helden->currentItem();
-                QStringList qlistwidgetitem_convert;
-                qlistwidgetitem_convert << item->text();
-                qDebug() << qlistwidgetitem_convert;
-                QString qlistwidgetitem_convert_qstring = qlistwidgetitem_convert.at(0);
-                qDebug() << qlistwidgetitem_convert;
-                QSettings *loeschen = new QSettings(path_char,QSettings::IniFormat);
-                loeschen->remove (qlistwidgetitem_convert_qstring);
-                delete item;
+            {
+                        QListWidgetItem *item = ui->listWidget_helden->currentItem();
+                        QStringList qlistwidgetitem_convert;
+                        qlistwidgetitem_convert << item->text();
+                        QString qlistwidgetitem_convert_qstring = qlistwidgetitem_convert.at(0);
+                        qDebug() << qlistwidgetitem_convert_qstring;
+
+                        //Workaround
+                        delete item;
+                        //Workaround
+
+                        QSettings *settings = new QSettings(path_char,QSettings::IniFormat);
+                        settings->remove (qlistwidgetitem_convert_qstring);
+
         }
     }
 }
@@ -179,7 +279,8 @@ void HeroEditor::on_listWidget_helden_currentItemChanged(QListWidgetItem *curren
     QString mana = settings->value("mana").toString();
     QString kraft = settings->value("kraft").toString();
     QString ausdauer = settings->value("ausdauer").toString();
-    QString Intelligenz = settings->value("Intelligenz").toString();
+    QString intelligenz = settings->value("intelligenz").toString();
+    QString verteidigung = settings->value("verteidigung").toString();
 
     QString gesicht_ = settings->value("gesicht_").toString();
     QString koerper_ = settings->value("koerper_").toString();
@@ -202,12 +303,12 @@ void HeroEditor::on_listWidget_helden_currentItemChanged(QListWidgetItem *curren
 
 
     //Sttings in die GUI laden (lineedit)
-   // ui->lineEdit_name->setText(name);
     ui->lineEdit_Leben->setText(leben);
     ui->lineEdit_Mana->setText(mana);
     ui->lineEdit_Kraft->setText(kraft);
     ui->lineEdit_ausdauer->setText(ausdauer);
-    ui->lineEdit_Intelligenz->setText(Intelligenz);
+    ui->lineEdit_intelligenz->setText(intelligenz);
+    ui->lineEdit_verteidigung->setText(verteidigung);
 
     //Sttings in die GUI laden (checkbox)
     ui->checkBox_feuer->setChecked(feuer);
