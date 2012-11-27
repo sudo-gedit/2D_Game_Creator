@@ -2,7 +2,7 @@
 #
 # Project created by QtCreator 2012-09-23T23:14:15
 #
-# Das gesamte Projekt steht unter der GPL Lizenz!
+# Das gesamte Projekt steht unter der GPL v3 Lizenz!
 #
 #-------------------------------------------------
 

@@ -33,6 +33,8 @@ private slots:
 
     void on_listWidget_helden_currentItemChanged(QListWidgetItem *currentItem, QListWidgetItem *previous);
 
+    void on_pushButton_lvl_up_editor_clicked();
+
 private:
 
     Ui::HeroEditor *ui;
@@ -48,6 +50,9 @@ private:
 
     // Int Werte
     int zaehler;
+
+    //bool Werte
+    bool lvl_up_editor_bool;
 
     // Funktionen
     void speichern_char();      // Spieler Werte Speiechern

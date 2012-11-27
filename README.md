@@ -17,16 +17,20 @@ Sortiert nach Priorität(Vorläufiger Plan):
 
 Changelog:
 
+27.11.2012
+LVL-UP System begonnen,
+Fenstergröße fixiert
+
 26.11.2012
-Kleine Fehler Behebung
-Dokumentation im Code hinzugefügt
+Kleine Fehler Behebung,
+Dokumentation im Code hinzugefügt,
 Code gesäubert
 
 25.11.2012
-Bugfix
-Code gesäubert
+Bugfix,
+Code gesäubert,
 Pic load System / Pic save System created
 
 24.11.2012
-Bugfix bei der erstellung eines neuen Helden
+Bugfix bei der erstellung eines neuen Helden,
 Config Datei erstellt

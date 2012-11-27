@@ -1,10 +1,10 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Hero Editor version 0.01.2.1
+// Hero Editor version 0.01.2.3
 //
 //
 //
-// Letzte Aenderung 26.11.2012
+// Letzte Aenderung 27.11.2012
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "heroeditor.h"
@@ -16,11 +16,12 @@ HeroEditor::HeroEditor(QWidget *parent) :
     ui(new Ui::HeroEditor)
 
 {
+    //Male Fenster
     ui->setupUi(this);
     setWindowTitle(tr("Hero Editor[*]"));
+    setFixedSize(890, 685);
 
-
-    // Umgebungs variabelen
+    // Umgebungs Variabelen
     path_config = QApplication::applicationDirPath() + "/game/config.ini";
     path_char = QApplication::applicationDirPath() + "/game/chars.ini";
     path_res = QApplication::applicationDirPath() + "/game/res/";
@@ -34,8 +35,47 @@ HeroEditor::HeroEditor(QWidget *parent) :
     ui->lineEdit_Leben->setValidator(new QRegExpValidator( QRegExp("[0-9]+"), this ));
     ui->lineEdit_verteidigung->setValidator(new QRegExpValidator( QRegExp("[0-9]+"), this ));
 
-    // Funktionen die Geladen werden
+    // Funktionen die geladen werden
     qlist_namen_laden();
+
+    ////////////////
+    //Platzhalter (Optik) für die Graphic View
+    ////////////////
+    QGraphicsScene *scene = new QGraphicsScene();
+    scene->addText("Leben");
+    scene->setBackgroundBrush(QColor(233, 0, 0));
+    ui->graphicsView_lvl_leben->setScene(scene);
+
+    QGraphicsScene *scene_1 = new QGraphicsScene();
+    scene_1->addText("Mana");
+    scene_1->setBackgroundBrush(QColor(0, 0, 255));
+    ui->graphicsView_lvl_mana->setScene(scene_1);
+
+    QGraphicsScene *scene_3 = new QGraphicsScene();
+    scene_3->addText("Glueck");
+    scene_3->setBackgroundBrush(QColor(0, 205, 0));
+    ui->graphicsView_lvl_glueck->setScene(scene_3);
+
+    QGraphicsScene *scene_4 = new QGraphicsScene();
+    scene_4->addText("Verteidigung");
+    scene_4->setBackgroundBrush(QColor(189, 183, 107));
+    ui->graphicsView_lvl_verteidigung->setScene(scene_4);
+
+    QGraphicsScene *scene_5 = new QGraphicsScene();
+    scene_5->addText("Intelligenz");
+    scene_5->setBackgroundBrush(QColor(255, 255, 0));
+    ui->graphicsView_lvl_intelligenz->setScene(scene_5);
+
+    QGraphicsScene *scene_6 = new QGraphicsScene();
+    scene_6->addText("Ausdauer");
+    scene_6->setBackgroundBrush(QColor(105, 105, 105));
+    ui->graphicsView_lvl_ausdauer->setScene(scene_6);
+
+    QGraphicsScene *scene_7 = new QGraphicsScene();
+    scene_7->addText("Kraft");
+    scene_7->setBackgroundBrush(QColor(0, 205, 205));
+    ui->graphicsView_lvl_kraft->setScene(scene_7);
+    ////////////////
 
 }
 
@@ -218,7 +258,6 @@ void HeroEditor::on_pushButton_held_entfernen_clicked()
                         QStringList qlistwidgetitem_convert;
                         qlistwidgetitem_convert << item->text();
                         QString qlistwidgetitem_convert_qstring = qlistwidgetitem_convert.at(0);
-                        qDebug() << qlistwidgetitem_convert_qstring;
 
                         //Workaround
                         delete item;
@@ -338,5 +377,24 @@ void HeroEditor::on_listWidget_helden_currentItemChanged(QListWidgetItem *curren
     QGraphicsScene *koerper = new QGraphicsScene();
     koerper->addPixmap(QPixmap::fromImage(image_koerper));
     ui->graphicsView_koerper->setScene(koerper);
+
+}
+
+void HeroEditor::on_pushButton_lvl_up_editor_clicked()
+{
+
+    if (lvl_up_editor_bool == 0)
+    {
+        setFixedSize(1250, 685);
+        lvl_up_editor_bool = 2;
+        ui->pushButton_lvl_up_editor->setText("Verbergen");
+    }
+    else
+     {
+
+        setFixedSize(890, 685);
+        lvl_up_editor_bool = 0;
+        ui->pushButton_lvl_up_editor->setText("lvl-up Editor");
+     }
 
 }
