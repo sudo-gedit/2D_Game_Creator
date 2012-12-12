@@ -16,6 +16,11 @@ Sortiert nach Priorität(Vorläufiger Plan):
 9. Netzwerkfähigkeit
 
 Changelog:
+30.11.2012
+Kleine Fehler Behebung,
+LVL-UP System weiterbearbeitet,
+SourceCode Verzeichnisstruktur angelegt,
+Game Verzeichnisstruktur verbessert
 
 27.11.2012
 LVL-UP System begonnen,
