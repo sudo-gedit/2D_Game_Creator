@@ -83,17 +83,26 @@ void Hero_Editor::char_pic_speichern(QString objekt)
 void Hero_Editor::qlist_namen_laden()
 // Helden werden aus der ini in qlistWidget_helden geladen
 {
-    QSettings settings (path_char, QSettings::IniFormat);
-    QStringList group = settings.childGroups();
-    for(int child = 0; child != group.size(); ++child)
+    QFile file(path_char);
 
-    {
+      if( !file.exists() )
+      {
+
+      }
+      else
+        {
+        QSettings settings (path_char, QSettings::IniFormat);
+        QStringList group = settings.childGroups();
+        for(int child = 0; child != group.size(); ++child)
+
+            {
             QString childVersion = group.at(child);
             ui->listWidget_helden->addItem(childVersion);
-    }
-ui->listWidget_helden->item(0)->setSelected(true);
-}
+            }
 
+        ui->listWidget_helden->item(0)->setSelected(true);
+        }
+}
 void Hero_Editor::on_lineEdit_name_editingFinished()
 // Bearbeitung des gewählten Helden's
 {
