@@ -13,9 +13,12 @@
 # Qt-es
 
 *.pro.user.*
-*.pro.user*
+*.pro.user
 moc_*.cpp
 qrc_*.cpp
 Makefile
 *-build-*
-*~
+*.pro~
+*.rc~
+*.gitignore~
+*.md~
