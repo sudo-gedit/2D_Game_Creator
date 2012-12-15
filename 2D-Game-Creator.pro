@@ -11,7 +11,7 @@ QT          += core gui
 TARGET = 2D-Game-Creator
 TEMPLATE = app
 
-RC_FILE = 	2D-Game-Creator/icon/res/MyRCFile.rc
+RC_FILE = 	2D-Game-Creator/res/icon/appicon.rc
 
 
 SOURCES += 	2D-Game-Creator/main/main.cpp\
