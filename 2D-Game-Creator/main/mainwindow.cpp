@@ -13,6 +13,9 @@
 #include "2D-Game-Creator/editor/hero_editor/hero_editor.h"
 #include "2D-Game-Creator/editor/entwicklungsplaner/entwicklungsplaner.h"
 #include "2D-Game-Creator/editor/monster_editor/monster_editor.h"
+#include "2D-Game-Creator/editor/faehigkeiten_editor/faehigkeiten_editor.h"
+#include "2D-Game-Creator/editor/gegenstand_editor/gegenstand_editor.h"
+#include "2D-Game-Creator/simulation/kampfsimulation/kampfsimulation.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -59,3 +62,23 @@ void MainWindow::on_actionMonster_Editor_triggered()
 
 }
 
+void MainWindow::on_actionGegenstand_Editor_triggered()
+{
+    Gegenstand_Editor mDialog;
+    mDialog.setModal(true);
+            mDialog.exec();
+}
+
+void MainWindow::on_actionFeahigkeiten_triggered()
+{
+    Faehigkeiten_Editor mDialog;
+    mDialog.setModal(true);
+            mDialog.exec();
+}
+
+void MainWindow::on_actionKampfsimulation_triggered()
+{
+    Kampfsimulation mDialog;
+    mDialog.setModal(true);
+            mDialog.exec();
+}

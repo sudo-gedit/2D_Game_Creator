@@ -1,10 +1,10 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Hero Editor version 0.01.2.3
+// Hero Editor version 0.01.4.0
 //
 //
 //
-// Letzte Aenderung 30.11.2012
+// Letzte Aenderung 16.12.2012
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 #include "hero_editor.h"
 #include "ui_hero_editor.h"
@@ -23,6 +23,7 @@ Hero_Editor::Hero_Editor(QWidget *parent) :
     // Umgebungs Variabelen
     path_config = QApplication::applicationDirPath() + "/game/config.ini";
     path_char = QApplication::applicationDirPath() + "/game/charaktaere/chars.ini";
+    path_charaktaere = QApplication::applicationDirPath() + "/game/charaktaere/";
     path_res = QApplication::applicationDirPath() + "/game/res/";
 
     // LineEdit Buchstaben Sperre
@@ -179,6 +180,7 @@ void Hero_Editor::on_pushButton_held_entfernen_clicked()
                         QSettings *settings = new QSettings(path_char,QSettings::IniFormat);
                         settings->remove (qlistwidgetitem_convert_qstring);
 
+                        QFile::remove(path_charaktaere + "lvl_" + qlistwidgetitem_convert_qstring + ".ini");
         }
     }
 }
@@ -186,18 +188,18 @@ void Hero_Editor::on_pushButton_held_entfernen_clicked()
 void Hero_Editor::on_pushButton_lvl_up_editor_clicked()
 {
 
-    if (lvl_up_editor_bool == 0)
+    if (lvl_up_editor_bool == true)
     {
-        setFixedSize(1250, 685);
-        lvl_up_editor_bool = true;
-        ui->pushButton_lvl_up_editor->setText("Verbergen");
+        setFixedSize(890, 685);
+        lvl_up_editor_bool = false;
+        ui->pushButton_lvl_up_editor->setText("LVL-UP Editor");
+
     }
     else
      {
-
-        setFixedSize(890, 685);
-        lvl_up_editor_bool = false;
-        ui->pushButton_lvl_up_editor->setText("lvl-up Editor");
+        setFixedSize(1250, 685);
+        lvl_up_editor_bool = true;
+        ui->pushButton_lvl_up_editor->setText("Verbergen");
      }
 
 }
@@ -214,7 +216,99 @@ void Hero_Editor::on_spinBox_lvl_valueChanged()
     lvl_laden();
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//Start-Speichern der Werte (LVL Editor)
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void Hero_Editor::on_lineEdit_ep_editingFinished()
 {
    lvl_speichern();
 }
+
+void Hero_Editor::on_lineEdit_Leben_editingFinished()
+{
+    lvl_speichern();
+}
+
+void Hero_Editor::on_lineEdit_Mana_editingFinished()
+{
+    lvl_speichern();
+}
+
+void Hero_Editor::on_lineEdit_Kraft_editingFinished()
+{
+    lvl_speichern();
+}
+
+void Hero_Editor::on_lineEdit_ausdauer_editingFinished()
+{
+    lvl_speichern();
+}
+
+void Hero_Editor::on_lineEdit_intelligenz_editingFinished()
+{
+    lvl_speichern();
+}
+
+void Hero_Editor::on_lineEdit_verteidigung_editingFinished()
+{
+    lvl_speichern();
+}
+
+void Hero_Editor::on_lineEdit_glueck_editingFinished()
+{
+    lvl_speichern();
+}
+
+void Hero_Editor::on_spinBox_eis_editingFinished()
+{
+    lvl_speichern();
+}
+
+void Hero_Editor::on_spinBox_feuer_editingFinished()
+{
+    lvl_speichern();
+}
+
+void Hero_Editor::on_spinBox_wind_editingFinished()
+{
+    lvl_speichern();
+}
+
+void Hero_Editor::on_spinBox_gift_editingFinished()
+{
+    lvl_speichern();
+}
+
+void Hero_Editor::on_spinBox_betaeubt_editingFinished()
+{
+    lvl_speichern();
+}
+
+void Hero_Editor::on_checkBox_betaeubt_clicked()
+{
+    lvl_speichern();
+}
+
+void Hero_Editor::on_checkBox_gift_clicked()
+{
+    lvl_speichern();
+}
+
+void Hero_Editor::on_checkBox_wind_clicked()
+{
+    lvl_speichern();
+}
+
+void Hero_Editor::on_checkBox_feuer_clicked()
+{
+    lvl_speichern();
+}
+
+void Hero_Editor::on_checkBox_eis_clicked()
+{
+    lvl_speichern();
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//ENDE-Speichern der Werte (LVL Editor)
+//////////////////////////////////////////////////////////////////////////////////////////////////////

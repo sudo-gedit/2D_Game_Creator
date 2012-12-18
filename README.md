@@ -16,6 +16,12 @@ Sortiert nach Priorität(Vorläufiger Plan):
 9. Netzwerkfähigkeit
 
 Changelog:
+
+18.12.2012
+Kleine Fehler Behebung,
+LVL-UP System fertiggestellt (Held-Editor(hoffentlich)),
+Verzeichnisstruktur (Source Code) erweitert
+
 30.11.2012
 Kleine Fehler Behebung,
 LVL-UP System weiterbearbeitet,

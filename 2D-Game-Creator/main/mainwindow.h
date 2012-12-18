@@ -28,6 +28,12 @@ private slots:
 
     void on_actionMonster_Editor_triggered();
 
+    void on_actionGegenstand_Editor_triggered();
+
+    void on_actionFeahigkeiten_triggered();
+
+    void on_actionKampfsimulation_triggered();
+
 private:
     Ui::MainWindow *ui;
 };
