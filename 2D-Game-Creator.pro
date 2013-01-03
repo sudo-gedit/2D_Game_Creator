@@ -11,11 +11,7 @@ QT          += core gui
 TARGET = 2D-Game-Creator
 TEMPLATE = app
 
-TRANSLATIONS = 	2D-Game-Creator/translation/english_UK.ts \
-		2D-Game-Creator/translation/english_RUS.ts \
-		2D-Game-Creator/translation/english_FRA.ts \
-
-RC_FILE = 	2D-Game-Creator/res/appicon.rc \
+RC_FILE = 		2D-Game-Creator/res/appicon.rc \
 
 
 SOURCES += 	2D-Game-Creator/main/main.cpp\
@@ -29,7 +25,6 @@ SOURCES += 	2D-Game-Creator/main/main.cpp\
     		2D-Game-Creator/editor/faehigkeiten_editor/faehigkeiten_editor.cpp \
     		2D-Game-Creator/editor/gegenstand_editor/gegenstand_editor.cpp \
     		2D-Game-Creator/simulation/kampfsimulation/kampfsimulation.cpp \
-    		2D-Game-Creator/editor/effekt_editor/effekt_editor.cpp
 
 HEADERS  += 	2D-Game-Creator/main/mainwindow.h \
             	2D-Game-Creator/about/about.h \
@@ -39,7 +34,6 @@ HEADERS  += 	2D-Game-Creator/main/mainwindow.h \
     		2D-Game-Creator/editor/faehigkeiten_editor/faehigkeiten_editor.h \
     		2D-Game-Creator/editor/gegenstand_editor/gegenstand_editor.h \
     		2D-Game-Creator/simulation/kampfsimulation/kampfsimulation.h \
-    		2D-Game-Creator/editor/effekt_editor/effekt_editor.h
 		
 FORMS    += 	2D-Game-Creator/main/mainwindow.ui \
             	2D-Game-Creator/about/about.ui \
@@ -49,7 +43,6 @@ FORMS    += 	2D-Game-Creator/main/mainwindow.ui \
     		2D-Game-Creator/editor/gegenstand_editor/gegenstand_editor.ui \
     		2D-Game-Creator/editor/faehigkeiten_editor/faehigkeiten_editor.ui \
     		2D-Game-Creator/simulation/kampfsimulation/kampfsimulation.ui \
-    		2D-Game-Creator/editor/effekt_editor/effekt_editor.ui
 
 RESOURCES += 	2D-Game-Creator/res/ress_con.qrc \
 

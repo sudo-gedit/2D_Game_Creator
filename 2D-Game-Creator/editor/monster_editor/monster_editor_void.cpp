@@ -124,7 +124,7 @@ void Monster_Editor::on_lineEdit_name_editingFinished()
     }
 }
 
-void Monster_Editor::on_listWidget_monster_currentItemChanged()
+void Monster_Editor::on_listWidget_monster_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous)
 // Werte von dem gewaellten Charakter laden
 {
     //Bevor die neue werte geladen werden, werden die alten gespeichert.

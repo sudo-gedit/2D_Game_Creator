@@ -17,13 +17,6 @@ Sortiert nach Priorität(Vorläufiger Plan):
 
 Changelog:
 
-29.12.2012
-Neue .cpp, .ui, .ts und .h angelegt, 
-Mit dem Gegenstand-Editor angefangen,
-Leichte redesigne,
-kleine änderungen,
-mini Bugfix,
-
 18.12.2012
 Kleine Fehler Behebung,
 LVL-UP System fertiggestellt (Held-Editor(hoffentlich)),

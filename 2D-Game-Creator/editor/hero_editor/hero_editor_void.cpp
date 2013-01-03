@@ -112,7 +112,7 @@ void Hero_Editor::on_lineEdit_name_editingFinished()
     }
 }
 
-void Hero_Editor::on_listWidget_helden_currentItemChanged()
+void Hero_Editor::on_listWidget_helden_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous)
 // Werte von dem gewaellten Charakter laden
 {
     QString helden_name = ui->listWidget_helden->currentItem()->text();
