@@ -1,10 +1,10 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Hero Editor version 0.01.4.0
+// Hero Editor version 0.01.5.0
 //
 //
 //
-// Letzte Aenderung 16.12.2012
+// Letzte Aenderung 03.01.2013
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 #include "hero_editor.h"
 #include "ui_hero_editor.h"
@@ -34,7 +34,8 @@ Hero_Editor::Hero_Editor(QWidget *parent) :
     ui->lineEdit_Kraft->setValidator(new QRegExpValidator( QRegExp("[0-9]+"), this ));
     ui->lineEdit_Leben->setValidator(new QRegExpValidator( QRegExp("[0-9]+"), this ));
     ui->lineEdit_verteidigung->setValidator(new QRegExpValidator( QRegExp("[0-9]+"), this ));
-    ui->lineEdit_ep->setValidator(new QRegExpValidator( QRegExp("[0-9]+"), this ));;
+    ui->lineEdit_ep->setValidator(new QRegExpValidator( QRegExp("[0-9]+"), this ));
+    ui->lineEdit_glueck->setValidator(new QRegExpValidator( QRegExp("[0-9]+"), this ));
 
     // Funktionen die geladen werden
     qlist_namen_laden();

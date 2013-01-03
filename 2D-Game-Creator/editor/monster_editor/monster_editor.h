@@ -31,7 +31,7 @@ private slots:
 
     void on_lineEdit_name_editingFinished();
 
-    void on_listWidget_monster_currentItemChanged(QListWidgetItem *currentItem, QListWidgetItem *previous);
+    void on_listWidget_monster_currentItemChanged();
 
     void on_pushButton_schliessen_clicked();
 
