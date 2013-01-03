@@ -1,23 +1,23 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Gegenstand Editor version 0.00.0.1
+// Effekt Editor version 0.00.0.1
 //
 //
 //
 // Letzte Aenderung 03.01.2013
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "gegenstand_editor.h"
-#include "ui_gegenstand_editor.h"
+#include "effekt_editor.h"
+#include "ui_effekt_editor.h"
 
-Gegenstand_Editor::Gegenstand_Editor(QWidget *parent) :
+Effekt_Editor::Effekt_Editor(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::Gegenstand_Editor)
+    ui(new Ui::Effekt_Editor)
 {
     ui->setupUi(this);
 }
 
-Gegenstand_Editor::~Gegenstand_Editor()
+Effekt_Editor::~Effekt_Editor()
 {
     delete ui;
 }

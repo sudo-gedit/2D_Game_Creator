@@ -2,7 +2,7 @@
 //
 // Monster Editor version 0.01.2.3
 //
-//
+//Es kann sein dass noch variablen den namen Hero Tragen aber das ist erstmal nicht so schlimm
 //
 // Letzte Aenderung 27.11.2012
 //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -18,7 +18,7 @@ Monster_Editor::Monster_Editor(QWidget *parent) :
     //Male Fenster
     ui->setupUi(this);
     setWindowTitle(tr("Monster Editor[*]"));
-    setFixedSize(890, 685);
+    setFixedSize(1200, 685);
 
     // Umgebungs Variabelen
     path_config = QApplication::applicationDirPath() + "/game/config.ini";
