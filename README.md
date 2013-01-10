@@ -17,6 +17,9 @@ Sortiert nach Priorität(Vorläufiger Plan):
 
 Changelog:
 
+05.01.2012
+Effekt Edior erstellt
+
 29.12.2012
 Neue .cpp, .ui, .ts und .h angelegt, 
 Mit dem Gegenstand-Editor angefangen,

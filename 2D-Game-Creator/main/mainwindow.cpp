@@ -16,7 +16,7 @@
 #include "2D-Game-Creator/editor/faehigkeiten_editor/faehigkeiten_editor.h"
 #include "2D-Game-Creator/editor/gegenstand_editor/gegenstand_editor.h"
 #include "2D-Game-Creator/simulation/kampfsimulation/kampfsimulation.h"
-
+#include "2D-Game-Creator/editor/effekt_editor/effekt_editor.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -93,6 +93,15 @@ void MainWindow::on_actionKampfsimulation_triggered()
     Kampfsimulation mDialog;
     mDialog.setWindowFlags( Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint );
     mDialog.setWindowTitle("Kampfsimulation");
+    mDialog.setModal(true);
+            mDialog.exec();
+}
+
+void MainWindow::on_actionStatus_Editor_triggered()
+{
+    Effekt_Editor mDialog;
+    mDialog.setWindowFlags( Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint );
+    mDialog.setWindowTitle("Effekt Editor");
     mDialog.setModal(true);
             mDialog.exec();
 }

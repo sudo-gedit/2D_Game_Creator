@@ -34,6 +34,8 @@ private slots:
 
     void on_actionKampfsimulation_triggered();
 
+    void on_actionStatus_Editor_triggered();
+
 private:
     Ui::MainWindow *ui;
 };
