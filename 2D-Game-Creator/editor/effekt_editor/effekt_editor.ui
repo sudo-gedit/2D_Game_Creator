@@ -267,7 +267,7 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QPushButton" name="pushButton_gegenstand_neu_2">
+       <widget class="QPushButton" name="pushButton_effekte_neu">
         <property name="minimumSize">
          <size>
           <width>150</width>
@@ -286,7 +286,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_gegenstand_entfernen_2">
+       <widget class="QPushButton" name="pushButton_effekte_entfernen">
         <property name="minimumSize">
          <size>
           <width>100</width>
