@@ -30,8 +30,8 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Cantarell'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:small;&quot;&gt;Danke für das Testen der Entwicklungsversion.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:small;&quot;&gt;Wie du sehen kannst fehlen noch ziemlich viele Elementare Funktionen.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:small;&quot;&gt;Da das ein Hobby Projekt ist wird es noch etwas dauern bis eine funktionierende Version erscheint.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:small;&quot;&gt;Wenn du Bugs findest bitte diese bei github melden:&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:small;&quot;&gt;Da das ein Hobby-Projekt ist, wird es noch etwas dauern bis eine funktionierende Version erscheint.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:small;&quot;&gt;Wenn du Bugs findest, melde diese bitte bei github:&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://github.com/sudo-gedit/2D_Game_Creator/issues&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://github.com/sudo-gedit/2D_Game_Creator/issues&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:small;&quot;&gt;A. Engelmann&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -54,6 +54,7 @@ p, li { white-space: pre-wrap; }
     <addaction name="actionNew"/>
     <addaction name="actionOpen"/>
     <addaction name="actionSave"/>
+    <addaction name="actionEinstellungen_settings"/>
     <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>
@@ -63,6 +64,7 @@ p, li { white-space: pre-wrap; }
     </property>
     <addaction name="actionAbout"/>
     <addaction name="action_ber_QT"/>
+    <addaction name="actionEinstellungen"/>
    </widget>
    <widget class="QMenu" name="menuEditor">
     <property name="title">
@@ -126,6 +128,11 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="enabled">
     <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../res/ress_con.qrc">
+     <normaloff>:/icons/icon/in_app/new.gif</normaloff>
+     <activeoff>:/icons/icon/in_app/new-hl.gif</activeoff>:/icons/icon/in_app/new.gif</iconset>
    </property>
    <property name="text">
     <string>Neues Projekt</string>
@@ -219,6 +226,16 @@ p, li { white-space: pre-wrap; }
   <action name="actionKampfsimulation">
    <property name="text">
     <string>Kampfsimulation</string>
+   </property>
+  </action>
+  <action name="actionEinstellungen">
+   <property name="text">
+    <string>Einstellungen / Settings</string>
+   </property>
+  </action>
+  <action name="actionEinstellungen_settings">
+   <property name="text">
+    <string>Einstellungen / Settings</string>
    </property>
   </action>
  </widget>

@@ -5,7 +5,7 @@
 void Hero_Editor::speichern_char()
 // Werte von dem gewaellten Charakter speichern
 {
-    //Lineedit Speiern
+    //Lineedit Speichern
     QSettings *settings = new QSettings(path_char,QSettings::IniFormat);
     settings->beginGroup(ui->lineEdit_name->text());
     settings->setValue("name",  ui->lineEdit_name->text());
@@ -152,6 +152,27 @@ void Hero_Editor::lvl_speichern()
 
         {
         QMessageBox::critical(this, "Achtung", "Es wurde kein Held gewaehlt.", QMessageBox::Ok);
+        ui->checkBox_betaeubt->setCheckState(Qt::Unchecked);
+        ui->checkBox_eis->setCheckState(Qt::Unchecked);
+        ui->checkBox_feuer->setCheckState(Qt::Unchecked);
+        ui->checkBox_gift->setCheckState(Qt::Unchecked);
+        ui->checkBox_wind->setCheckState(Qt::Unchecked);
+
+        ui->lineEdit_ausdauer->clear();
+        ui->lineEdit_ep->clear();
+        ui->lineEdit_glueck->clear();
+        ui->lineEdit_intelligenz->clear();
+        ui->lineEdit_Kraft->clear();
+        ui->lineEdit_Leben->clear();
+        ui->lineEdit_Mana->clear();
+        ui->lineEdit_name->clear();
+        ui->lineEdit_verteidigung->clear();
+
+        ui->spinBox_betaeubt->clear();
+        ui->spinBox_eis->clear();
+        ui->spinBox_feuer->clear();
+        ui->spinBox_gift->clear();
+        ui->spinBox_wind->clear();
         }
 
         else

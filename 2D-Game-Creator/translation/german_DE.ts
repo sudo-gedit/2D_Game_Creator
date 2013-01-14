@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="en_GB">
+<TS version="2.0" language="de_DE">
 <context>
     <name>About</name>
     <message>
@@ -123,7 +123,7 @@ p, li { white-space: pre-wrap; }
     <message utf8="true">
         <location filename="../editor/faehigkeiten_editor/faehigkeiten_editor.ui" line="234"/>
         <source>Schließen</source>
-        <translation type="unfinished">close</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../editor/faehigkeiten_editor/faehigkeiten_editor.ui" line="270"/>
@@ -339,12 +339,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../editor/hero_editor/hero_editor.ui" line="171"/>
         <source>Gesicht</source>
-        <translation>face</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message utf8="true">
         <location filename="../editor/hero_editor/hero_editor.ui" line="210"/>
         <source>Körper</source>
-        <translation>body</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message utf8="true">
         <location filename="../editor/hero_editor/hero_editor.ui" line="269"/>
@@ -404,7 +404,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../editor/hero_editor/hero_editor.ui" line="486"/>
         <source>Eis</source>
-        <translation>ice</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../editor/hero_editor/hero_editor.ui" line="493"/>
@@ -414,7 +414,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../editor/hero_editor/hero_editor.ui" line="500"/>
         <source>Wind</source>
-        <translation>wind</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../editor/hero_editor/hero_editor.ui" line="507"/>
@@ -439,7 +439,7 @@ p, li { white-space: pre-wrap; }
     <message utf8="true">
         <location filename="../editor/hero_editor/hero_editor.ui" line="678"/>
         <source>Schließen</source>
-        <translation>close</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../editor/hero_editor/hero_editor.ui" line="713"/>
@@ -500,12 +500,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../main/mainwindow.ui" line="52"/>
         <source>Datei</source>
-        <translation>file</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main/mainwindow.ui" line="63"/>
         <source>Help</source>
-        <translation>help</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main/mainwindow.ui" line="71"/>
@@ -521,7 +521,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../main/mainwindow.ui" line="138"/>
         <location filename="../main/mainwindow.ui" line="141"/>
         <source>Neues Projekt</source>
-        <translation>new project</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message utf8="true">
         <location filename="../main/mainwindow.ui" line="163"/>
@@ -620,12 +620,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../editor/monster_editor/monster_editor.ui" line="165"/>
         <source>Gesicht</source>
-        <translation type="unfinished">face</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message utf8="true">
         <location filename="../editor/monster_editor/monster_editor.ui" line="204"/>
         <source>Körper</source>
-        <translation type="unfinished">body</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../editor/monster_editor/monster_editor.ui" line="263"/>
@@ -675,7 +675,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../editor/monster_editor/monster_editor.ui" line="419"/>
         <source>Eis</source>
-        <translation type="unfinished">ice</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../editor/monster_editor/monster_editor.ui" line="426"/>
@@ -685,7 +685,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../editor/monster_editor/monster_editor.ui" line="433"/>
         <source>Wind</source>
-        <translation type="unfinished">wind</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../editor/monster_editor/monster_editor.ui" line="440"/>
@@ -725,7 +725,7 @@ p, li { white-space: pre-wrap; }
     <message utf8="true">
         <location filename="../editor/monster_editor/monster_editor.ui" line="699"/>
         <source>Schließen</source>
-        <translation type="unfinished">close</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../editor/monster_editor/monster_editor.ui" line="727"/>
@@ -748,42 +748,42 @@ p, li { white-space: pre-wrap; }
     <message utf8="true">
         <location filename="../../option.ui" line="31"/>
         <source>Wähle die Sprache für die Anwendung</source>
-        <translation>Wähle die Sprache für die Anwendung</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../option.ui" line="38"/>
         <source>Select the language for the application</source>
-        <translation>Select the language for the application</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../option.ui" line="62"/>
         <source>Deutsch/German</source>
-        <translation>Deutsch/German</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../option.ui" line="67"/>
         <source>Englisch/English</source>
-        <translation>Englisch/English</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../option.ui" line="72"/>
         <source>Russisch/Russia</source>
-        <translation>Russisch/Russia</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../option.ui" line="77"/>
         <source>Franzoesisch/French</source>
-        <translation>Franzoesisch/French</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../option.ui" line="97"/>
         <source>Sprache verwenden / accept</source>
-        <translation>accept</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../option.ui" line="115"/>
         <source>Steuerung</source>
-        <translation>control</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -43,6 +43,42 @@ p, li { white-space: pre-wrap; }
         <source>Dialog</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../editor/effekt_editor/effekt_editor.ui" line="41"/>
+        <source> Name des Effekts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../editor/effekt_editor/effekt_editor.ui" line="99"/>
+        <location filename="../editor/effekt_editor/effekt_editor.ui" line="245"/>
+        <source>Effekte</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../editor/effekt_editor/effekt_editor.ui" line="138"/>
+        <source>Neuer Effekt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../editor/effekt_editor/effekt_editor.ui" line="157"/>
+        <source>Entferne Effekt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../editor/effekt_editor/effekt_editor.ui" line="196"/>
+        <source>Notiz</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message utf8="true">
+        <location filename="../editor/effekt_editor/effekt_editor.ui" line="284"/>
+        <source>Effekt hinzufügen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../editor/effekt_editor/effekt_editor.ui" line="303"/>
+        <source>Effekt entfern</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Entwicklungsplaner</name>
@@ -412,7 +448,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message utf8="true">
         <location filename="../editor/hero_editor/hero_editor.ui" line="907"/>
-        <source>Fähichkeiten</source>
+        <source>Fähigkeiten</source>
         <translation type="unfinished"></translation>
     </message>
     <message utf8="true">
@@ -446,99 +482,120 @@ p, li { white-space: pre-wrap; }
         <source>MainWindow</source>
         <translation type="unfinished"></translation>
     </message>
+    <message utf8="true">
+        <location filename="../main/mainwindow.ui" line="27"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Cantarell&apos;; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:small;&quot;&gt;Danke für das Testen der Entwicklungsversion.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:small;&quot;&gt;Wie du sehen kannst fehlen noch ziemlich viele Elementare Funktionen.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:small;&quot;&gt;Da das ein Hobby-Projekt ist, wird es noch etwas dauern bis eine funktionierende Version erscheint.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:small;&quot;&gt;Wenn du Bugs findest, melde diese bitte bei github:&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://github.com/sudo-gedit/2D_Game_Creator/issues&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://github.com/sudo-gedit/2D_Game_Creator/issues&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:small;&quot;&gt;A. Engelmann&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="28"/>
+        <location filename="../main/mainwindow.ui" line="52"/>
         <source>Datei</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="38"/>
+        <location filename="../main/mainwindow.ui" line="63"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="45"/>
+        <location filename="../main/mainwindow.ui" line="71"/>
         <source>Editor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="57"/>
+        <location filename="../main/mainwindow.ui" line="83"/>
         <source>Simulation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="107"/>
-        <location filename="../main/mainwindow.ui" line="110"/>
+        <location filename="../main/mainwindow.ui" line="138"/>
+        <location filename="../main/mainwindow.ui" line="141"/>
         <source>Neues Projekt</source>
         <translation type="unfinished"></translation>
     </message>
     <message utf8="true">
-        <location filename="../main/mainwindow.ui" line="132"/>
+        <location filename="../main/mainwindow.ui" line="163"/>
         <source>Öffne Projekt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="142"/>
+        <location filename="../main/mainwindow.ui" line="173"/>
         <source>Speicher Projekt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="147"/>
+        <location filename="../main/mainwindow.ui" line="178"/>
         <source>Editor Beenden</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="152"/>
+        <location filename="../main/mainwindow.ui" line="183"/>
         <source>about</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="157"/>
+        <location filename="../main/mainwindow.ui" line="188"/>
         <source>Hero Editor</source>
         <translation type="unfinished"></translation>
     </message>
     <message utf8="true">
-        <location filename="../main/mainwindow.ui" line="162"/>
+        <location filename="../main/mainwindow.ui" line="193"/>
         <source>..über QT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="167"/>
+        <location filename="../main/mainwindow.ui" line="198"/>
         <source>Entwicklungsplanner</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="172"/>
+        <location filename="../main/mainwindow.ui" line="203"/>
         <source>Kampf Editor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="177"/>
+        <location filename="../main/mainwindow.ui" line="208"/>
         <source>Monster Editor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="182"/>
+        <location filename="../main/mainwindow.ui" line="213"/>
         <source>Faehigkeiten Editor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="187"/>
+        <location filename="../main/mainwindow.ui" line="218"/>
         <source>Gegenstand Editor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="192"/>
+        <location filename="../main/mainwindow.ui" line="223"/>
         <source>Effekt Editor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="197"/>
+        <location filename="../main/mainwindow.ui" line="228"/>
         <source>Kampfsimulation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.cpp" line="26"/>
+        <location filename="../main/mainwindow.ui" line="233"/>
+        <location filename="../main/mainwindow.ui" line="238"/>
+        <source>Einstellungen / Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main/mainwindow.cpp" line="18"/>
         <source>2D Game Creator[*]</source>
         <translation type="unfinished"></translation>
     </message>
@@ -678,6 +735,54 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../editor/monster_editor/monster_editor.cpp" line="20"/>
         <source>Monster Editor[*]</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Option</name>
+    <message>
+        <location filename="../../option.ui" line="14"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message utf8="true">
+        <location filename="../../option.ui" line="31"/>
+        <source>Wähle die Sprache für die Anwendung</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../option.ui" line="38"/>
+        <source>Select the language for the application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../option.ui" line="62"/>
+        <source>Deutsch/German</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../option.ui" line="67"/>
+        <source>Englisch/English</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../option.ui" line="72"/>
+        <source>Russisch/Russia</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../option.ui" line="77"/>
+        <source>Franzoesisch/French</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../option.ui" line="97"/>
+        <source>Sprache verwenden / accept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../option.ui" line="115"/>
+        <source>Steuerung</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

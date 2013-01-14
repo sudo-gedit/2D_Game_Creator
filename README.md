@@ -16,11 +16,15 @@ Sortiert nach Priorität(Vorläufiger Plan):
 9. Netzwerkfähigkeit
 
 Changelog:
+13.01.2013
+Neue Icons, 
+an der Übersetzungsmatrix gearbeitet,
+Rechtschreibung,
+kleine aufräumarbeiten
 
-10.01.2012
+10.01.20113
 Effekt Edior erstellt,
 Mini Update
-
 
 29.12.2012
 Neue .cpp, .ui, .ts und .h angelegt, 

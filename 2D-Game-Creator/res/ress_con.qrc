@@ -1,10 +1,10 @@
 <RCC>
     <qresource prefix="/icons">
         <file>icon/in_app/load.gif</file>
-        <file>icon/in_app/load-p.gif</file>
         <file>icon/in_app/save.gif</file>
-        <file>icon/in_app/save-p.gif</file>
         <file>icon/in_app/save-hl.gif</file>
         <file>icon/in_app/load-hl.gif</file>
+        <file>icon/in_app/new.gif</file>
+        <file>icon/in_app/new-hl.gif</file>
     </qresource>
 </RCC>

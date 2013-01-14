@@ -9,14 +9,6 @@
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "2D-Game-Creator/about/about.h"
-#include "2D-Game-Creator/editor/hero_editor/hero_editor.h"
-#include "2D-Game-Creator/editor/entwicklungsplaner/entwicklungsplaner.h"
-#include "2D-Game-Creator/editor/monster_editor/monster_editor.h"
-#include "2D-Game-Creator/editor/faehigkeiten_editor/faehigkeiten_editor.h"
-#include "2D-Game-Creator/editor/gegenstand_editor/gegenstand_editor.h"
-#include "2D-Game-Creator/simulation/kampfsimulation/kampfsimulation.h"
-#include "2D-Game-Creator/editor/effekt_editor/effekt_editor.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -104,4 +96,21 @@ void MainWindow::on_actionStatus_Editor_triggered()
     mDialog.setWindowTitle("Effekt Editor");
     mDialog.setModal(true);
             mDialog.exec();
+}
+
+void MainWindow::on_actionEinstellungen_settings_triggered()
+{
+    Option mDialog;
+    mDialog.setWindowFlags( Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint );
+    mDialog.setWindowTitle("Option / settings");
+    mDialog.setModal(true);
+            mDialog.exec();
+}
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    language.load("english_UK");
+    qApp->installTranslator(&language);
+    ui->retranslateUi(this);
 }

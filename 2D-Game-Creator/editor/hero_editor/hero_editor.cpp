@@ -7,8 +7,8 @@
 // Letzte Aenderung 03.01.2013
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 #include "hero_editor.h"
-#include "ui_hero_editor.h"
 #include "hero_editor_void.cpp"
+
 
 Hero_Editor::Hero_Editor(QWidget *parent) :
     QDialog(parent),
@@ -21,8 +21,6 @@ Hero_Editor::Hero_Editor(QWidget *parent) :
     setFixedSize(890, 685);
 
     // Umgebungs Variabelen
-    path_config = QApplication::applicationDirPath() + "/game/config.ini";
-    path_char = QApplication::applicationDirPath() + "/game/charaktaere/chars.ini";
     path_charaktaere = QApplication::applicationDirPath() + "/game/charaktaere/";
     path_res = QApplication::applicationDirPath() + "/game/res/";
 
@@ -39,7 +37,6 @@ Hero_Editor::Hero_Editor(QWidget *parent) :
 
     // Funktionen die geladen werden
     qlist_namen_laden();
-    //lvl_laden();
 
     ////////////////
     //Platzhalter (Optik) für die Graphic View
@@ -102,8 +99,6 @@ void Hero_Editor::on_okay_clicked()
 void Hero_Editor::on_gesicht_clicked()
 //Funktion um das Gesicht des Helden zu Speichern (laden)
 {
-//int count = ui->listWidget_helden->count();
-
 if    (ui->listWidget_helden->currentItem() == 0)
     {
     QMessageBox::critical(this, "Achtung", "Es wurde kein Held gewaehlt.", QMessageBox::Ok);
@@ -118,8 +113,6 @@ if    (ui->listWidget_helden->currentItem() == 0)
 void Hero_Editor::on_Koerper_clicked()
 //Funktion um das Koerper des Helden zu Speichern (laden)
 {
-//int count = ui->listWidget_helden->count();
-
 if    (ui->listWidget_helden->currentItem() == 0)
     {
     QMessageBox::critical(this, "Achtung", "Es wurde kein Held gewaehlt.", QMessageBox::Ok);
@@ -143,7 +136,7 @@ void Hero_Editor::on_pushButton_held_neu_clicked()
     ui->listWidget_helden->addItem("Neuer_Held" + count_str);
     ui->lineEdit_name->setText("Neuer_Held" + count_str);
 
-    QSettings *settings = new QSettings(path_char,QSettings::IniFormat);
+    QSettings *settings = new QSettings(path_charaktaere + "/chars.ini",QSettings::IniFormat);
         settings->beginGroup("Neuer_Held" + count_str);
         settings->setValue("name",  ui->lineEdit_name->text());
         settings->endGroup();
@@ -178,7 +171,7 @@ void Hero_Editor::on_pushButton_held_entfernen_clicked()
                         delete item;
                         //Workaround
 
-                        QSettings *settings = new QSettings(path_char,QSettings::IniFormat);
+                        QSettings *settings = new QSettings(path_charaktaere + "/chars.ini",QSettings::IniFormat);
                         settings->remove (qlistwidgetitem_convert_qstring);
 
                         QFile::remove(path_charaktaere + "lvl_" + qlistwidgetitem_convert_qstring + ".ini");
@@ -194,7 +187,6 @@ void Hero_Editor::on_pushButton_lvl_up_editor_clicked()
         setFixedSize(890, 685);
         lvl_up_editor_bool = false;
         ui->pushButton_lvl_up_editor->setText("LVL-UP Editor");
-
     }
     else
      {
