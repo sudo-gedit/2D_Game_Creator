@@ -16,6 +16,9 @@ Sortiert nach Priorität(Vorläufiger Plan):
 9. Netzwerkfähigkeit
 
 Changelog:
+17.01.2013
+mini Bug fix
+
 13.01.2013
 Neue Icons, 
 an der Übersetzungsmatrix gearbeitet,

@@ -6,7 +6,7 @@ void Hero_Editor::speichern_char()
 // Werte von dem gewaellten Charakter speichern
 {
     //Lineedit Speichern
-    QSettings *settings = new QSettings(path_char,QSettings::IniFormat);
+    QSettings *settings = new QSettings(path_charaktaere + "chars.ini",QSettings::IniFormat);
     settings->beginGroup(ui->lineEdit_name->text());
     settings->setValue("name",  ui->lineEdit_name->text());
 
@@ -49,7 +49,7 @@ void Hero_Editor::char_pic_speichern(QString objekt)
         ui->graphicsView_koerper->setScene(objekt_qgs);
     }
 
-    QSettings *objekt_qsettings_speichern_pic = new QSettings(path_char,QSettings::IniFormat);
+    QSettings *objekt_qsettings_speichern_pic = new QSettings(path_charaktaere + "chars.ini",QSettings::IniFormat);
         objekt_qsettings_speichern_pic->beginGroup(name_held);
         objekt_qsettings_speichern_pic->setValue(objekt, "/game/res/" + objekt + name_held + format);
         objekt_qsettings_speichern_pic->endGroup();
@@ -58,7 +58,7 @@ void Hero_Editor::char_pic_speichern(QString objekt)
 void Hero_Editor::qlist_namen_laden()
 // Helden werden aus der ini in qlistWidget_helden geladen
 {
-    QFile file(path_char);
+    QFile file(path_charaktaere + "chars.ini");
 
       if( !file.exists() )
       {
@@ -66,7 +66,7 @@ void Hero_Editor::qlist_namen_laden()
       }
       else
         {
-        QSettings settings (path_char, QSettings::IniFormat);
+        QSettings settings (path_charaktaere + "chars.ini", QSettings::IniFormat);
         QStringList group = settings.childGroups();
         for(int child = 0; child != group.size(); ++child)
 
@@ -101,7 +101,7 @@ void Hero_Editor::on_lineEdit_name_editingFinished()
     ui->listWidget_helden->currentItem()->setText(name_widget);
 
 
-    QSettings *settings = new QSettings(path_char,QSettings::IniFormat);
+    QSettings *settings = new QSettings(path_charaktaere + "chars.ini",QSettings::IniFormat);
     settings->remove(qlistwidgetitem_convert_qstring);
 
     QFile file (path_charaktaere + "lvl_" + name_vorher + ".ini");
@@ -120,7 +120,7 @@ void Hero_Editor::on_listWidget_helden_currentItemChanged()
 
 
     //Laden der Settings aus der .ini
-    QSettings *settings = new QSettings (path_char, QSettings::IniFormat, this);
+    QSettings *settings = new QSettings (path_charaktaere + "chars.ini", QSettings::IniFormat, this);
 
     settings->beginGroup(helden_name);
 

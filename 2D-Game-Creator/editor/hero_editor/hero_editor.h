@@ -83,6 +83,8 @@ private slots:
 
     void on_checkBox_eis_clicked();
 
+    void on_pushButton_4_clicked();
+
 private:
 
     Ui::Hero_Editor *ui;

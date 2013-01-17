@@ -136,7 +136,7 @@ void Hero_Editor::on_pushButton_held_neu_clicked()
     ui->listWidget_helden->addItem("Neuer_Held" + count_str);
     ui->lineEdit_name->setText("Neuer_Held" + count_str);
 
-    QSettings *settings = new QSettings(path_charaktaere + "/chars.ini",QSettings::IniFormat);
+    QSettings *settings = new QSettings(path_charaktaere + "chars.ini",QSettings::IniFormat);
         settings->beginGroup("Neuer_Held" + count_str);
         settings->setValue("name",  ui->lineEdit_name->text());
         settings->endGroup();
@@ -171,7 +171,7 @@ void Hero_Editor::on_pushButton_held_entfernen_clicked()
                         delete item;
                         //Workaround
 
-                        QSettings *settings = new QSettings(path_charaktaere + "/chars.ini",QSettings::IniFormat);
+                        QSettings *settings = new QSettings(path_charaktaere + "chars.ini",QSettings::IniFormat);
                         settings->remove (qlistwidgetitem_convert_qstring);
 
                         QFile::remove(path_charaktaere + "lvl_" + qlistwidgetitem_convert_qstring + ".ini");
@@ -305,3 +305,8 @@ void Hero_Editor::on_checkBox_eis_clicked()
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 //ENDE-Speichern der Werte (LVL Editor)
 //////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void Hero_Editor::on_pushButton_4_clicked()
+{
+    qlist_namen_laden();
+}
