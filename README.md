@@ -16,6 +16,11 @@ Sortiert nach Priorität(Vorläufiger Plan):
 9. Netzwerkfähigkeit
 
 Changelog:
+
+18.01.2013
+Kleine Code Optimierung, 
+weitere Editor fenster erstellt
+
 17.01.2013
 mini bugfix
 

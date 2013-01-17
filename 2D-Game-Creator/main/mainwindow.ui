@@ -71,6 +71,8 @@ p, li { white-space: pre-wrap; }
      <string>Editor</string>
     </property>
     <addaction name="actionHero_Editor"/>
+    <addaction name="actionKlassen_Editor"/>
+    <addaction name="actionAusr_stungs_Editor"/>
     <addaction name="actionFeahigkeiten"/>
     <addaction name="actionGegenstand_Editor"/>
     <addaction name="actionStatus_Editor"/>
@@ -236,6 +238,16 @@ p, li { white-space: pre-wrap; }
   <action name="actionEinstellungen_settings">
    <property name="text">
     <string>Einstellungen / Settings</string>
+   </property>
+  </action>
+  <action name="actionKlassen_Editor">
+   <property name="text">
+    <string>Klassen Editor</string>
+   </property>
+  </action>
+  <action name="actionAusr_stungs_Editor">
+   <property name="text">
+    <string>Ausrüstungs Editor</string>
    </property>
   </action>
  </widget>

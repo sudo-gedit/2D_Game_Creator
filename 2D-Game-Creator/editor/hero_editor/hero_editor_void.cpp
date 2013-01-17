@@ -115,6 +115,8 @@ void Hero_Editor::on_lineEdit_name_editingFinished()
 void Hero_Editor::on_listWidget_helden_currentItemChanged()
 // Werte von dem gewaellten Charakter laden
 {
+    path_res_ = QApplication::applicationDirPath() + "";
+
     QString helden_name = ui->listWidget_helden->currentItem()->text();
     ui->lineEdit_name->setText(helden_name);
 
@@ -129,21 +131,35 @@ void Hero_Editor::on_listWidget_helden_currentItemChanged()
 
     settings->endGroup();
 
-    path_res_ = QApplication::applicationDirPath() + "";
 
-    QImage image_gesicht(path_res_ + gesicht_);
-    image_gesicht = image_gesicht.scaled(this->ui->graphicsView_gesicht->width()-10,this->ui->graphicsView_gesicht->height()-10);
-    QGraphicsScene *gesicht = new QGraphicsScene();
-    gesicht->addPixmap(QPixmap::fromImage(image_gesicht));
-    ui->graphicsView_gesicht->setScene(gesicht);
+    if (gesicht_ == NULL)
+    {
+        QList<QGraphicsItem*> item = ui->graphicsView_gesicht->items();
+        qDeleteAll(item);
+    }
+    else
+    {
+        QImage image_gesicht(path_res_ + gesicht_);
+        image_gesicht = image_gesicht.scaled(this->ui->graphicsView_gesicht->width()-10,this->ui->graphicsView_gesicht->height()-10);
+        QGraphicsScene *gesicht = new QGraphicsScene();
+        gesicht->addPixmap(QPixmap::fromImage(image_gesicht));
+        ui->graphicsView_gesicht->setScene(gesicht);
+    }
 
-
-    QImage image_koerper(path_res_ + koerper_);
-    image_koerper = image_koerper.scaled(this->ui->graphicsView_gesicht->width()-10,this->ui->graphicsView_gesicht->height()-10);
-    QGraphicsScene *koerper = new QGraphicsScene();
-    koerper->addPixmap(QPixmap::fromImage(image_koerper));
-    ui->graphicsView_koerper->setScene(koerper);
-    lvl_laden();
+    if (koerper_ == NULL)
+    {
+        QList<QGraphicsItem*> item = ui->graphicsView_koerper->items();
+        qDeleteAll(item);
+    }
+    else
+    {
+        QImage image_koerper(path_res_ + koerper_);
+        image_koerper = image_koerper.scaled(this->ui->graphicsView_gesicht->width()-10,this->ui->graphicsView_gesicht->height()-10);
+        QGraphicsScene *koerper = new QGraphicsScene();
+        koerper->addPixmap(QPixmap::fromImage(image_koerper));
+        ui->graphicsView_koerper->setScene(koerper);
+        lvl_laden();
+    }
 }
 
 void Hero_Editor::lvl_speichern()

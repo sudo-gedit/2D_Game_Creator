@@ -19,8 +19,6 @@ public:
     
 private slots:
 
-    void on_okay_clicked();
-
     void on_gesicht_clicked();
 
     void on_Koerper_clicked();
@@ -82,8 +80,6 @@ private slots:
     void on_checkBox_feuer_clicked();
 
     void on_checkBox_eis_clicked();
-
-    void on_pushButton_4_clicked();
 
 private:
 

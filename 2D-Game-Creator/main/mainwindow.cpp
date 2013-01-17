@@ -9,6 +9,15 @@
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "2D-Game-Creator/editor/effekt_editor/effekt_editor.h"
+#include "2D-Game-Creator/editor/entwicklungsplaner/entwicklungsplaner.h"
+#include "2D-Game-Creator/editor/faehigkeiten_editor/faehigkeiten_editor.h"
+#include "2D-Game-Creator/editor/gegenstand_editor/gegenstand_editor.h"
+#include "2D-Game-Creator/editor/hero_editor/hero_editor.h"
+#include "2D-Game-Creator/editor/monster_editor/monster_editor.h"
+#include "2D-Game-Creator/editor/klassen_editor/klassen_editor.h"
+#include "2D-Game-Creator/editor/ausruestungs_editor/ausruestung.h"
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -108,9 +117,20 @@ void MainWindow::on_actionEinstellungen_settings_triggered()
 }
 
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_actionAusr_stungs_Editor_triggered()
 {
-    language.load("english_UK");
-    qApp->installTranslator(&language);
-    ui->retranslateUi(this);
+    Ausruestung mDialog;
+    mDialog.setWindowFlags( Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint );
+    mDialog.setWindowTitle("Ausruestung Editor");
+    mDialog.setModal(true);
+            mDialog.exec();
+}
+
+void MainWindow::on_actionKlassen_Editor_triggered()
+{
+    Klassen_Editor mDialog;
+    mDialog.setWindowFlags( Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint );
+    mDialog.setWindowTitle("Klassen Editor");
+    mDialog.setModal(true);
+            mDialog.exec();
 }

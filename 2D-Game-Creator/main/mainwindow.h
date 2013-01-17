@@ -46,7 +46,9 @@ private slots:
 
     void on_actionEinstellungen_settings_triggered();
 
-    void on_pushButton_clicked();
+    void on_actionAusr_stungs_Editor_triggered();
+
+    void on_actionKlassen_Editor_triggered();
 
 private:
     Ui::MainWindow *ui;

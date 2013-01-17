@@ -90,12 +90,6 @@ Hero_Editor::~Hero_Editor()
     delete ui;
 }
 
-void Hero_Editor::on_okay_clicked()
-//Funktion um vom gewaellten Helden zu alle Werte zu Speichern (Button)
-{
-    speichern_char();
-}
-
 void Hero_Editor::on_gesicht_clicked()
 //Funktion um das Gesicht des Helden zu Speichern (laden)
 {
@@ -306,7 +300,3 @@ void Hero_Editor::on_checkBox_eis_clicked()
 //ENDE-Speichern der Werte (LVL Editor)
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void Hero_Editor::on_pushButton_4_clicked()
-{
-    qlist_namen_laden();
-}
