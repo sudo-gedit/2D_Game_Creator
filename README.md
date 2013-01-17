@@ -17,7 +17,7 @@ Sortiert nach Priorität(Vorläufiger Plan):
 
 Changelog:
 17.01.2013
-mini Bug fix
+mini bugfix
 
 13.01.2013
 Neue Icons, 
