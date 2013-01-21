@@ -2,6 +2,8 @@
 #define FAEHIGKEITEN_EDITOR_H
 
 #include <QDialog>
+#include <QtCore>
+#include <QtGui>
 
 namespace Ui {
 class Faehigkeiten_Editor;
@@ -17,6 +19,8 @@ public:
     
 private:
     Ui::Faehigkeiten_Editor *ui;
+
+    void laden_sprache();
 };
 
 #endif // FAEHIGKEITEN_EDITOR_H

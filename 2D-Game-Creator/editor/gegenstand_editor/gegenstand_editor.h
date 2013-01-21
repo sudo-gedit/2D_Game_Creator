@@ -2,6 +2,8 @@
 #define GEGENSTAND_EDITOR_H
 
 #include <QDialog>
+#include <QtCore>
+#include <QtGui>
 
 namespace Ui {
 class Gegenstand_Editor;
@@ -17,6 +19,9 @@ public:
     
 private:
     Ui::Gegenstand_Editor *ui;
+
+    void laden_sprache();
+
 };
 
 #endif // GEGENSTAND_EDITOR_H

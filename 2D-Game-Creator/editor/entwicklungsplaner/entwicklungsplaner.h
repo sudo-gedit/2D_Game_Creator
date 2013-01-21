@@ -2,6 +2,8 @@
 #define ENTWICKLUNGSPLANER_H
 
 #include <QDialog>
+#include <QtCore>
+#include <QtGui>
 
 namespace Ui {
 class Entwicklungsplaner;
@@ -17,6 +19,7 @@ public:
     
 private:
     Ui::Entwicklungsplaner *ui;
+    void laden_sprache();
 };
 
 #endif // ENTWICKLUNGSPLANER_H

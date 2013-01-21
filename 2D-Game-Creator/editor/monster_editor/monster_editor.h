@@ -19,8 +19,6 @@ public:
     
 private slots:
 
-    void on_okay_clicked();
-
     void on_gesicht_clicked();
 
     void on_Koerper_clicked();
@@ -33,11 +31,10 @@ private slots:
 
     void on_listWidget_monster_currentItemChanged();
 
-    void on_pushButton_schliessen_clicked();
-
 private:
 
     Ui::Monster_Editor *ui;
+    void laden_sprache();
 
     // QString Werte
     QString path_config;

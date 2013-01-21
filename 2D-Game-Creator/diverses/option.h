@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QtCore>
+#include <QtGui>
 
 namespace Ui {
 class Option;
@@ -19,6 +20,8 @@ public:
 private slots:
 
     void on_pushButton_sprache_speichern_clicked();
+
+    void lade_sprache_in_comboBox();
 
 private:
     Ui::Option *ui;

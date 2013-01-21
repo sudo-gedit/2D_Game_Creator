@@ -17,6 +17,14 @@ Sortiert nach Priorität(Vorläufiger Plan):
 
 Changelog:
 
+21.01.2013
+Anwendung in englisch_UK übersetzt,
+graphen für dem Hero_Editor erstellt,
+Übersetzungsmatrix weitestgehend angepasst,
+mini bugfix und mehr...
+
+Projekt "qcustomplot" hinzugefügt.
+
 18.01.2013
 Kleine Code Optimierung, 
 weitere Editor fenster erstellt

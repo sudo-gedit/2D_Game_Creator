@@ -37,6 +37,69 @@ p, li { white-space: pre-wrap; }
     </message>
 </context>
 <context>
+    <name>Ausruestung</name>
+    <message>
+        <location filename="../editor/ausruestungs_editor/ausruestung.ui" line="14"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message utf8="true">
+        <location filename="../editor/ausruestungs_editor/ausruestung.ui" line="43"/>
+        <source>Die Ausrüstung</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message utf8="true">
+        <location filename="../editor/ausruestungs_editor/ausruestung.ui" line="82"/>
+        <source>Neue Ausrüstung</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message utf8="true">
+        <location filename="../editor/ausruestungs_editor/ausruestung.ui" line="101"/>
+        <source>Ausrüstung entfern.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message utf8="true">
+        <location filename="../editor/ausruestungs_editor/ausruestung.ui" line="140"/>
+        <source> Name der Ausrüstung</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../editor/ausruestungs_editor/ausruestung.ui" line="190"/>
+        <source>InGame Beschreibung</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../editor/ausruestungs_editor/ausruestung.ui" line="231"/>
+        <source>Preis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../editor/ausruestungs_editor/ausruestung.ui" line="281"/>
+        <source>Bild</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../editor/ausruestungs_editor/ausruestung.ui" line="312"/>
+        <source>Dev Notiz</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../editor/ausruestungs_editor/ausruestung.ui" line="348"/>
+        <source>Benutzbar von den Klassen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../editor/ausruestungs_editor/ausruestung.ui" line="379"/>
+        <source>Klasse hinzuf.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../editor/ausruestungs_editor/ausruestung.ui" line="386"/>
+        <source>Klasse entfer.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Effekt_Editor</name>
     <message>
         <location filename="../editor/effekt_editor/effekt_editor.ui" line="14"/>
@@ -462,7 +525,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor/hero_editor/hero_editor.cpp" line="20"/>
+        <location filename="../editor/hero_editor/hero_editor.cpp" line="22"/>
         <source>Hero Editor[*]</source>
         <translation type="unfinished"></translation>
     </message>
@@ -472,6 +535,34 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../simulation/kampfsimulation/kampfsimulation.ui" line="16"/>
         <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Klassen_Editor</name>
+    <message>
+        <location filename="../editor/klassen_editor/klassen_editor.ui" line="14"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../editor/klassen_editor/klassen_editor.ui" line="43"/>
+        <source>Die Klassen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../editor/klassen_editor/klassen_editor.ui" line="82"/>
+        <source>Neue Klasse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../editor/klassen_editor/klassen_editor.ui" line="101"/>
+        <source>Klasse entfernen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../editor/klassen_editor/klassen_editor.ui" line="140"/>
+        <source> Name der Klasse</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -513,89 +604,124 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="83"/>
+        <location filename="../main/mainwindow.ui" line="85"/>
         <source>Simulation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="138"/>
-        <location filename="../main/mainwindow.ui" line="141"/>
+        <location filename="../main/mainwindow.ui" line="146"/>
+        <location filename="../main/mainwindow.ui" line="149"/>
         <source>Neues Projekt</source>
         <translation type="unfinished"></translation>
     </message>
     <message utf8="true">
-        <location filename="../main/mainwindow.ui" line="163"/>
+        <location filename="../main/mainwindow.ui" line="171"/>
         <source>Öffne Projekt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="173"/>
+        <location filename="../main/mainwindow.ui" line="181"/>
         <source>Speicher Projekt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="178"/>
+        <location filename="../main/mainwindow.ui" line="186"/>
         <source>Editor Beenden</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="183"/>
+        <location filename="../main/mainwindow.ui" line="191"/>
         <source>about</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="188"/>
+        <location filename="../main/mainwindow.ui" line="196"/>
         <source>Hero Editor</source>
         <translation type="unfinished"></translation>
     </message>
     <message utf8="true">
-        <location filename="../main/mainwindow.ui" line="193"/>
+        <location filename="../main/mainwindow.ui" line="201"/>
         <source>..über QT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="198"/>
+        <location filename="../main/mainwindow.ui" line="206"/>
         <source>Entwicklungsplanner</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="203"/>
+        <location filename="../main/mainwindow.ui" line="211"/>
         <source>Kampf Editor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="208"/>
+        <location filename="../main/mainwindow.ui" line="216"/>
         <source>Monster Editor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="213"/>
+        <location filename="../main/mainwindow.ui" line="221"/>
         <source>Faehigkeiten Editor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="218"/>
+        <location filename="../main/mainwindow.ui" line="226"/>
         <source>Gegenstand Editor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="223"/>
+        <location filename="../main/mainwindow.ui" line="231"/>
         <source>Effekt Editor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="228"/>
+        <location filename="../main/mainwindow.ui" line="236"/>
         <source>Kampfsimulation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="233"/>
-        <location filename="../main/mainwindow.ui" line="238"/>
+        <location filename="../main/mainwindow.ui" line="241"/>
+        <location filename="../main/mainwindow.ui" line="246"/>
         <source>Einstellungen / Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.cpp" line="18"/>
+        <location filename="../main/mainwindow.ui" line="251"/>
+        <source>Klassen Editor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message utf8="true">
+        <location filename="../main/mainwindow.ui" line="256"/>
+        <source>Ausrüstungs Editor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main/mainwindow.ui" line="266"/>
+        <source>Ebene 1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main/mainwindow.ui" line="276"/>
+        <source>Ebene 2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main/mainwindow.ui" line="286"/>
+        <source>Ebene 3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main/mainwindow.ui" line="296"/>
+        <source>Ebene 4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main/mainwindow.ui" line="306"/>
+        <source>Ebene 5</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main/mainwindow.cpp" line="27"/>
         <source>2D Game Creator[*]</source>
         <translation type="unfinished"></translation>
     </message>
@@ -722,13 +848,8 @@ p, li { white-space: pre-wrap; }
         <source>Gegenst. entfernen</source>
         <translation type="unfinished"></translation>
     </message>
-    <message utf8="true">
-        <location filename="../editor/monster_editor/monster_editor.ui" line="699"/>
-        <source>Schließen</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
-        <location filename="../editor/monster_editor/monster_editor.ui" line="727"/>
+        <location filename="../editor/monster_editor/monster_editor.ui" line="714"/>
         <source>Geld</source>
         <translation type="unfinished"></translation>
     </message>
@@ -741,47 +862,47 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Option</name>
     <message>
-        <location filename="../../option.ui" line="14"/>
+        <location filename="../diverses/option.ui" line="14"/>
         <source>Dialog</source>
         <translation type="unfinished"></translation>
     </message>
     <message utf8="true">
-        <location filename="../../option.ui" line="31"/>
+        <location filename="../diverses/option.ui" line="31"/>
         <source>Wähle die Sprache für die Anwendung</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../option.ui" line="38"/>
+        <location filename="../diverses/option.ui" line="38"/>
         <source>Select the language for the application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../option.ui" line="62"/>
+        <location filename="../diverses/option.ui" line="62"/>
         <source>Deutsch/German</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../option.ui" line="67"/>
+        <location filename="../diverses/option.ui" line="67"/>
         <source>Englisch/English</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../option.ui" line="72"/>
+        <location filename="../diverses/option.ui" line="72"/>
         <source>Russisch/Russia</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../option.ui" line="77"/>
+        <location filename="../diverses/option.ui" line="77"/>
         <source>Franzoesisch/French</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../option.ui" line="97"/>
+        <location filename="../diverses/option.ui" line="97"/>
         <source>Sprache verwenden / accept</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../option.ui" line="115"/>
+        <location filename="../diverses/option.ui" line="115"/>
         <source>Steuerung</source>
         <translation type="unfinished"></translation>
     </message>

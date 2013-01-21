@@ -119,6 +119,12 @@ p, li { white-space: pre-wrap; }
    <addaction name="actionNew"/>
    <addaction name="actionOpen"/>
    <addaction name="actionSave"/>
+   <addaction name="separator"/>
+   <addaction name="actionEbene_1"/>
+   <addaction name="actionEbene_2"/>
+   <addaction name="actionEbene_3"/>
+   <addaction name="actionEbene_4"/>
+   <addaction name="actionEbene_5"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNew">
@@ -248,6 +254,56 @@ p, li { white-space: pre-wrap; }
   <action name="actionAusr_stungs_Editor">
    <property name="text">
     <string>Ausrüstungs Editor</string>
+   </property>
+  </action>
+  <action name="actionEbene_1">
+   <property name="icon">
+    <iconset resource="../res/ress_con.qrc">
+     <normaloff>:/icons/icon/in_app/e1a.gif</normaloff>
+     <activeoff>:/icons/icon/in_app/e1b.gif</activeoff>:/icons/icon/in_app/e1a.gif</iconset>
+   </property>
+   <property name="text">
+    <string>Ebene 1</string>
+   </property>
+  </action>
+  <action name="actionEbene_2">
+   <property name="icon">
+    <iconset resource="../res/ress_con.qrc">
+     <normaloff>:/icons/icon/in_app/e2a.gif</normaloff>
+     <activeoff>:/icons/icon/in_app/e2b.gif</activeoff>:/icons/icon/in_app/e2a.gif</iconset>
+   </property>
+   <property name="text">
+    <string>Ebene 2</string>
+   </property>
+  </action>
+  <action name="actionEbene_3">
+   <property name="icon">
+    <iconset resource="../res/ress_con.qrc">
+     <normaloff>:/icons/icon/in_app/e3a.gif</normaloff>
+     <activeoff>:/icons/icon/in_app/e3b.gif</activeoff>:/icons/icon/in_app/e3a.gif</iconset>
+   </property>
+   <property name="text">
+    <string>Ebene 3</string>
+   </property>
+  </action>
+  <action name="actionEbene_4">
+   <property name="icon">
+    <iconset resource="../res/ress_con.qrc">
+     <normaloff>:/icons/icon/in_app/e4a.gif</normaloff>
+     <activeoff>:/icons/icon/in_app/e4b.gif</activeoff>:/icons/icon/in_app/e4a.gif</iconset>
+   </property>
+   <property name="text">
+    <string>Ebene 4</string>
+   </property>
+  </action>
+  <action name="actionEbene_5">
+   <property name="icon">
+    <iconset resource="../res/ress_con.qrc">
+     <normaloff>:/icons/icon/in_app/e5a.gif</normaloff>
+     <activeoff>:/icons/icon/in_app/e5b.gif</activeoff>:/icons/icon/in_app/e5a.gif</iconset>
+   </property>
+   <property name="text">
+    <string>Ebene 5</string>
    </property>
   </action>
  </widget>

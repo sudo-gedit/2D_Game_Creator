@@ -2,9 +2,9 @@
 //
 // Monster Editor version 0.01.2.3
 //
-//Es kann sein dass noch variablen den namen Hero Tragen aber das ist erstmal nicht so schlimm
 //
-// Letzte Aenderung 27.11.2012
+//
+// Letzte Aenderung 20.01.2013
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 #include "monster_editor.h"
 #include "monster_editor_void.cpp"
@@ -36,19 +36,13 @@ Monster_Editor::Monster_Editor(QWidget *parent) :
 
     // Funktionen die geladen werden
     qlist_namen_laden();
-
+    laden_sprache();
 }
 
 Monster_Editor::~Monster_Editor()
 
 {
     delete ui;
-}
-
-void Monster_Editor::on_okay_clicked()
-//Funktion um vom gewaellten Helden zu alle Werte zu Speichern (Button)
-{
-    speichern_char();
 }
 
 void Monster_Editor::on_gesicht_clicked()
@@ -118,10 +112,4 @@ void Monster_Editor::on_pushButton_monster_entfernen_clicked()
 
         }
     }
-}
-
-
-void Monster_Editor::on_pushButton_schliessen_clicked()
-{
-     close();
 }

@@ -74,7 +74,6 @@ void Hero_Editor::qlist_namen_laden()
             QString childVersion = group.at(child);
             ui->listWidget_helden->addItem(childVersion);
             }
-
         ui->listWidget_helden->item(0)->setSelected(true);
         }
 }
@@ -131,7 +130,6 @@ void Hero_Editor::on_listWidget_helden_currentItemChanged()
 
     settings->endGroup();
 
-
     if (gesicht_ == NULL)
     {
         QList<QGraphicsItem*> item = ui->graphicsView_gesicht->items();
@@ -160,6 +158,7 @@ void Hero_Editor::on_listWidget_helden_currentItemChanged()
         ui->graphicsView_koerper->setScene(koerper);
         lvl_laden();
     }
+    lvl_laden();
 }
 
 void Hero_Editor::lvl_speichern()
@@ -234,7 +233,6 @@ void Hero_Editor::lvl_speichern()
 }
 void Hero_Editor::lvl_laden()
 {
-
     QString held_name = ui->lineEdit_name->text();
     int spinbox_lvl_aktuell = ui->spinBox_lvl->value();
     QString lvl_aktuell_stri = QString::number(spinbox_lvl_aktuell);
@@ -296,4 +294,108 @@ void Hero_Editor::lvl_laden()
     ui->spinBox_betaeubt->setValue(betaeubt_pro);
     ui->spinBox_gift->setValue(gift_pro);
     ui->spinBox_wind->setValue(wind_pro);
+}
+
+//Funktion um eine Sprache zu laden aus der .ini und gleich zu benutzen
+void Hero_Editor::laden_sprache()
+{
+    QTranslator language;
+    QString sprache;
+    QString path_config_app = QApplication::applicationDirPath() + "/config.ini";
+
+    QSettings *settings = new QSettings (path_config_app, QSettings::IniFormat, this);
+    settings->beginGroup("config");
+        sprache = settings->value("sprache").toString();
+    settings->endGroup();
+
+    if (sprache == "Deutsch/German")
+    {
+        language.load("german_DE");
+        qApp->installTranslator(&language);
+        ui->retranslateUi(this);
+    }
+
+    if (sprache == "Englisch/English")
+    {
+        language.load("english_UK");
+        qApp->installTranslator(&language);
+        ui->retranslateUi(this);
+    }
+
+    if (sprache == "Russisch/Russia")
+    {
+        language.load("russia_RUS");
+        qApp->installTranslator(&language);
+        ui->retranslateUi(this);
+    }
+
+    if (sprache == "Franzoesisch/French")
+    {
+        language.load("french_FRA");
+        qApp->installTranslator(&language);
+        ui->retranslateUi(this);
+    }
+}
+
+// Zeichne Wertetabele (lvl)
+QCustomPlot *Hero_Editor::getPlot(std::string name)
+{
+    return plots[name];
+}
+
+void Hero_Editor::addPlot(std::string name, int x, int y, int width, int height)
+{
+    plots[name] = new QCustomPlot(this);
+    getPlot(name)->setGeometry(x, y, width, height);
+    getPlot(name)->addGraph();
+}
+
+void Hero_Editor::addPlotPoint(std::string name, double x, double y)
+{
+    plotPoints[name]["x"].push_back(x);
+    plotPoints[name]["y"].push_back(y);
+}
+
+void Hero_Editor::paintPlot(std::string name)
+{
+    getPlot(name)->graph(0)->setData(plotPoints[name]["x"], plotPoints[name]["y"]);
+    getPlot(name)->replot();
+}
+
+void Hero_Editor::laden_tabele(std::string name, int x, int y, int width, int height)
+{
+    addPlot(name, x, y, width, height);
+
+    for (int i=0; i<100; i++)
+        {
+        QString lvl = QString::number(i);
+
+        QString held_name = ui->listWidget_helden->currentItem()->text();
+        path_char_lvl = QApplication::applicationDirPath() + "/game/charaktaere/lvl_"+ held_name +".ini";
+
+        QSettings *settings = new QSettings (path_char_lvl, QSettings::IniFormat, this);
+        settings->beginGroup(lvl);
+        QString name_qstring(name.c_str());
+
+        int leben = settings->value(name_qstring).toInt();
+        settings->endGroup();
+
+        addPlotPoint(name, i, leben);
+    }
+    getPlot(name)->xAxis->setRange(0, 100);
+    getPlot(name)->yAxis->setRange(0, 100);
+    paintPlot(name);
+    getPlot(name)->show();
+}
+
+void Hero_Editor::laden_table_gesamt()
+{
+       laden_tabele("ep", 1066, 479, 150, 150);
+       laden_tabele("leben", 910, 10, 150, 150);
+       laden_tabele("mana", 1066 , 10, 150, 150);
+       laden_tabele("kraft", 910 , 166, 150, 150);
+       laden_tabele("ausdauer", 1066 , 167, 150, 150);
+       laden_tabele("intelligenz", 910 , 323, 150, 150);
+       laden_tabele("verteidigung", 1066 , 323, 150, 150);
+       laden_tabele("glueck", 910, 479, 150, 150);
 }

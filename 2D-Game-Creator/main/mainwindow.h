@@ -50,10 +50,10 @@ private slots:
 
     void on_actionKlassen_Editor_triggered();
 
+    void on_actionEinstellungen_triggered();
+
 private:
     Ui::MainWindow *ui;
-
-    QTranslator language;
     QString path_config_app;
 
     void laden_sprache();

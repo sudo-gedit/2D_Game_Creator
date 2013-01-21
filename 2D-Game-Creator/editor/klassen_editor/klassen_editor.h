@@ -2,6 +2,8 @@
 #define KLASSEN_EDITOR_H
 
 #include <QDialog>
+#include <QtCore>
+#include <QtGui>
 
 namespace Ui {
 class Klassen_Editor;
@@ -17,6 +19,8 @@ public:
     
 private:
     Ui::Klassen_Editor *ui;
+
+    void laden_sprache();
 };
 
 #endif // KLASSEN_EDITOR_H

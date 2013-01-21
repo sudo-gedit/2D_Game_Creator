@@ -4,6 +4,9 @@
 
 #include <QtCore>
 #include <QtGui>
+#include "2D-Game-Creator/diverses/ext_lib/qcustomplot.h"
+#include <map>
+
 
 namespace Ui {
 class Hero_Editor;
@@ -16,6 +19,8 @@ class Hero_Editor : public QDialog
 public:
     explicit Hero_Editor(QWidget *parent = 0);
     ~Hero_Editor();
+
+
     
 private slots:
 
@@ -82,8 +87,20 @@ private slots:
     void on_checkBox_eis_clicked();
 
 private:
-
     Ui::Hero_Editor *ui;
+
+    std::map<std::string, QCustomPlot *> plots;
+    std::map<std::string, std::map<std::string, QVector<double> > > plotPoints;
+
+    QCustomPlot *getPlot(std::string name);
+    void addPlot(std::string name, int x, int y, int width, int height);
+    void addPlotPoint(std::string name, double x, double y);
+    void paintPlot(std::string name);
+
+    void laden_table_gesamt();
+    void laden_tabele(std::string name, int x, int y, int width, int height);
+
+    void laden_sprache();
 
     // QString Werte
     QString path_config;

@@ -4,10 +4,11 @@
 //
 //
 //
-// Letzte Aenderung 03.01.2013
+// Letzte Aenderung 21.01.2013
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 #include "hero_editor.h"
 #include "hero_editor_void.cpp"
+#include <QVector>
 
 
 Hero_Editor::Hero_Editor(QWidget *parent) :
@@ -15,6 +16,7 @@ Hero_Editor::Hero_Editor(QWidget *parent) :
     ui(new Ui::Hero_Editor)
 
 {
+
     //Male Fenster
     ui->setupUi(this);
     setWindowTitle(tr("Hero Editor[*]"));
@@ -37,6 +39,8 @@ Hero_Editor::Hero_Editor(QWidget *parent) :
 
     // Funktionen die geladen werden
     qlist_namen_laden();
+    laden_sprache();
+    lvl_laden();
 
     ////////////////
     //Platzhalter (Optik) für die Graphic View
@@ -81,7 +85,6 @@ Hero_Editor::Hero_Editor(QWidget *parent) :
     scene_7->setBackgroundBrush(QColor(0, 205, 205));
     ui->graphicsView_lvl_kraft->setScene(scene_7);
     ////////////////
-
 }
 
 Hero_Editor::~Hero_Editor()
@@ -184,6 +187,7 @@ void Hero_Editor::on_pushButton_lvl_up_editor_clicked()
     }
     else
      {
+        laden_table_gesamt();
         setFixedSize(1250, 685);
         lvl_up_editor_bool = true;
         ui->pushButton_lvl_up_editor->setText("Verbergen");
@@ -210,41 +214,49 @@ void Hero_Editor::on_spinBox_lvl_valueChanged()
 void Hero_Editor::on_lineEdit_ep_editingFinished()
 {
    lvl_speichern();
+   laden_tabele("ep", 1066, 479, 150, 150);
 }
 
 void Hero_Editor::on_lineEdit_Leben_editingFinished()
 {
     lvl_speichern();
+    laden_tabele("leben", 910, 10, 150, 150);
 }
 
 void Hero_Editor::on_lineEdit_Mana_editingFinished()
 {
     lvl_speichern();
+    laden_tabele("mana", 1066 , 10, 150, 150);
 }
 
 void Hero_Editor::on_lineEdit_Kraft_editingFinished()
 {
     lvl_speichern();
+    laden_tabele("kraft", 910 , 166, 150, 150);
 }
 
 void Hero_Editor::on_lineEdit_ausdauer_editingFinished()
 {
     lvl_speichern();
+    laden_tabele("ausdauer", 1066 , 167, 150, 150);
 }
 
 void Hero_Editor::on_lineEdit_intelligenz_editingFinished()
 {
     lvl_speichern();
+    laden_tabele("intelligenz", 910 , 323, 150, 150);
 }
 
 void Hero_Editor::on_lineEdit_verteidigung_editingFinished()
 {
     lvl_speichern();
+    laden_tabele("verteidigung", 1066 , 323, 150, 150);
 }
 
 void Hero_Editor::on_lineEdit_glueck_editingFinished()
 {
     lvl_speichern();
+    laden_tabele("glueck", 910, 479, 150, 150);
 }
 
 void Hero_Editor::on_spinBox_eis_editingFinished()
@@ -299,4 +311,3 @@ void Hero_Editor::on_checkBox_eis_clicked()
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 //ENDE-Speichern der Werte (LVL Editor)
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-

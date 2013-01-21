@@ -32,7 +32,8 @@ SOURCES += 	2D-Game-Creator/main/main.cpp\
     		2D-Game-Creator/editor/effekt_editor/effekt_editor.cpp \
     		2D-Game-Creator/diverses/option.cpp \
     		2D-Game-Creator/editor/ausruestungs_editor/ausruestung.cpp \
-    		2D-Game-Creator/editor/klassen_editor/klassen_editor.cpp
+    		2D-Game-Creator/editor/klassen_editor/klassen_editor.cpp \
+		2D-Game-Creator/diverses/ext_lib/qcustomplot.cpp
 
 HEADERS  += 	2D-Game-Creator/main/mainwindow.h \
             	2D-Game-Creator/about/about.h \
@@ -45,7 +46,9 @@ HEADERS  += 	2D-Game-Creator/main/mainwindow.h \
     		2D-Game-Creator/editor/effekt_editor/effekt_editor.h \
     		2D-Game-Creator/diverses/option.h \
     		2D-Game-Creator/editor/ausruestungs_editor/ausruestung.h \
-   		2D-Game-Creator/editor/klassen_editor/klassen_editor.h
+   		2D-Game-Creator/editor/klassen_editor/klassen_editor.h \
+		2D-Game-Creator/diverses/ext_lib/qcustomplot.h \
+
 		
 FORMS    += 	2D-Game-Creator/main/mainwindow.ui \
             	2D-Game-Creator/about/about.ui \

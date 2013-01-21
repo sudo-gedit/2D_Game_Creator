@@ -6,5 +6,15 @@
         <file>icon/in_app/load-hl.gif</file>
         <file>icon/in_app/new.gif</file>
         <file>icon/in_app/new-hl.gif</file>
+        <file>icon/in_app/e1a.gif</file>
+        <file>icon/in_app/e1b.gif</file>
+        <file>icon/in_app/e2a.gif</file>
+        <file>icon/in_app/e2b.gif</file>
+        <file>icon/in_app/e3a.gif</file>
+        <file>icon/in_app/e3b.gif</file>
+        <file>icon/in_app/e4a.gif</file>
+        <file>icon/in_app/e4b.gif</file>
+        <file>icon/in_app/e5a.gif</file>
+        <file>icon/in_app/e5b.gif</file>
     </qresource>
 </RCC>

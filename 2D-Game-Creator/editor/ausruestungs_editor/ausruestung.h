@@ -2,6 +2,8 @@
 #define AUSRUESTUNG_H
 
 #include <QDialog>
+#include <QtCore>
+#include <QtGui>
 
 namespace Ui {
 class Ausruestung;
@@ -17,6 +19,7 @@ public:
     
 private:
     Ui::Ausruestung *ui;
+    void laden_sprache();
 };
 
 #endif // AUSRUESTUNG_H

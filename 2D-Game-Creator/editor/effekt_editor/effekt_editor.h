@@ -2,6 +2,8 @@
 #define EFFEKT_EDITOR_H
 
 #include <QDialog>
+#include <QtCore>
+#include <QtGui>
 
 namespace Ui {
 class Effekt_Editor;
@@ -17,6 +19,8 @@ public:
     
 private:
     Ui::Effekt_Editor *ui;
+
+    void laden_sprache();
 };
 
 #endif // EFFEKT_EDITOR_H

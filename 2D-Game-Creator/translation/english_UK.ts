@@ -37,6 +37,69 @@ p, li { white-space: pre-wrap; }
     </message>
 </context>
 <context>
+    <name>Ausruestung</name>
+    <message>
+        <location filename="../editor/ausruestungs_editor/ausruestung.ui" line="14"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message utf8="true">
+        <location filename="../editor/ausruestungs_editor/ausruestung.ui" line="43"/>
+        <source>Die Ausrüstung</source>
+        <translation>Equipment</translation>
+    </message>
+    <message utf8="true">
+        <location filename="../editor/ausruestungs_editor/ausruestung.ui" line="82"/>
+        <source>Neue Ausrüstung</source>
+        <translation>New Equipment</translation>
+    </message>
+    <message utf8="true">
+        <location filename="../editor/ausruestungs_editor/ausruestung.ui" line="101"/>
+        <source>Ausrüstung entfern.</source>
+        <translation>Delete Equipment</translation>
+    </message>
+    <message utf8="true">
+        <location filename="../editor/ausruestungs_editor/ausruestung.ui" line="140"/>
+        <source> Name der Ausrüstung</source>
+        <translation>Equipment´s Name</translation>
+    </message>
+    <message>
+        <location filename="../editor/ausruestungs_editor/ausruestung.ui" line="190"/>
+        <source>InGame Beschreibung</source>
+        <translation>Explanation (In Game)</translation>
+    </message>
+    <message>
+        <location filename="../editor/ausruestungs_editor/ausruestung.ui" line="231"/>
+        <source>Preis</source>
+        <translation>Price</translation>
+    </message>
+    <message>
+        <location filename="../editor/ausruestungs_editor/ausruestung.ui" line="281"/>
+        <source>Bild</source>
+        <translation>Picture</translation>
+    </message>
+    <message>
+        <location filename="../editor/ausruestungs_editor/ausruestung.ui" line="312"/>
+        <source>Dev Notiz</source>
+        <translation>Dev Note</translation>
+    </message>
+    <message>
+        <location filename="../editor/ausruestungs_editor/ausruestung.ui" line="348"/>
+        <source>Benutzbar von den Klassen</source>
+        <translation>Usable of Classes:</translation>
+    </message>
+    <message>
+        <location filename="../editor/ausruestungs_editor/ausruestung.ui" line="379"/>
+        <source>Klasse hinzuf.</source>
+        <translation>Add Class</translation>
+    </message>
+    <message>
+        <location filename="../editor/ausruestungs_editor/ausruestung.ui" line="386"/>
+        <source>Klasse entfer.</source>
+        <translation>Delete Class</translation>
+    </message>
+</context>
+<context>
     <name>Effekt_Editor</name>
     <message>
         <location filename="../editor/effekt_editor/effekt_editor.ui" line="14"/>
@@ -46,38 +109,38 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../editor/effekt_editor/effekt_editor.ui" line="41"/>
         <source> Name des Effekts</source>
-        <translation type="unfinished"></translation>
+        <translation>Effect´s Name</translation>
     </message>
     <message>
         <location filename="../editor/effekt_editor/effekt_editor.ui" line="99"/>
         <location filename="../editor/effekt_editor/effekt_editor.ui" line="245"/>
         <source>Effekte</source>
-        <translation type="unfinished"></translation>
+        <translation>Effects</translation>
     </message>
     <message>
         <location filename="../editor/effekt_editor/effekt_editor.ui" line="138"/>
         <source>Neuer Effekt</source>
-        <translation type="unfinished"></translation>
+        <translation>Add Effect</translation>
     </message>
     <message>
         <location filename="../editor/effekt_editor/effekt_editor.ui" line="157"/>
         <source>Entferne Effekt</source>
-        <translation type="unfinished"></translation>
+        <translation>Delete Effect</translation>
     </message>
     <message>
         <location filename="../editor/effekt_editor/effekt_editor.ui" line="196"/>
         <source>Notiz</source>
-        <translation type="unfinished"></translation>
+        <translation>Note</translation>
     </message>
     <message utf8="true">
         <location filename="../editor/effekt_editor/effekt_editor.ui" line="284"/>
         <source>Effekt hinzufügen</source>
-        <translation type="unfinished"></translation>
+        <translation>Add Effect</translation>
     </message>
     <message>
         <location filename="../editor/effekt_editor/effekt_editor.ui" line="303"/>
         <source>Effekt entfern</source>
-        <translation type="unfinished"></translation>
+        <translation>Delete Effect</translation>
     </message>
 </context>
 <context>
@@ -98,112 +161,112 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../editor/faehigkeiten_editor/faehigkeiten_editor.ui" line="43"/>
         <source>Effekte</source>
-        <translation type="unfinished"></translation>
+        <translation>Effects</translation>
     </message>
     <message utf8="true">
         <location filename="../editor/faehigkeiten_editor/faehigkeiten_editor.ui" line="82"/>
         <source>Effekt hinzufügen</source>
-        <translation type="unfinished"></translation>
+        <translation>Add Effect</translation>
     </message>
     <message>
         <location filename="../editor/faehigkeiten_editor/faehigkeiten_editor.ui" line="101"/>
         <source>Effekt entfern</source>
-        <translation type="unfinished"></translation>
+        <translation>Delete Effect</translation>
     </message>
     <message>
         <location filename="../editor/faehigkeiten_editor/faehigkeiten_editor.ui" line="156"/>
         <source>Bild</source>
-        <translation type="unfinished"></translation>
+        <translation>Picture</translation>
     </message>
     <message>
         <location filename="../editor/faehigkeiten_editor/faehigkeiten_editor.ui" line="187"/>
         <source> Name der Faehigkeiten</source>
-        <translation type="unfinished"></translation>
+        <translation>Skill´s Name</translation>
     </message>
     <message utf8="true">
         <location filename="../editor/faehigkeiten_editor/faehigkeiten_editor.ui" line="234"/>
         <source>Schließen</source>
-        <translation type="unfinished">close</translation>
+        <translation>Close</translation>
     </message>
     <message>
         <location filename="../editor/faehigkeiten_editor/faehigkeiten_editor.ui" line="270"/>
         <source>Die Faehigkeiten</source>
-        <translation type="unfinished"></translation>
+        <translation>Skills</translation>
     </message>
     <message>
         <location filename="../editor/faehigkeiten_editor/faehigkeiten_editor.ui" line="309"/>
         <source>Neue Faehigkeiten</source>
-        <translation type="unfinished"></translation>
+        <translation>Add Skill</translation>
     </message>
     <message>
         <location filename="../editor/faehigkeiten_editor/faehigkeiten_editor.ui" line="328"/>
         <source>Entferne Faehig.</source>
-        <translation type="unfinished"></translation>
+        <translation>Delete Skill</translation>
     </message>
     <message>
         <location filename="../editor/faehigkeiten_editor/faehigkeiten_editor.ui" line="367"/>
         <source>InGame Beschreibung</source>
-        <translation type="unfinished"></translation>
+        <translation>InGame Description</translation>
     </message>
     <message>
         <location filename="../editor/faehigkeiten_editor/faehigkeiten_editor.ui" line="408"/>
         <source>Notiz</source>
-        <translation type="unfinished"></translation>
+        <translation>Note</translation>
     </message>
     <message>
         <location filename="../editor/faehigkeiten_editor/faehigkeiten_editor.ui" line="455"/>
         <source>Benutzbar ...</source>
-        <translation type="unfinished"></translation>
+        <translation>Usable ...</translation>
     </message>
     <message>
         <location filename="../editor/faehigkeiten_editor/faehigkeiten_editor.ui" line="476"/>
         <source>im Kampf</source>
-        <translation type="unfinished"></translation>
+        <translation>In Fight</translation>
     </message>
     <message>
         <location filename="../editor/faehigkeiten_editor/faehigkeiten_editor.ui" line="495"/>
         <source>auf der Weltkarte</source>
-        <translation type="unfinished"></translation>
+        <translation>On Worldmap</translation>
     </message>
     <message>
         <location filename="../editor/faehigkeiten_editor/faehigkeiten_editor.ui" line="514"/>
         <source>in beiden</source>
-        <translation type="unfinished"></translation>
+        <translation>Both</translation>
     </message>
     <message>
         <location filename="../editor/faehigkeiten_editor/faehigkeiten_editor.ui" line="550"/>
         <source>Benutzbar auf</source>
-        <translation type="unfinished"></translation>
+        <translation>Target</translation>
     </message>
     <message>
         <location filename="../editor/faehigkeiten_editor/faehigkeiten_editor.ui" line="571"/>
         <source>Feind</source>
-        <translation type="unfinished"></translation>
+        <translation>Enemy</translation>
     </message>
     <message>
         <location filename="../editor/faehigkeiten_editor/faehigkeiten_editor.ui" line="584"/>
         <source>Freund</source>
-        <translation type="unfinished"></translation>
+        <translation>Friend</translation>
     </message>
     <message>
         <location filename="../editor/faehigkeiten_editor/faehigkeiten_editor.ui" line="603"/>
         <source>Beide</source>
-        <translation type="unfinished"></translation>
+        <translation>Both</translation>
     </message>
     <message utf8="true">
         <location filename="../editor/faehigkeiten_editor/faehigkeiten_editor.ui" line="639"/>
         <source>Benötigte Punkte</source>
-        <translation type="unfinished"></translation>
+        <translation>Cost</translation>
     </message>
     <message>
         <location filename="../editor/faehigkeiten_editor/faehigkeiten_editor.ui" line="662"/>
         <source>MP</source>
-        <translation type="unfinished"></translation>
+        <translation>MP</translation>
     </message>
     <message>
         <location filename="../editor/faehigkeiten_editor/faehigkeiten_editor.ui" line="681"/>
         <source>Zorn</source>
-        <translation type="unfinished"></translation>
+        <translation>Rage</translation>
     </message>
 </context>
 <context>
@@ -216,107 +279,107 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../editor/gegenstand_editor/gegenstand_editor.ui" line="41"/>
         <source>Preis</source>
-        <translation type="unfinished"></translation>
+        <translation>Price</translation>
     </message>
     <message>
         <location filename="../editor/gegenstand_editor/gegenstand_editor.ui" line="77"/>
         <source>Effekte</source>
-        <translation type="unfinished"></translation>
+        <translation>Effects</translation>
     </message>
     <message utf8="true">
         <location filename="../editor/gegenstand_editor/gegenstand_editor.ui" line="116"/>
         <source>Effekt hinzufügen</source>
-        <translation type="unfinished"></translation>
+        <translation>Add Effect</translation>
     </message>
     <message>
         <location filename="../editor/gegenstand_editor/gegenstand_editor.ui" line="135"/>
         <source>Effekt entfern</source>
-        <translation type="unfinished"></translation>
+        <translation>Delete Effect</translation>
     </message>
     <message utf8="true">
         <location filename="../editor/gegenstand_editor/gegenstand_editor.ui" line="176"/>
         <source>Die Gegenstände</source>
-        <translation type="unfinished"></translation>
+        <translation>Items</translation>
     </message>
     <message>
         <location filename="../editor/gegenstand_editor/gegenstand_editor.ui" line="215"/>
         <source>Neuen Gegenstand</source>
-        <translation type="unfinished"></translation>
+        <translation>Add Item</translation>
     </message>
     <message>
         <location filename="../editor/gegenstand_editor/gegenstand_editor.ui" line="234"/>
         <source>Gegenstand entfern</source>
-        <translation type="unfinished"></translation>
+        <translation>Delete Item</translation>
     </message>
     <message>
         <location filename="../editor/gegenstand_editor/gegenstand_editor.ui" line="289"/>
         <source>Bild</source>
-        <translation type="unfinished"></translation>
+        <translation>picture</translation>
     </message>
     <message>
         <location filename="../editor/gegenstand_editor/gegenstand_editor.ui" line="320"/>
         <source>InGame Beschreibung</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingame Description</translation>
     </message>
     <message>
         <location filename="../editor/gegenstand_editor/gegenstand_editor.ui" line="361"/>
         <source>Notiz</source>
-        <translation type="unfinished"></translation>
+        <translation>Note</translation>
     </message>
     <message>
         <location filename="../editor/gegenstand_editor/gegenstand_editor.ui" line="395"/>
         <source> Name des Gegenstandes</source>
-        <translation type="unfinished"></translation>
+        <translation>Item´s Name</translation>
     </message>
     <message>
         <location filename="../editor/gegenstand_editor/gegenstand_editor.ui" line="445"/>
         <source>Benutzbar ...</source>
-        <translation type="unfinished"></translation>
+        <translation>Usable ...</translation>
     </message>
     <message>
         <location filename="../editor/gegenstand_editor/gegenstand_editor.ui" line="466"/>
         <source>im Kampf</source>
-        <translation type="unfinished"></translation>
+        <translation>In Fight</translation>
     </message>
     <message>
         <location filename="../editor/gegenstand_editor/gegenstand_editor.ui" line="485"/>
         <source>auf der Weltkarte</source>
-        <translation type="unfinished"></translation>
+        <translation>On Worldmap</translation>
     </message>
     <message>
         <location filename="../editor/gegenstand_editor/gegenstand_editor.ui" line="504"/>
         <source>in beiden</source>
-        <translation type="unfinished"></translation>
+        <translation>Both</translation>
     </message>
     <message>
         <location filename="../editor/gegenstand_editor/gegenstand_editor.ui" line="540"/>
         <source>Benutzbar auf</source>
-        <translation type="unfinished"></translation>
+        <translation>Target</translation>
     </message>
     <message>
         <location filename="../editor/gegenstand_editor/gegenstand_editor.ui" line="561"/>
         <source>Feind</source>
-        <translation type="unfinished"></translation>
+        <translation>Enemy</translation>
     </message>
     <message>
         <location filename="../editor/gegenstand_editor/gegenstand_editor.ui" line="574"/>
         <source>Freund</source>
-        <translation type="unfinished"></translation>
+        <translation>Friend</translation>
     </message>
     <message>
         <location filename="../editor/gegenstand_editor/gegenstand_editor.ui" line="593"/>
         <source>Beide</source>
-        <translation type="unfinished"></translation>
+        <translation>Both</translation>
     </message>
     <message>
         <location filename="../editor/gegenstand_editor/gegenstand_editor.ui" line="617"/>
         <source>Verbraucht sich nach Nutzung</source>
-        <translation type="unfinished"></translation>
+        <translation>Destroyed after Use</translation>
     </message>
     <message>
         <location filename="../editor/gegenstand_editor/gegenstand_editor.ui" line="624"/>
         <source>Nicht benutzbar</source>
-        <translation type="unfinished"></translation>
+        <translation>Not Usable</translation>
     </message>
 </context>
 <context>
@@ -329,22 +392,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../editor/hero_editor/hero_editor.ui" line="56"/>
         <source>Die Helden</source>
-        <translation type="unfinished"></translation>
+        <translation>Heroes</translation>
     </message>
     <message>
         <location filename="../editor/hero_editor/hero_editor.ui" line="115"/>
         <source> Name des Helden</source>
-        <translation type="unfinished"></translation>
+        <translation>Hero´s Name</translation>
     </message>
     <message>
         <location filename="../editor/hero_editor/hero_editor.ui" line="171"/>
         <source>Gesicht</source>
-        <translation>face</translation>
+        <translation>Face</translation>
     </message>
     <message utf8="true">
         <location filename="../editor/hero_editor/hero_editor.ui" line="210"/>
         <source>Körper</source>
-        <translation>body</translation>
+        <translation>Body</translation>
     </message>
     <message utf8="true">
         <location filename="../editor/hero_editor/hero_editor.ui" line="269"/>
@@ -354,107 +417,107 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../editor/hero_editor/hero_editor.ui" line="281"/>
         <source>LVL</source>
-        <translation type="unfinished"></translation>
+        <translation>LVL</translation>
     </message>
     <message>
         <location filename="../editor/hero_editor/hero_editor.ui" line="340"/>
         <source>LvL-UP (EP)</source>
-        <translation type="unfinished"></translation>
+        <translation>Exp for LVL-Up</translation>
     </message>
     <message>
         <location filename="../editor/hero_editor/hero_editor.ui" line="347"/>
         <source>Leben</source>
-        <translation type="unfinished"></translation>
+        <translation>H</translation>
     </message>
     <message>
         <location filename="../editor/hero_editor/hero_editor.ui" line="354"/>
         <source>Mana</source>
-        <translation type="unfinished"></translation>
+        <translation>MP</translation>
     </message>
     <message>
         <location filename="../editor/hero_editor/hero_editor.ui" line="361"/>
         <source>Kraft</source>
-        <translation type="unfinished"></translation>
+        <translation>Strength</translation>
     </message>
     <message>
         <location filename="../editor/hero_editor/hero_editor.ui" line="368"/>
         <source>Ausdauer</source>
-        <translation type="unfinished"></translation>
+        <translation>Stamina</translation>
     </message>
     <message>
         <location filename="../editor/hero_editor/hero_editor.ui" line="375"/>
         <source>Intelligenz</source>
-        <translation type="unfinished"></translation>
+        <translation>Intelligence</translation>
     </message>
     <message>
         <location filename="../editor/hero_editor/hero_editor.ui" line="382"/>
         <source>Verteidigung</source>
-        <translation type="unfinished"></translation>
+        <translation>Defense</translation>
     </message>
     <message utf8="true">
         <location filename="../editor/hero_editor/hero_editor.ui" line="389"/>
         <source>Glück</source>
-        <translation type="unfinished"></translation>
+        <translation>Luck</translation>
     </message>
     <message>
         <location filename="../editor/hero_editor/hero_editor.ui" line="475"/>
         <source>Schutz vor in %</source>
-        <translation type="unfinished"></translation>
+        <translation>Elemental Resistence in %</translation>
     </message>
     <message>
         <location filename="../editor/hero_editor/hero_editor.ui" line="486"/>
         <source>Eis</source>
-        <translation>ice</translation>
+        <translation>Ice</translation>
     </message>
     <message>
         <location filename="../editor/hero_editor/hero_editor.ui" line="493"/>
         <source>Feuer</source>
-        <translation type="unfinished"></translation>
+        <translation>Fire</translation>
     </message>
     <message>
         <location filename="../editor/hero_editor/hero_editor.ui" line="500"/>
         <source>Wind</source>
-        <translation>wind</translation>
+        <translation>Wind</translation>
     </message>
     <message>
         <location filename="../editor/hero_editor/hero_editor.ui" line="507"/>
         <source>Gift</source>
-        <translation type="unfinished"></translation>
+        <translation>Poison</translation>
     </message>
     <message>
         <location filename="../editor/hero_editor/hero_editor.ui" line="514"/>
         <source>Betaeubt</source>
-        <translation type="unfinished"></translation>
+        <translation>Stun</translation>
     </message>
     <message>
         <location filename="../editor/hero_editor/hero_editor.ui" line="584"/>
         <source>Held neu</source>
-        <translation type="unfinished"></translation>
+        <translation>Add Hero</translation>
     </message>
     <message>
         <location filename="../editor/hero_editor/hero_editor.ui" line="619"/>
         <source>Helden entfern</source>
-        <translation type="unfinished"></translation>
+        <translation>Delete Hero</translation>
     </message>
     <message utf8="true">
         <location filename="../editor/hero_editor/hero_editor.ui" line="678"/>
         <source>Schließen</source>
-        <translation>close</translation>
+        <translation>Close</translation>
     </message>
     <message>
         <location filename="../editor/hero_editor/hero_editor.ui" line="713"/>
         <source>LVL-UP Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>LvL-Up Editor</translation>
     </message>
     <message utf8="true">
         <location filename="../editor/hero_editor/hero_editor.ui" line="907"/>
         <source>Fähigkeiten</source>
-        <translation type="unfinished"></translation>
+        <translation>Skills</translation>
     </message>
     <message utf8="true">
         <location filename="../editor/hero_editor/hero_editor.ui" line="926"/>
         <source>Tragbare Rüstung</source>
-        <translation type="unfinished"></translation>
+        <translation>Usable Armor</translation>
     </message>
     <message>
         <location filename="../editor/hero_editor/hero_editor.ui" line="945"/>
@@ -462,9 +525,9 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor/hero_editor/hero_editor.cpp" line="20"/>
+        <location filename="../editor/hero_editor/hero_editor.cpp" line="22"/>
         <source>Hero Editor[*]</source>
-        <translation type="unfinished"></translation>
+        <translation>Hero Editor[*]</translation>
     </message>
 </context>
 <context>
@@ -473,6 +536,34 @@ p, li { white-space: pre-wrap; }
         <location filename="../simulation/kampfsimulation/kampfsimulation.ui" line="16"/>
         <source>Dialog</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Klassen_Editor</name>
+    <message>
+        <location filename="../editor/klassen_editor/klassen_editor.ui" line="14"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../editor/klassen_editor/klassen_editor.ui" line="43"/>
+        <source>Die Klassen</source>
+        <translation>Classes</translation>
+    </message>
+    <message>
+        <location filename="../editor/klassen_editor/klassen_editor.ui" line="82"/>
+        <source>Neue Klasse</source>
+        <translation>Add Class</translation>
+    </message>
+    <message>
+        <location filename="../editor/klassen_editor/klassen_editor.ui" line="101"/>
+        <source>Klasse entfernen</source>
+        <translation>Delete Class</translation>
+    </message>
+    <message>
+        <location filename="../editor/klassen_editor/klassen_editor.ui" line="140"/>
+        <source> Name der Klasse</source>
+        <translation>Class´ Name</translation>
     </message>
 </context>
 <context>
@@ -500,104 +591,139 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../main/mainwindow.ui" line="52"/>
         <source>Datei</source>
-        <translation>file</translation>
+        <translation>File</translation>
     </message>
     <message>
         <location filename="../main/mainwindow.ui" line="63"/>
         <source>Help</source>
-        <translation>help</translation>
+        <translation>Help</translation>
     </message>
     <message>
         <location filename="../main/mainwindow.ui" line="71"/>
         <source>Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Editor</translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="83"/>
+        <location filename="../main/mainwindow.ui" line="85"/>
         <source>Simulation</source>
-        <translation type="unfinished"></translation>
+        <translation>Simulation</translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="138"/>
-        <location filename="../main/mainwindow.ui" line="141"/>
+        <location filename="../main/mainwindow.ui" line="146"/>
+        <location filename="../main/mainwindow.ui" line="149"/>
         <source>Neues Projekt</source>
-        <translation>new project</translation>
+        <translation>New Project</translation>
     </message>
     <message utf8="true">
-        <location filename="../main/mainwindow.ui" line="163"/>
+        <location filename="../main/mainwindow.ui" line="171"/>
         <source>Öffne Projekt</source>
-        <translation type="unfinished"></translation>
+        <translation>Open Project</translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="173"/>
+        <location filename="../main/mainwindow.ui" line="181"/>
         <source>Speicher Projekt</source>
-        <translation type="unfinished"></translation>
+        <translation>Save Projekt</translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="178"/>
+        <location filename="../main/mainwindow.ui" line="186"/>
         <source>Editor Beenden</source>
-        <translation type="unfinished"></translation>
+        <translation>Exit Editor</translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="183"/>
+        <location filename="../main/mainwindow.ui" line="191"/>
         <source>about</source>
-        <translation type="unfinished"></translation>
+        <translation>About</translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="188"/>
+        <location filename="../main/mainwindow.ui" line="196"/>
         <source>Hero Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Hero Editor</translation>
     </message>
     <message utf8="true">
-        <location filename="../main/mainwindow.ui" line="193"/>
+        <location filename="../main/mainwindow.ui" line="201"/>
         <source>..über QT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="198"/>
+        <location filename="../main/mainwindow.ui" line="206"/>
         <source>Entwicklungsplanner</source>
-        <translation type="unfinished"></translation>
+        <translation>Developement Planer</translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="203"/>
+        <location filename="../main/mainwindow.ui" line="211"/>
         <source>Kampf Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Fighting Editor</translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="208"/>
+        <location filename="../main/mainwindow.ui" line="216"/>
         <source>Monster Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Monster Editor</translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="213"/>
+        <location filename="../main/mainwindow.ui" line="221"/>
         <source>Faehigkeiten Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Skill Editor</translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="218"/>
+        <location filename="../main/mainwindow.ui" line="226"/>
         <source>Gegenstand Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Item Editor</translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="223"/>
+        <location filename="../main/mainwindow.ui" line="231"/>
         <source>Effekt Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Effect Editor</translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="228"/>
+        <location filename="../main/mainwindow.ui" line="236"/>
         <source>Kampfsimulation</source>
-        <translation type="unfinished"></translation>
+        <translation>Fighting Simulation</translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.ui" line="233"/>
-        <location filename="../main/mainwindow.ui" line="238"/>
+        <location filename="../main/mainwindow.ui" line="241"/>
+        <location filename="../main/mainwindow.ui" line="246"/>
         <source>Einstellungen / Settings</source>
+        <translation>Settings</translation>
+    </message>
+    <message>
+        <location filename="../main/mainwindow.ui" line="251"/>
+        <source>Klassen Editor</source>
+        <translation>Class Editor</translation>
+    </message>
+    <message utf8="true">
+        <location filename="../main/mainwindow.ui" line="256"/>
+        <source>Ausrüstungs Editor</source>
+        <translation>Equipment Editor</translation>
+    </message>
+    <message>
+        <location filename="../main/mainwindow.ui" line="266"/>
+        <source>Ebene 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main/mainwindow.cpp" line="18"/>
-        <source>2D Game Creator[*]</source>
+        <location filename="../main/mainwindow.ui" line="276"/>
+        <source>Ebene 2</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main/mainwindow.ui" line="286"/>
+        <source>Ebene 3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main/mainwindow.ui" line="296"/>
+        <source>Ebene 4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main/mainwindow.ui" line="306"/>
+        <source>Ebene 5</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main/mainwindow.cpp" line="27"/>
+        <source>2D Game Creator[*]</source>
+        <translation>2D Game Creator[*]</translation>
     </message>
 </context>
 <context>
@@ -610,22 +736,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../editor/monster_editor/monster_editor.ui" line="50"/>
         <source>Die Monster</source>
-        <translation type="unfinished"></translation>
+        <translation>Monsters</translation>
     </message>
     <message>
         <location filename="../editor/monster_editor/monster_editor.ui" line="109"/>
         <source>Name des Monsters</source>
-        <translation type="unfinished"></translation>
+        <translation>Monster´s Name</translation>
     </message>
     <message>
         <location filename="../editor/monster_editor/monster_editor.ui" line="165"/>
         <source>Gesicht</source>
-        <translation type="unfinished">face</translation>
+        <translation>Face</translation>
     </message>
     <message utf8="true">
         <location filename="../editor/monster_editor/monster_editor.ui" line="204"/>
         <source>Körper</source>
-        <translation type="unfinished">body</translation>
+        <translation>Body</translation>
     </message>
     <message>
         <location filename="../editor/monster_editor/monster_editor.ui" line="263"/>
@@ -635,153 +761,152 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../editor/monster_editor/monster_editor.ui" line="274"/>
         <source>Leben</source>
-        <translation type="unfinished"></translation>
+        <translation>HP</translation>
     </message>
     <message>
         <location filename="../editor/monster_editor/monster_editor.ui" line="281"/>
         <source>Mana</source>
-        <translation type="unfinished"></translation>
+        <translation>MP</translation>
     </message>
     <message>
         <location filename="../editor/monster_editor/monster_editor.ui" line="288"/>
         <source>Kraft</source>
-        <translation type="unfinished"></translation>
+        <translation>Strength</translation>
     </message>
     <message>
         <location filename="../editor/monster_editor/monster_editor.ui" line="295"/>
         <source>Ausdauer</source>
-        <translation type="unfinished"></translation>
+        <translation>Stamina</translation>
     </message>
     <message>
         <location filename="../editor/monster_editor/monster_editor.ui" line="302"/>
         <source>Intelligenz</source>
-        <translation type="unfinished"></translation>
+        <translation>Intelligence</translation>
     </message>
     <message>
         <location filename="../editor/monster_editor/monster_editor.ui" line="309"/>
         <source>Verteidigung</source>
-        <translation type="unfinished"></translation>
+        <translation>Defense</translation>
     </message>
     <message utf8="true">
         <location filename="../editor/monster_editor/monster_editor.ui" line="316"/>
         <source>Glück</source>
-        <translation type="unfinished"></translation>
+        <translation>Luck</translation>
     </message>
     <message>
         <location filename="../editor/monster_editor/monster_editor.ui" line="408"/>
         <source>Schutz vor in %</source>
-        <translation type="unfinished"></translation>
+        <translation>Elemental Resistance in %</translation>
     </message>
     <message>
         <location filename="../editor/monster_editor/monster_editor.ui" line="419"/>
         <source>Eis</source>
-        <translation type="unfinished">ice</translation>
+        <translation>Ice</translation>
     </message>
     <message>
         <location filename="../editor/monster_editor/monster_editor.ui" line="426"/>
         <source>Feuer</source>
-        <translation type="unfinished"></translation>
+        <translation>Fire</translation>
     </message>
     <message>
         <location filename="../editor/monster_editor/monster_editor.ui" line="433"/>
         <source>Wind</source>
-        <translation type="unfinished">wind</translation>
+        <translation>Wind</translation>
     </message>
     <message>
         <location filename="../editor/monster_editor/monster_editor.ui" line="440"/>
         <source>Gift</source>
-        <translation type="unfinished"></translation>
+        <translation>Poison</translation>
     </message>
     <message>
         <location filename="../editor/monster_editor/monster_editor.ui" line="447"/>
         <source>Betaeubt</source>
-        <translation type="unfinished"></translation>
+        <translation>Stun</translation>
     </message>
     <message>
         <location filename="../editor/monster_editor/monster_editor.ui" line="523"/>
         <source>Monster neu</source>
-        <translation type="unfinished"></translation>
+        <translation>Add Monster</translation>
     </message>
     <message>
         <location filename="../editor/monster_editor/monster_editor.ui" line="558"/>
         <source>Monster entfern</source>
-        <translation type="unfinished"></translation>
+        <translation>Delete Monster</translation>
     </message>
     <message utf8="true">
         <location filename="../editor/monster_editor/monster_editor.ui" line="617"/>
         <source>Gegenstände die ein Monster fallen lässt.</source>
-        <translation type="unfinished"></translation>
+        <translation>Loot</translation>
     </message>
     <message utf8="true">
         <location filename="../editor/monster_editor/monster_editor.ui" line="656"/>
         <source>Gegenst. hinzufügen</source>
-        <translation type="unfinished"></translation>
+        <translation>Add Item</translation>
     </message>
     <message>
         <location filename="../editor/monster_editor/monster_editor.ui" line="675"/>
         <source>Gegenst. entfernen</source>
-        <translation type="unfinished"></translation>
+        <translation>Delete Item</translation>
     </message>
     <message utf8="true">
-        <location filename="../editor/monster_editor/monster_editor.ui" line="699"/>
         <source>Schließen</source>
-        <translation type="unfinished">close</translation>
+        <translation type="obsolete">Close</translation>
     </message>
     <message>
-        <location filename="../editor/monster_editor/monster_editor.ui" line="727"/>
+        <location filename="../editor/monster_editor/monster_editor.ui" line="714"/>
         <source>Geld</source>
-        <translation type="unfinished"></translation>
+        <translation>Money</translation>
     </message>
     <message>
         <location filename="../editor/monster_editor/monster_editor.cpp" line="20"/>
         <source>Monster Editor[*]</source>
-        <translation type="unfinished"></translation>
+        <translation>Monster Editor[*]</translation>
     </message>
 </context>
 <context>
     <name>Option</name>
     <message>
-        <location filename="../../option.ui" line="14"/>
+        <location filename="../diverses/option.ui" line="14"/>
         <source>Dialog</source>
         <translation type="unfinished"></translation>
     </message>
     <message utf8="true">
-        <location filename="../../option.ui" line="31"/>
+        <location filename="../diverses/option.ui" line="31"/>
         <source>Wähle die Sprache für die Anwendung</source>
         <translation>Wähle die Sprache für die Anwendung</translation>
     </message>
     <message>
-        <location filename="../../option.ui" line="38"/>
+        <location filename="../diverses/option.ui" line="38"/>
         <source>Select the language for the application</source>
         <translation>Select the language for the application</translation>
     </message>
     <message>
-        <location filename="../../option.ui" line="62"/>
+        <location filename="../diverses/option.ui" line="62"/>
         <source>Deutsch/German</source>
         <translation>Deutsch/German</translation>
     </message>
     <message>
-        <location filename="../../option.ui" line="67"/>
+        <location filename="../diverses/option.ui" line="67"/>
         <source>Englisch/English</source>
         <translation>Englisch/English</translation>
     </message>
     <message>
-        <location filename="../../option.ui" line="72"/>
+        <location filename="../diverses/option.ui" line="72"/>
         <source>Russisch/Russia</source>
         <translation>Russisch/Russia</translation>
     </message>
     <message>
-        <location filename="../../option.ui" line="77"/>
+        <location filename="../diverses/option.ui" line="77"/>
         <source>Franzoesisch/French</source>
         <translation>Franzoesisch/French</translation>
     </message>
     <message>
-        <location filename="../../option.ui" line="97"/>
+        <location filename="../diverses/option.ui" line="97"/>
         <source>Sprache verwenden / accept</source>
         <translation>accept</translation>
     </message>
     <message>
-        <location filename="../../option.ui" line="115"/>
+        <location filename="../diverses/option.ui" line="115"/>
         <source>Steuerung</source>
         <translation>control</translation>
     </message>
