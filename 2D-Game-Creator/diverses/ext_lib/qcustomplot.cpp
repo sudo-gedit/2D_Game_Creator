@@ -15024,10 +15024,3 @@ QBrush QCPItemTracer::mainBrush() const
 {
   return mSelected ? mSelectedBrush : mBrush;
 }
-
-
-
-
-
-
-

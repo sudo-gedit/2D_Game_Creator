@@ -1,9 +1,8 @@
 #include "hero_editor.h"
 #include "ui_hero_editor.h"
 
-
 void Hero_Editor::speichern_char()
-// Werte von dem gewaellten Charakter speichern
+// Namen von dem gewählten Charakter speichern in die .ini
 {
     //Lineedit Speichern
     QSettings *settings = new QSettings(path_charaktaere + "chars.ini",QSettings::IniFormat);
@@ -11,11 +10,10 @@ void Hero_Editor::speichern_char()
     settings->setValue("name",  ui->lineEdit_name->text());
 
     settings->endGroup();
-
 }
 
 void Hero_Editor::char_pic_speichern(QString objekt)
-// Speichern der Bild adresse in die ini
+// Speichern und Kopieren des Bildes in die .ini und den res Ordner
 {
     QString format = ".jpg"; //Workaround
     QString name_held = ui->listWidget_helden->currentItem()->text();
@@ -56,7 +54,7 @@ void Hero_Editor::char_pic_speichern(QString objekt)
 }
 
 void Hero_Editor::qlist_namen_laden()
-// Helden werden aus der ini in qlistWidget_helden geladen
+// Helden (alle) werden aus der ini in qlistWidget_helden geladen
 {
     QFile file(path_charaktaere + "chars.ini");
 
@@ -79,11 +77,11 @@ void Hero_Editor::qlist_namen_laden()
 }
 
 void Hero_Editor::on_lineEdit_name_editingFinished()
-// Bearbeitung des gewählten Helden's
+// Bearbeitung des namens vom gewählten Helden
 {
     if    (ui->listWidget_helden->currentItem() == 0) {
 
-            QMessageBox::critical(this, "Achtung", "Es wurde kein Held gewaehlt.", QMessageBox::Ok);
+            QMessageBox::critical (this, "Achtung", "Es wurde kein Held gewaehlt.", QMessageBox::Ok);
 
            }
     else
@@ -112,7 +110,7 @@ void Hero_Editor::on_lineEdit_name_editingFinished()
 }
 
 void Hero_Editor::on_listWidget_helden_currentItemChanged()
-// Werte von dem gewaellten Charakter laden
+// Werte von dem gewählten Charakter laden (Bilder, Werte, Tabelle)
 {
     path_res_ = QApplication::applicationDirPath() + "";
 
@@ -142,6 +140,9 @@ void Hero_Editor::on_listWidget_helden_currentItemChanged()
         QGraphicsScene *gesicht = new QGraphicsScene();
         gesicht->addPixmap(QPixmap::fromImage(image_gesicht));
         ui->graphicsView_gesicht->setScene(gesicht);
+        lvl_laden();
+        loeschen_table_gesamt();
+        laden_table_gesamt();
     }
 
     if (koerper_ == NULL)
@@ -157,14 +158,19 @@ void Hero_Editor::on_listWidget_helden_currentItemChanged()
         koerper->addPixmap(QPixmap::fromImage(image_koerper));
         ui->graphicsView_koerper->setScene(koerper);
         lvl_laden();
+        loeschen_table_gesamt();
+        laden_table_gesamt();
     }
     lvl_laden();
+    loeschen_table_gesamt();
+    laden_table_gesamt();
 }
 
 void Hero_Editor::lvl_speichern()
+// Werte von dem gewählten Charakter speichern (Werte)
 {
         if    (ui->listWidget_helden->currentItem() == 0)
-
+            // Sollte kein Held gewählt sein, werden alle Parameter zurück gesetzt.
         {
         QMessageBox::critical(this, "Achtung", "Es wurde kein Held gewaehlt.", QMessageBox::Ok);
         ui->checkBox_betaeubt->setCheckState(Qt::Unchecked);
@@ -202,6 +208,7 @@ void Hero_Editor::lvl_speichern()
         QSettings *settings = new QSettings(path_char_lvl,QSettings::IniFormat);
         settings->beginGroup(lvl_aktuell_stri);
 
+        //Werte speichern
         settings->setValue("leben", ui->lineEdit_Leben->text());
         settings->setValue("mana",  ui->lineEdit_Mana->text());
         settings->setValue("kraft", ui->lineEdit_Kraft->text());
@@ -211,27 +218,26 @@ void Hero_Editor::lvl_speichern()
         settings->setValue("glueck", ui->lineEdit_glueck->text());
         settings->setValue("ep", ui->lineEdit_ep->text());
 
-        //Checkbox Speichern
+        //Checkbox speichern
         settings->setValue("feuer", ui->checkBox_feuer->checkState());
         settings->setValue("eis",   ui->checkBox_eis->checkState());
         settings->setValue("betaeubt", ui->checkBox_betaeubt->checkState());
         settings->setValue("gift",  ui->checkBox_gift->checkState());
         settings->setValue("wind", ui->checkBox_wind->checkState());
 
-        //Spinbox Speichern
-
+        //Spinbox speichern
         settings->setValue("feuer_pro", ui->spinBox_feuer->value());
         settings->setValue("eis_pro", ui->spinBox_eis->value());
         settings->setValue("betaeubt_pro", ui->spinBox_betaeubt->value());
         settings->setValue("gift_pro", ui->spinBox_gift->value());
         settings->setValue("wind_pro", ui->spinBox_wind->value());
 
-
         settings->endGroup();
         }
 
 }
 void Hero_Editor::lvl_laden()
+// Werte von dem gewählten Charakter laden (Werte)
 {
     QString held_name = ui->lineEdit_name->text();
     int spinbox_lvl_aktuell = ui->spinBox_lvl->value();
@@ -239,7 +245,7 @@ void Hero_Editor::lvl_laden()
 
     path_char_lvl = QApplication::applicationDirPath() + "/game/charaktaere/lvl_"+ held_name +".ini";
 
-    //Laden der Settings aus der .ini
+    //Laden der Settings (Werten/Einstellungen) aus der .ini
     QSettings *settings = new QSettings (path_char_lvl, QSettings::IniFormat, this);
     settings->beginGroup(lvl_aktuell_stri);
 
@@ -268,11 +274,10 @@ void Hero_Editor::lvl_laden()
     int gift_pro = settings->value("gift_pro").toInt();
     int wind_pro = settings->value("wind_pro").toInt();
 
-
     settings->endGroup();
 
 
-    //Sttings in die GUI laden (lineedit)
+    //Sttings in die GUI laden (lineEdit)
     ui->lineEdit_Leben->setText(leben);
     ui->lineEdit_Mana->setText(mana);
     ui->lineEdit_Kraft->setText(kraft);
@@ -282,13 +287,14 @@ void Hero_Editor::lvl_laden()
     ui->lineEdit_glueck->setText(glueck);
     ui->lineEdit_ep->setText(ep);
 
-    //Sttings in die GUI laden (checkbox)
+    //Sttings in die GUI laden (checkBox)
     ui->checkBox_feuer->setChecked(feuer);
     ui->checkBox_wind->setChecked(wind);
     ui->checkBox_gift->setChecked(gift);
     ui->checkBox_betaeubt->setChecked(betaeubt);
     ui->checkBox_eis->setChecked(eis);
 
+    //Sttings in die GUI laden (spinBox)
     ui->spinBox_feuer->setValue(feuer_pro);
     ui->spinBox_eis->setValue(eis_pro);
     ui->spinBox_betaeubt->setValue(betaeubt_pro);
@@ -296,8 +302,8 @@ void Hero_Editor::lvl_laden()
     ui->spinBox_wind->setValue(wind_pro);
 }
 
-//Funktion um eine Sprache zu laden aus der .ini und gleich zu benutzen
 void Hero_Editor::laden_sprache()
+// Funktion um eine Sprache zu laden aus der .ini und gleich zu benutzen
 {
     QTranslator language;
     QString sprache;
@@ -337,13 +343,141 @@ void Hero_Editor::laden_sprache()
     }
 }
 
-// Zeichne Wertetabele (lvl)
+void Hero_Editor::on_pushButton_lvl_up_editor_clicked()
+// Aufklappen des LVL-Editors und ...
+{
+
+    if (lvl_up_editor_bool == true)
+    {
+        setFixedSize(890, 685);
+        lvl_up_editor_bool = false;
+        ui->pushButton_lvl_up_editor->setText("LVL-UP Editor");
+    }
+    else
+     {
+        if (ui->listWidget_helden->currentItem() == NULL) // Prüfen ob überhaupt werte vorliegen (bzw. die .ini)
+        {
+            // wenn keine vorliegen wir auch nichts gemacht
+        }
+        else
+        {
+             if (this->plots.find("ep") != this->plots.end())
+             {
+
+                 qDebug() << "ich bin da!";
+                 loeschen_table_gesamt();
+                 laden_table_gesamt();
+             }
+
+             if (this->plots.find("ep") != this->plots.end())
+             {
+                 loeschen_table_gesamt();
+                 laden_table_gesamt();
+             }
+        }
+        setFixedSize(1250, 685);
+        lvl_up_editor_bool = true;
+        ui->pushButton_lvl_up_editor->setText("Verbergen");
+     }
+
+}
+
+void Hero_Editor::on_pushButton_held_entfernen_clicked()
+// Funktion um den gewählten Helden zu löschen (mit Prüfmechanismus)
+{
+    int count = ui->listWidget_helden->count();
+
+    if (count == 1)
+    {
+        QMessageBox::critical(this, "Achtung", "Du versuchst den letzten Helden zu loeschen, das ist nicht moeglich.", QMessageBox::Ok);
+    }
+
+        else
+        {
+
+            if    (ui->listWidget_helden->currentItem() == NULL) {
+
+            QMessageBox::critical(this, "Achtung", "Es wurde kein Held gewaehlt.", QMessageBox::Ok);
+
+        }
+            else
+            {
+                        QListWidgetItem *item = ui->listWidget_helden->currentItem();
+                        QStringList qlistwidgetitem_convert;
+                        qlistwidgetitem_convert << item->text();
+                        QString qlistwidgetitem_convert_qstring = qlistwidgetitem_convert.at(0);
+
+                        delete item;
+
+                        QSettings *settings = new QSettings(path_charaktaere + "chars.ini",QSettings::IniFormat);
+                        settings->remove (qlistwidgetitem_convert_qstring);
+
+                        QFile::remove(path_charaktaere + "lvl_" + qlistwidgetitem_convert_qstring + ".ini");
+        }
+    }
+}
+
+void Hero_Editor::on_gesicht_clicked()
+// Funktion um das Gesicht des Helden zu Speichern
+{
+if    (ui->listWidget_helden->currentItem() == 0)
+    {
+    QMessageBox::critical (this, "Achtung", "Es wurde kein Held gewaehlt.", QMessageBox::Ok);
+    }
+        else
+            {
+            objekt = "gesicht_";
+            char_pic_speichern(objekt);
+            }
+}
+
+void Hero_Editor::on_Koerper_clicked()
+// Funktion um das Körper des Helden zu Speichern
+{
+if    (ui->listWidget_helden->currentItem() == 0)
+    {
+    QMessageBox::critical(this, "Achtung", "Es wurde kein Held gewaehlt.", QMessageBox::Ok);
+    }
+        else
+        {
+        objekt = "koerper_";
+        char_pic_speichern(objekt);
+        }
+}
+
+void Hero_Editor::on_pushButton_held_neu_clicked()
+// Funktion um einen neuen Helden zu erstellen
+{
+    int count = ui->listWidget_helden->count();
+
+    // Die Erstellung des Helden
+    count = count + 1;
+    QString count_str;
+
+    count_str.append(QString("%1").arg(count));
+    ui->listWidget_helden->addItem("Neuer_Held" + count_str);
+    ui->lineEdit_name->setText("Neuer_Held" + count_str);
+
+    QSettings *settings = new QSettings(path_charaktaere + "chars.ini",QSettings::IniFormat);
+        settings->beginGroup("Neuer_Held" + count_str);
+        settings->setValue("name",  ui->lineEdit_name->text());
+        settings->endGroup();
+
+    QString held_name = ui->lineEdit_name->text();
+
+    QFile file(path_charaktaere + "lvl_" + held_name + ".ini" );
+        file.open(QIODevice::WriteOnly | QIODevice::Text);
+    file.close();
+}
+
 QCustomPlot *Hero_Editor::getPlot(std::string name)
+// Wertetabelle (lvl)
 {
     return plots[name];
 }
 
 void Hero_Editor::addPlot(std::string name, int x, int y, int width, int height)
+// Wertetabelle
 {
     plots[name] = new QCustomPlot(this);
     getPlot(name)->setGeometry(x, y, width, height);
@@ -351,18 +485,21 @@ void Hero_Editor::addPlot(std::string name, int x, int y, int width, int height)
 }
 
 void Hero_Editor::addPlotPoint(std::string name, double x, double y)
+// Wertetabelle
 {
     plotPoints[name]["x"].push_back(x);
     plotPoints[name]["y"].push_back(y);
 }
 
 void Hero_Editor::paintPlot(std::string name)
+// Wertetabelle
 {
     getPlot(name)->graph(0)->setData(plotPoints[name]["x"], plotPoints[name]["y"]);
     getPlot(name)->replot();
 }
 
 void Hero_Editor::laden_tabele(std::string name, int x, int y, int width, int height)
+// Funktion um alle Werte der Werterabe zu Übergeben
 {
     addPlot(name, x, y, width, height);
 
@@ -377,10 +514,10 @@ void Hero_Editor::laden_tabele(std::string name, int x, int y, int width, int he
         settings->beginGroup(lvl);
         QString name_qstring(name.c_str());
 
-        int leben = settings->value(name_qstring).toInt();
+        int wert = settings->value(name_qstring).toInt();
         settings->endGroup();
 
-        addPlotPoint(name, i, leben);
+        addPlotPoint(name, i, wert);
     }
     getPlot(name)->xAxis->setRange(0, 100);
     getPlot(name)->yAxis->setRange(0, 100);
@@ -389,6 +526,7 @@ void Hero_Editor::laden_tabele(std::string name, int x, int y, int width, int he
 }
 
 void Hero_Editor::laden_table_gesamt()
+// Funktion um alle Werte zu laden
 {
        laden_tabele("ep", 1066, 479, 150, 150);
        laden_tabele("leben", 910, 10, 150, 150);
@@ -398,4 +536,64 @@ void Hero_Editor::laden_table_gesamt()
        laden_tabele("intelligenz", 910 , 323, 150, 150);
        laden_tabele("verteidigung", 1066 , 323, 150, 150);
        laden_tabele("glueck", 910, 479, 150, 150);
+}
+
+void Hero_Editor::loeschen_table_gesamt()
+// Funktion um alle Werte aus der Wertetabelle zu löschen
+{
+        if (this->plots.find("ep") != this->plots.end())
+        {
+            plotPoints.clear();
+            getPlot("ep")->graph(0)->clearData();
+            plotPoints.clear();
+        }
+
+        if (this->plots.find("leben") != this->plots.end())
+        {
+            plotPoints.clear();
+            getPlot("leben")->graph(0)->clearData();
+            plotPoints.clear();
+        }
+
+        if (this->plots.find("mana") != this->plots.end())
+        {
+            plotPoints.clear();
+            getPlot("mana")->graph(0)->clearData();
+            plotPoints.clear();
+        }
+
+        if (this->plots.find("kraft") != this->plots.end())
+        {
+            plotPoints.clear();
+            getPlot("kraft")->graph(0)->clearData();
+            plotPoints.clear();
+        }
+
+        if (this->plots.find("ausdauer") != this->plots.end())
+        {
+            plotPoints.clear();
+            getPlot("ausdauer")->graph(0)->clearData();
+            plotPoints.clear();
+        }
+
+        if (this->plots.find("intelligenz") != this->plots.end())
+        {
+            plotPoints.clear();
+            getPlot("intelligenz")->graph(0)->clearData();
+            plotPoints.clear();
+        }
+
+        if (this->plots.find("verteidigung") != this->plots.end())
+        {
+            plotPoints.clear();
+            getPlot("verteidigung")->graph(0)->clearData();
+            plotPoints.clear();
+        }
+
+        if (this->plots.find("glueck") != this->plots.end())
+        {
+            plotPoints.clear();
+            getPlot("glueck")->graph(0)->clearData();
+            plotPoints.clear();
+        }
 }

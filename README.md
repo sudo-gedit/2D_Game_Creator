@@ -17,6 +17,10 @@ Sortiert nach Priorität(Vorläufiger Plan):
 
 Changelog:
 
+23.01.2013
+Letzte Funktionen des Graphen vom Hero_Editor Fertiggestellt;
+Dokumentation, Aufräume Arbeitet und mehr...
+
 21.01.2013
 Anwendung in englisch_UK übersetzt,
 graphen für dem Hero_Editor erstellt,
@@ -38,7 +42,7 @@ an der Übersetzungsmatrix gearbeitet,
 Rechtschreibung,
 kleine aufräumarbeiten
 
-10.01.20113
+10.01.2013
 Effekt Edior erstellt,
 Mini Update
 

@@ -16,7 +16,6 @@ Hero_Editor::Hero_Editor(QWidget *parent) :
     ui(new Ui::Hero_Editor)
 
 {
-
     //Male Fenster
     ui->setupUi(this);
     setWindowTitle(tr("Hero Editor[*]"));
@@ -45,6 +44,8 @@ Hero_Editor::Hero_Editor(QWidget *parent) :
     ////////////////
     //Platzhalter (Optik) für die Graphic View
     ////////////////
+
+
     QGraphicsScene *scene = new QGraphicsScene();
     scene->addText("Leben");
     scene->setBackgroundBrush(QColor(233, 0, 0));
@@ -93,109 +94,6 @@ Hero_Editor::~Hero_Editor()
     delete ui;
 }
 
-void Hero_Editor::on_gesicht_clicked()
-//Funktion um das Gesicht des Helden zu Speichern (laden)
-{
-if    (ui->listWidget_helden->currentItem() == 0)
-    {
-    QMessageBox::critical(this, "Achtung", "Es wurde kein Held gewaehlt.", QMessageBox::Ok);
-    }
-        else
-            {
-            objekt = "gesicht_";
-            char_pic_speichern(objekt);
-            }
-}
-
-void Hero_Editor::on_Koerper_clicked()
-//Funktion um das Koerper des Helden zu Speichern (laden)
-{
-if    (ui->listWidget_helden->currentItem() == 0)
-    {
-    QMessageBox::critical(this, "Achtung", "Es wurde kein Held gewaehlt.", QMessageBox::Ok);
-    }
-        else
-        {
-        objekt = "koerper_";
-        char_pic_speichern(objekt);
-        }
-}
-void Hero_Editor::on_pushButton_held_neu_clicked()
-//Funktion um einen neuen Helden zu erstellen
-{
-    int count = ui->listWidget_helden->count();
-
-    //Die erstellung des Helden
-    count = count + 1;
-    QString count_str;
-
-    count_str.append(QString("%1").arg(count));
-    ui->listWidget_helden->addItem("Neuer_Held" + count_str);
-    ui->lineEdit_name->setText("Neuer_Held" + count_str);
-
-    QSettings *settings = new QSettings(path_charaktaere + "chars.ini",QSettings::IniFormat);
-        settings->beginGroup("Neuer_Held" + count_str);
-        settings->setValue("name",  ui->lineEdit_name->text());
-        settings->endGroup();
-}
-
-void Hero_Editor::on_pushButton_held_entfernen_clicked()
-//Funktion um den gewaellten Helden zu loeschen (mit Pruefmechanismus)
-{
-    int count = ui->listWidget_helden->count();
-
-    if (count == 1)
-    {
-        QMessageBox::critical(this, "Achtung", "Du versuchst den letzten Helden zu loeschen, das ist nicht moeglich.", QMessageBox::Ok);
-    }
-
-        else
-        {
-
-            if    (ui->listWidget_helden->currentItem() == 0) {
-
-            QMessageBox::critical(this, "Achtung", "Es wurde kein Held gewaehlt.", QMessageBox::Ok);
-
-        }
-            else
-            {
-                        QListWidgetItem *item = ui->listWidget_helden->currentItem();
-                        QStringList qlistwidgetitem_convert;
-                        qlistwidgetitem_convert << item->text();
-                        QString qlistwidgetitem_convert_qstring = qlistwidgetitem_convert.at(0);
-
-                        //Workaround
-                        delete item;
-                        //Workaround
-
-                        QSettings *settings = new QSettings(path_charaktaere + "chars.ini",QSettings::IniFormat);
-                        settings->remove (qlistwidgetitem_convert_qstring);
-
-                        QFile::remove(path_charaktaere + "lvl_" + qlistwidgetitem_convert_qstring + ".ini");
-        }
-    }
-}
-
-void Hero_Editor::on_pushButton_lvl_up_editor_clicked()
-{
-
-    if (lvl_up_editor_bool == true)
-    {
-        setFixedSize(890, 685);
-        lvl_up_editor_bool = false;
-        ui->pushButton_lvl_up_editor->setText("LVL-UP Editor");
-    }
-    else
-     {
-        laden_table_gesamt();
-        setFixedSize(1250, 685);
-        lvl_up_editor_bool = true;
-        ui->pushButton_lvl_up_editor->setText("Verbergen");
-     }
-
-}
-
-
 void Hero_Editor::on_pushButton_schliessen_clicked()
 {
      close();
@@ -214,48 +112,56 @@ void Hero_Editor::on_spinBox_lvl_valueChanged()
 void Hero_Editor::on_lineEdit_ep_editingFinished()
 {
    lvl_speichern();
+   loeschen_table_gesamt();
    laden_tabele("ep", 1066, 479, 150, 150);
 }
 
 void Hero_Editor::on_lineEdit_Leben_editingFinished()
 {
     lvl_speichern();
+    loeschen_table_gesamt();
     laden_tabele("leben", 910, 10, 150, 150);
 }
 
 void Hero_Editor::on_lineEdit_Mana_editingFinished()
 {
     lvl_speichern();
+    loeschen_table_gesamt();
     laden_tabele("mana", 1066 , 10, 150, 150);
 }
 
 void Hero_Editor::on_lineEdit_Kraft_editingFinished()
 {
     lvl_speichern();
+    loeschen_table_gesamt();
     laden_tabele("kraft", 910 , 166, 150, 150);
 }
 
 void Hero_Editor::on_lineEdit_ausdauer_editingFinished()
 {
     lvl_speichern();
+    loeschen_table_gesamt();
     laden_tabele("ausdauer", 1066 , 167, 150, 150);
 }
 
 void Hero_Editor::on_lineEdit_intelligenz_editingFinished()
 {
     lvl_speichern();
+    loeschen_table_gesamt();
     laden_tabele("intelligenz", 910 , 323, 150, 150);
 }
 
 void Hero_Editor::on_lineEdit_verteidigung_editingFinished()
 {
     lvl_speichern();
+    loeschen_table_gesamt();
     laden_tabele("verteidigung", 1066 , 323, 150, 150);
 }
 
 void Hero_Editor::on_lineEdit_glueck_editingFinished()
 {
     lvl_speichern();
+    loeschen_table_gesamt();
     laden_tabele("glueck", 910, 479, 150, 150);
 }
 

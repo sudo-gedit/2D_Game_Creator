@@ -7,6 +7,9 @@
 // Letzte aenderung 20.01.2013
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
+#include <QtCore>
+#include <QtGui>
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "2D-Game-Creator/editor/effekt_editor/effekt_editor.h"
@@ -26,6 +29,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     setWindowTitle(tr("2D Game Creator[*]"));
     laden_sprache();
+    ui->menuBar->setContextMenuPolicy (Qt::PreventContextMenu);
+    ui->mainToolBar->setContextMenuPolicy (Qt::PreventContextMenu);
 }
 
 MainWindow::~MainWindow()

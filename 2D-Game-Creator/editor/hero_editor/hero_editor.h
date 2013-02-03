@@ -97,6 +97,7 @@ private:
     void addPlotPoint(std::string name, double x, double y);
     void paintPlot(std::string name);
 
+    void loeschen_table_gesamt();
     void laden_table_gesamt();
     void laden_tabele(std::string name, int x, int y, int width, int height);
 
