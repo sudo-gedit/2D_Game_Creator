@@ -31,6 +31,8 @@ Sortiert nach Priorität(Vorläufiger Plan):
 
 //Code Bereinigung;
 
+
+
 23.01.2013
 Letzte Funktionen des Graphen vom Hero_Editor Fertiggestellt;
 Dokumentation, Aufräume Arbeitet und mehr...
