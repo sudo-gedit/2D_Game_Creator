@@ -86,48 +86,64 @@ private slots:
 
     void on_checkBox_eis_clicked();
 
-private:
-    Ui::Hero_Editor *ui;
+    void on_checkBox_eis_clicked(bool checked);
 
-    std::map<std::string, QCustomPlot *> plots;
-    std::map<std::string, std::map<std::string, QVector<double> > > plotPoints;
+    void on_checkBox_feuer_clicked(bool checked);
 
-    QCustomPlot *getPlot(std::string name);
+    void on_checkBox_wind_clicked(bool checked);
+
+    void on_checkBox_gift_clicked(bool checked);
+
+    void on_checkBox_betaeubt_clicked(bool checked);
+
+    // Funktionen der Wertetabelle
     void addPlot(std::string name, int x, int y, int width, int height);
     void addPlotPoint(std::string name, double x, double y);
     void paintPlot(std::string name);
-
     void loeschen_table_gesamt();
     void laden_table_gesamt();
     void laden_tabele(std::string name, int x, int y, int width, int height);
 
+    // Allgemeine Funktionen
     void laden_sprache();
+    void speichern_char();      // Spieler Werte Speiechern
+    void char_pic_speichern(QString objekt);  // Spieler Gesicht/Avatar Laden/Speichern
+    void qlist_namen_laden();   // Qlist alle namen einlesen
+    void lvl_speichern();       // lvl informationen werden gesperichert
+    void lvl_laden();           // lvl informationen werden geladen
+    void spinbox_disable();     // Deaktiviert die Spinboxen
+    //void laden_char();        // Spieler Werte Laden || ???
+
+private:
+    Ui::Hero_Editor *ui;
+
+    // Funktionen der Wertetabelle
+    std::map<std::string, QCustomPlot *> plots;
+    std::map<std::string, std::map<std::string, QVector<double> > > plotPoints;
+    QCustomPlot *getPlot(std::string name);
 
     // QString Werte
     QString path_config;
     QString path_char;
     QString path_res;
+    QString path_res_;
     QString path_koerper;
     QString objekt;
     QString path_koerper_;
-    QString path_res_;
     QString path_char_lvl;
     QString path_charaktaere;
 
     // Int Werte
-    int zaehler;
+    int ist_n_gleich;
+    int child_name;
 
     //bool Werte
     bool lvl_up_editor_bool;
-
-    // Funktionen
-    void speichern_char();      // Spieler Werte Speiechern
-    void laden_char();          // Spieler Werte Laden
-    void char_pic_speichern(QString objekt);  // Spieler Gesicht/Avatar Laden/Speichern
-    void qlist_namen_laden();   // Qlist alle namen einlesen
-    void lvl_speichern();       // lvl informationen werden gesperichert
-    void lvl_laden();           // lvl informationen werden geladen
-
+    bool feuer;
+    bool wind;
+    bool gift;
+    bool betaeubt;
+    bool eis;
 };
 
 #endif // HERO_EDITOR_H

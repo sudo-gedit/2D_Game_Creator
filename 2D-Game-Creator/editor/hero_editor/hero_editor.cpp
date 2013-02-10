@@ -7,8 +7,7 @@
 // Letzte Aenderung 21.01.2013
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 #include "hero_editor.h"
-#include "hero_editor_void.cpp"
-#include <QVector>
+#include "ui_hero_editor.h"
 
 
 Hero_Editor::Hero_Editor(QWidget *parent) :
@@ -25,7 +24,7 @@ Hero_Editor::Hero_Editor(QWidget *parent) :
     path_charaktaere = QApplication::applicationDirPath() + "/game/charaktaere/";
     path_res = QApplication::applicationDirPath() + "/game/res/";
 
-    // LineEdit Buchstaben Sperre
+    // LineEdit Buchstaben/Zeichen Sperre
     ui->lineEdit_name->setValidator(new QRegExpValidator( QRegExp("[0-9, A-Z, a-z]+"), this ));
     ui->lineEdit_Mana->setValidator(new QRegExpValidator( QRegExp("[0-9]+"), this ));
     ui->lineEdit_ausdauer->setValidator(new QRegExpValidator( QRegExp("[0-9]+"), this ));

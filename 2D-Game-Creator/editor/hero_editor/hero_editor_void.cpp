@@ -8,6 +8,8 @@ void Hero_Editor::speichern_char()
     QSettings *settings = new QSettings(path_charaktaere + "chars.ini",QSettings::IniFormat);
     settings->beginGroup(ui->lineEdit_name->text());
     settings->setValue("name",  ui->lineEdit_name->text());
+    settings->setValue("gesicht_", "/game/res/gesicht_" + ui->lineEdit_name->text() + ".jpg");
+    settings->setValue("koerper_", "/game/res/koerper_" + ui->lineEdit_name->text() + ".jpg");
 
     settings->endGroup();
 }
@@ -67,8 +69,7 @@ void Hero_Editor::qlist_namen_laden()
         QSettings settings (path_charaktaere + "chars.ini", QSettings::IniFormat);
         QStringList group = settings.childGroups();
         for(int child = 0; child != group.size(); ++child)
-
-            {
+        {
             QString childVersion = group.at(child);
             ui->listWidget_helden->addItem(childVersion);
             }
@@ -77,7 +78,7 @@ void Hero_Editor::qlist_namen_laden()
 }
 
 void Hero_Editor::on_lineEdit_name_editingFinished()
-// Bearbeitung des namens vom gewählten Helden
+// Bearbeitung des Namens vom gewählten Helden mit Prüfung ob bereits existiert
 {
     if    (ui->listWidget_helden->currentItem() == 0) {
 
@@ -85,27 +86,61 @@ void Hero_Editor::on_lineEdit_name_editingFinished()
 
            }
     else
-
     {
-     //variablen sind zu lang!!!
-    QListWidgetItem *item = ui->listWidget_helden->currentItem();
-    QStringList qlistwidgetitem_convert;
-    qlistwidgetitem_convert << item->text();
-    QString qlistwidgetitem_convert_qstring = qlistwidgetitem_convert.at(0);
+        QSettings pruefen_vorhanden (path_charaktaere + "chars.ini", QSettings::IniFormat);
+        QStringList group = pruefen_vorhanden.childGroups();
 
-    QString name_vorher = ui->listWidget_helden->currentItem()->text();
-    QString name_widget = ui->lineEdit_name->text();
-    ui->listWidget_helden->currentItem()->setText(name_widget);
+        for(child_name = 0; child_name != group.size(); ++child_name)
+       {
+            QString childVersion = group.at(child_name);
+
+            if(childVersion == ui->lineEdit_name->text())
+            {
+                // wenn eine Übereinstimmung gefunden wurde wird "ist_n_gleich" nichts hinzugefügt
+            }
+            else
+            {
+                ist_n_gleich++;
+            }
+       }
+
+        if (child_name == ist_n_gleich)
+        {
+        // variablen sind zu lang!!!
+            QListWidgetItem *item = ui->listWidget_helden->currentItem();
+            QStringList qlistwidgetitem_convert;
+            qlistwidgetitem_convert << item->text();
+            QString qlistwidgetitem_convert_qstring = qlistwidgetitem_convert.at(0);
+
+            QString name_vorher = ui->listWidget_helden->currentItem()->text();
+            QString name_widget = ui->lineEdit_name->text();
+            ui->listWidget_helden->currentItem()->setText(name_widget);
 
 
-    QSettings *settings = new QSettings(path_charaktaere + "chars.ini",QSettings::IniFormat);
-    settings->remove(qlistwidgetitem_convert_qstring);
+            QSettings *settings = new QSettings(path_charaktaere + "chars.ini",QSettings::IniFormat);
+            settings->remove(qlistwidgetitem_convert_qstring);
 
-    QFile file (path_charaktaere + "lvl_" + name_vorher + ".ini");
-    file.rename(path_charaktaere + "lvl_" + name_vorher + ".ini",   path_charaktaere + "lvl_" + name_widget + ".ini");
+            QFile file_ini (path_charaktaere + "lvl_" + name_vorher + ".ini");
+            file_ini.rename(path_charaktaere + "lvl_" + name_vorher + ".ini", path_charaktaere + "lvl_" + name_widget + ".ini");
 
-    speichern_char();
 
+            QString format = ".jpg"; //Workaround
+
+            QFile file_gesicht(path_res + "gesicht_" + name_vorher + format);
+            file_gesicht.rename(path_res + "gesicht_" + name_vorher + format, path_res + "gesicht_" + name_widget + format);
+
+            QFile file_koerper(path_res + "koerper_" + name_vorher + format);
+            file_koerper.rename(path_res + "koerper_" + name_vorher + format, path_res + "koerper_" + name_widget + format);
+
+            speichern_char();
+        }
+        else
+        {
+            QMessageBox::critical (this, "Achtung", "Der Name \"" + ui->lineEdit_name->text() + "\" wird bereits benutzt.", QMessageBox::Ok);
+        }
+        // Alle Werte werden wieder zurückgesetzt für den nächsten Durchlauf
+            ist_n_gleich = 0;
+            child_name = 0;
     }
 }
 
@@ -140,7 +175,7 @@ void Hero_Editor::on_listWidget_helden_currentItemChanged()
         QGraphicsScene *gesicht = new QGraphicsScene();
         gesicht->addPixmap(QPixmap::fromImage(image_gesicht));
         ui->graphicsView_gesicht->setScene(gesicht);
-        lvl_laden();
+        //lvl_laden(); || ??
         loeschen_table_gesamt();
         laden_table_gesamt();
     }
@@ -173,6 +208,7 @@ void Hero_Editor::lvl_speichern()
             // Sollte kein Held gewählt sein, werden alle Parameter zurück gesetzt.
         {
         QMessageBox::critical(this, "Achtung", "Es wurde kein Held gewaehlt.", QMessageBox::Ok);
+
         ui->checkBox_betaeubt->setCheckState(Qt::Unchecked);
         ui->checkBox_eis->setCheckState(Qt::Unchecked);
         ui->checkBox_feuer->setCheckState(Qt::Unchecked);
@@ -195,7 +231,6 @@ void Hero_Editor::lvl_speichern()
         ui->spinBox_gift->clear();
         ui->spinBox_wind->clear();
         }
-
         else
         {
         QString held_name = ui->listWidget_helden->currentItem()->text();
@@ -231,11 +266,10 @@ void Hero_Editor::lvl_speichern()
         settings->setValue("betaeubt_pro", ui->spinBox_betaeubt->value());
         settings->setValue("gift_pro", ui->spinBox_gift->value());
         settings->setValue("wind_pro", ui->spinBox_wind->value());
-
         settings->endGroup();
         }
-
 }
+
 void Hero_Editor::lvl_laden()
 // Werte von dem gewählten Charakter laden (Werte)
 {
@@ -262,11 +296,11 @@ void Hero_Editor::lvl_laden()
     QString koerper_ = settings->value("koerper_").toString();
 
 
-    bool feuer =settings->value("feuer").toBool();
-    bool wind = settings->value("wind").toBool();
-    bool gift = settings->value("gift").toBool();
-    bool betaeubt = settings->value("betaeubt").toBool();
-    bool eis = settings->value("eis").toBool();
+    feuer =settings->value("feuer").toBool();
+    wind = settings->value("wind").toBool();
+    gift = settings->value("gift").toBool();
+    betaeubt = settings->value("betaeubt").toBool();
+    eis = settings->value("eis").toBool();
 
     int feuer_pro = settings->value("feuer_pro").toInt();
     int eis_pro = settings->value("eis_pro").toInt();
@@ -300,6 +334,8 @@ void Hero_Editor::lvl_laden()
     ui->spinBox_betaeubt->setValue(betaeubt_pro);
     ui->spinBox_gift->setValue(gift_pro);
     ui->spinBox_wind->setValue(wind_pro);
+
+    spinbox_disable();
 }
 
 void Hero_Editor::laden_sprache()
@@ -363,8 +399,6 @@ void Hero_Editor::on_pushButton_lvl_up_editor_clicked()
         {
              if (this->plots.find("ep") != this->plots.end())
              {
-
-                 qDebug() << "ich bin da!";
                  loeschen_table_gesamt();
                  laden_table_gesamt();
              }
@@ -385,34 +419,46 @@ void Hero_Editor::on_pushButton_lvl_up_editor_clicked()
 void Hero_Editor::on_pushButton_held_entfernen_clicked()
 // Funktion um den gewählten Helden zu löschen (mit Prüfmechanismus)
 {
+    // Prüfen wie viele Helden noch existieren
     int count = ui->listWidget_helden->count();
 
     if (count == 1)
     {
         QMessageBox::critical(this, "Achtung", "Du versuchst den letzten Helden zu loeschen, das ist nicht moeglich.", QMessageBox::Ok);
+        return;
     }
+    // Prüfen ob überhaupt ein Held gewählt wurde
+    if    (ui->listWidget_helden->currentItem() == NULL)
+        {
+    QMessageBox::critical(this, "Achtung", "Es wurde kein Held gewaehlt.", QMessageBox::Ok);
+        }
+    else
+    {
+        // Entwickler wird gefragt ob er wirklich löschen will
+        int status;
+        status = QMessageBox::question(this, "Info", "Soll der Held \"" + ui->lineEdit_name->text() + "\" wirklich geloescht werden?" , QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
 
+        if (status == QMessageBox::Yes)
+        {
+            QListWidgetItem *item = ui->listWidget_helden->currentItem();
+            QStringList qlistwidgetitem_convert;
+            qlistwidgetitem_convert << item->text();
+            QString qlistwidgetitem_convert_qstring = qlistwidgetitem_convert.at(0);
+
+            delete item;
+
+            QSettings *settings = new QSettings(path_charaktaere + "chars.ini",QSettings::IniFormat);
+            settings->remove (qlistwidgetitem_convert_qstring);
+
+            QFile::remove(path_charaktaere + "lvl_" + qlistwidgetitem_convert_qstring + ".ini");
+
+            QString format = ".jpg"; //Workaround
+            QFile::remove(path_res + "gesicht_" + qlistwidgetitem_convert_qstring + format);
+            QFile::remove(path_res + "koerper_" + qlistwidgetitem_convert_qstring + format);
+        }
         else
         {
-
-            if    (ui->listWidget_helden->currentItem() == NULL) {
-
-            QMessageBox::critical(this, "Achtung", "Es wurde kein Held gewaehlt.", QMessageBox::Ok);
-
-        }
-            else
-            {
-                        QListWidgetItem *item = ui->listWidget_helden->currentItem();
-                        QStringList qlistwidgetitem_convert;
-                        qlistwidgetitem_convert << item->text();
-                        QString qlistwidgetitem_convert_qstring = qlistwidgetitem_convert.at(0);
-
-                        delete item;
-
-                        QSettings *settings = new QSettings(path_charaktaere + "chars.ini",QSettings::IniFormat);
-                        settings->remove (qlistwidgetitem_convert_qstring);
-
-                        QFile::remove(path_charaktaere + "lvl_" + qlistwidgetitem_convert_qstring + ".ini");
+            // Nein gewählt wird oder abgebrochen wird, passiert nichts
         }
     }
 }
@@ -501,6 +547,12 @@ void Hero_Editor::paintPlot(std::string name)
 void Hero_Editor::laden_tabele(std::string name, int x, int y, int width, int height)
 // Funktion um alle Werte der Werterabe zu Übergeben
 {
+    if    (ui->listWidget_helden->currentItem() == 0)
+    {
+
+    }
+    else
+    {
     addPlot(name, x, y, width, height);
 
     for (int i=0; i<100; i++)
@@ -523,11 +575,18 @@ void Hero_Editor::laden_tabele(std::string name, int x, int y, int width, int he
     getPlot(name)->yAxis->setRange(0, 100);
     paintPlot(name);
     getPlot(name)->show();
+    }
 }
 
 void Hero_Editor::laden_table_gesamt()
 // Funktion um alle Werte zu laden
 {
+    if    (ui->listWidget_helden->currentItem() == 0)
+    {
+
+    }
+    else
+    {
        laden_tabele("ep", 1066, 479, 150, 150);
        laden_tabele("leben", 910, 10, 150, 150);
        laden_tabele("mana", 1066 , 10, 150, 150);
@@ -536,11 +595,18 @@ void Hero_Editor::laden_table_gesamt()
        laden_tabele("intelligenz", 910 , 323, 150, 150);
        laden_tabele("verteidigung", 1066 , 323, 150, 150);
        laden_tabele("glueck", 910, 479, 150, 150);
+    }
 }
 
 void Hero_Editor::loeschen_table_gesamt()
 // Funktion um alle Werte aus der Wertetabelle zu löschen
 {
+    if    (ui->listWidget_helden->currentItem() == 0)
+    {
+
+    }
+    else
+    {
         if (this->plots.find("ep") != this->plots.end())
         {
             plotPoints.clear();
@@ -596,4 +662,117 @@ void Hero_Editor::loeschen_table_gesamt()
             getPlot("glueck")->graph(0)->clearData();
             plotPoints.clear();
         }
+    }
+}
+
+////////////////////////////////////////////
+// Ausschalten/Einschalten von den Spinboxen
+void Hero_Editor::on_checkBox_eis_clicked(bool checked)
+{
+    if (checked == true)
+    {
+        ui->spinBox_eis->setDisabled(false);
+    }
+    else
+    {
+        ui->spinBox_eis->setDisabled(true);
+    }
+}
+
+void Hero_Editor::on_checkBox_feuer_clicked(bool checked)
+{
+    if (checked == true)
+    {
+        ui->spinBox_feuer->setDisabled(false);
+    }
+    else
+    {
+        ui->spinBox_feuer->setDisabled(true);
+    }
+}
+
+void Hero_Editor::on_checkBox_wind_clicked(bool checked)
+{
+    if (checked == true)
+    {
+        ui->spinBox_wind->setDisabled(false);
+    }
+    else
+    {
+        ui->spinBox_wind->setDisabled(true);
+    }
+}
+
+void Hero_Editor::on_checkBox_gift_clicked(bool checked)
+{
+    if (checked == true)
+    {
+        ui->spinBox_gift->setDisabled(false);
+    }
+    else
+    {
+        ui->spinBox_gift->setDisabled(true);
+    }
+}
+
+void Hero_Editor::on_checkBox_betaeubt_clicked(bool checked)
+{
+    if (checked == true)
+    {
+        ui->spinBox_betaeubt->setDisabled(false);
+    }
+    else
+    {
+        ui->spinBox_betaeubt->setDisabled(true);
+    }
+}
+////////////////////////////////////////////
+
+void Hero_Editor::spinbox_disable()
+// SpinBox Ausschalten wenn diese nicht gewählt wurde (Gesamtfunktion)
+{
+    if (eis == false)
+    {
+        ui->spinBox_eis->setDisabled(true);
+    }
+    else
+    {
+        ui->spinBox_eis->setDisabled(false);
+    }
+
+    if (feuer == false)
+    {
+        ui->spinBox_feuer->setDisabled(true);
+    }
+    else
+    {
+        ui->spinBox_feuer->setDisabled(false);
+    }
+
+    if (wind == false)
+    {
+        ui->spinBox_wind->setDisabled(true);
+    }
+    else
+    {
+        ui->spinBox_wind->setDisabled(false);
+    }
+
+    if (gift == false)
+    {
+        ui->spinBox_gift->setDisabled(true);
+    }
+    else
+    {
+        ui->spinBox_gift->setDisabled(false);
+    }
+
+    if (betaeubt == false)
+    {
+        ui->spinBox_betaeubt->setDisabled(true);
+    }
+    else
+    {
+        ui->spinBox_betaeubt->setDisabled(false);
+    }
 }

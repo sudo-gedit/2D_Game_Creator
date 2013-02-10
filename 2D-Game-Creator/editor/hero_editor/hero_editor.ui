@@ -521,6 +521,9 @@
                  <layout class="QVBoxLayout" name="verticalLayout_5">
                   <item>
                    <widget class="QSpinBox" name="spinBox_eis">
+                    <property name="enabled">
+                     <bool>true</bool>
+                    </property>
                     <property name="maximum">
                      <number>100</number>
                     </property>

@@ -14,10 +14,19 @@ Sortiert nach Priorität(Vorläufiger Plan):
 7. Beginn mit der Arbeit an der Engine
 8. Unterstürzung von mobilen Betriebssystemen (nur Engine)
 9. Netzwerkfähigkeit
+ 
 
-Changelog:
+//Changelog:
 
-04.02.2013
+//// 10.02.2013 ////
+#Hero Editor; Deaktivierung von den Spinboxen für "Schutz in %" wenn unbenutzt;
+#Hero Editor; Ressourcen werden jetzt gelöscht wenn der Held gelöscht wird;
+#Hero Editor; Ressourcen werden jetzt umbenannt wenn der Held umbenannt wird;
+#Hero Editor; Es wird jetzt geprüft ob ein Name bereits vergeben wurde;
+#Fehlerbehebung;
+#Code Bereinigung;
+
+23.01.2013
 Letzte Funktionen des Graphen vom Hero_Editor Fertiggestellt;
 Dokumentation, Aufräume Arbeitet und mehr...
 
