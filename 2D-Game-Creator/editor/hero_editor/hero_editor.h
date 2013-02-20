@@ -112,7 +112,6 @@ private slots:
     void lvl_speichern();       // lvl informationen werden gesperichert
     void lvl_laden();           // lvl informationen werden geladen
     void spinbox_disable();     // Deaktiviert die Spinboxen
-    //void laden_char();        // Spieler Werte Laden || ???
 
 private:
     Ui::Hero_Editor *ui;
@@ -132,6 +131,8 @@ private:
     QString path_koerper_;
     QString path_char_lvl;
     QString path_charaktaere;
+
+    QString name_held_qlist;
 
     // Int Werte
     int ist_n_gleich;

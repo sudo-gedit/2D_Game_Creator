@@ -12,6 +12,8 @@ void Hero_Editor::speichern_char()
     settings->setValue("koerper_", "/game/res/koerper_" + ui->lineEdit_name->text() + ".jpg");
 
     settings->endGroup();
+
+    ui->listWidget_helden->sortItems(Qt::AscendingOrder);
 }
 
 void Hero_Editor::char_pic_speichern(QString objekt)
@@ -90,6 +92,10 @@ void Hero_Editor::on_lineEdit_name_editingFinished()
         QSettings pruefen_vorhanden (path_charaktaere + "chars.ini", QSettings::IniFormat);
         QStringList group = pruefen_vorhanden.childGroups();
 
+        // Alle Werte werden sicherhalthalber auf 0 gesetzt
+        ist_n_gleich = 0;
+        child_name = 0;
+
         for(child_name = 0; child_name != group.size(); ++child_name)
        {
             QString childVersion = group.at(child_name);
@@ -163,7 +169,10 @@ void Hero_Editor::on_listWidget_helden_currentItemChanged()
 
     settings->endGroup();
 
-    if (gesicht_ == NULL)
+    QFile gesicht_file( path_res_ + gesicht_ );
+    QFile koerper_file( path_res_ + koerper_ );
+
+    if (!gesicht_file.exists())
     {
         QList<QGraphicsItem*> item = ui->graphicsView_gesicht->items();
         qDeleteAll(item);
@@ -175,12 +184,9 @@ void Hero_Editor::on_listWidget_helden_currentItemChanged()
         QGraphicsScene *gesicht = new QGraphicsScene();
         gesicht->addPixmap(QPixmap::fromImage(image_gesicht));
         ui->graphicsView_gesicht->setScene(gesicht);
-        //lvl_laden(); || ??
-        loeschen_table_gesamt();
-        laden_table_gesamt();
     }
 
-    if (koerper_ == NULL)
+    if (!koerper_file.exists())
     {
         QList<QGraphicsItem*> item = ui->graphicsView_koerper->items();
         qDeleteAll(item);
@@ -192,9 +198,6 @@ void Hero_Editor::on_listWidget_helden_currentItemChanged()
         QGraphicsScene *koerper = new QGraphicsScene();
         koerper->addPixmap(QPixmap::fromImage(image_koerper));
         ui->graphicsView_koerper->setScene(koerper);
-        lvl_laden();
-        loeschen_table_gesamt();
-        laden_table_gesamt();
     }
     lvl_laden();
     loeschen_table_gesamt();
@@ -460,6 +463,7 @@ void Hero_Editor::on_pushButton_held_entfernen_clicked()
         {
             // Nein gewählt wird oder abgebrochen wird, passiert nichts
         }
+        ui->listWidget_helden->sortItems(Qt::AscendingOrder);
     }
 }
 
@@ -494,27 +498,35 @@ if    (ui->listWidget_helden->currentItem() == 0)
 void Hero_Editor::on_pushButton_held_neu_clicked()
 // Funktion um einen neuen Helden zu erstellen
 {
-    int count = ui->listWidget_helden->count();
+    name_held_qlist = "Neuer_Held";
 
-    // Die Erstellung des Helden
-    count = count + 1;
-    QString count_str;
+    for (int i = 1; i <= 100; ++i)
+    {
+        QList<QListWidgetItem*> items = ui->listWidget_helden->findItems(name_held_qlist + QString::number(i), 0);
 
-    count_str.append(QString("%1").arg(count));
-    ui->listWidget_helden->addItem("Neuer_Held" + count_str);
-    ui->lineEdit_name->setText("Neuer_Held" + count_str);
+        if (items.empty())
+        {
+            // Die Erstellung des Helden
 
-    QSettings *settings = new QSettings(path_charaktaere + "chars.ini",QSettings::IniFormat);
-        settings->beginGroup("Neuer_Held" + count_str);
-        settings->setValue("name",  ui->lineEdit_name->text());
-        settings->endGroup();
+            ui->listWidget_helden->addItem(name_held_qlist + QString::number(i));
+            ui->lineEdit_name->setText(name_held_qlist + QString::number(i));
 
-    QString held_name = ui->lineEdit_name->text();
+            QSettings *settings = new QSettings(path_charaktaere + "chars.ini",QSettings::IniFormat);
+                settings->beginGroup(name_held_qlist + QString::number(i));
+                settings->setValue("name",  ui->lineEdit_name->text());
+                settings->endGroup();
 
-    QFile file(path_charaktaere + "lvl_" + held_name + ".ini" );
-        file.open(QIODevice::WriteOnly | QIODevice::Text);
-    file.close();
+            QString held_name = ui->lineEdit_name->text();
+
+            QFile file(path_charaktaere + "lvl_" + held_name + ".ini" );
+                file.open(QIODevice::WriteOnly | QIODevice::Text);
+            file.close();
+            return;
+        }
+        ui->listWidget_helden->sortItems(Qt::AscendingOrder);
+    }
 }
+
 
 QCustomPlot *Hero_Editor::getPlot(std::string name)
 // Wertetabelle (lvl)
