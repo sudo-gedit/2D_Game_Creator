@@ -4,38 +4,49 @@
 //
 //
 //
-// Letzte aenderung 20.01.2013
+//
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-
-#include <QtCore>
-#include <QtGui>
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "2D-Game-Creator/editor/effekt_editor/effekt_editor.h"
-#include "2D-Game-Creator/editor/entwicklungsplaner/entwicklungsplaner.h"
-#include "2D-Game-Creator/editor/faehigkeiten_editor/faehigkeiten_editor.h"
-#include "2D-Game-Creator/editor/gegenstand_editor/gegenstand_editor.h"
-#include "2D-Game-Creator/editor/hero_editor/hero_editor.h"
-#include "2D-Game-Creator/editor/monster_editor/monster_editor.h"
-#include "2D-Game-Creator/editor/klassen_editor/klassen_editor.h"
-#include "2D-Game-Creator/editor/ausruestungs_editor/ausruestung.h"
 
+//Globale Variablen
+int editor_main_tab;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
     setWindowTitle(tr("2D Game Creator[*]"));
     laden_sprache();
     ui->menuBar->setContextMenuPolicy (Qt::PreventContextMenu);
     ui->mainToolBar->setContextMenuPolicy (Qt::PreventContextMenu);
+
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::on_actionEinstellungen_Settings_2_triggered()
+{
+    Option mDialog;
+    mDialog.setWindowFlags( Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint );
+    mDialog.setWindowTitle("Option / settings");
+    mDialog.setModal(true);
+            mDialog.exec();
+}
+
+void MainWindow::on_actionEinstellungen_Settings_triggered()
+{
+    Option mDialog;
+    mDialog.setWindowFlags( Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint );
+    mDialog.setWindowTitle("Option / settings");
+    mDialog.setModal(true);
+            mDialog.exec();
 }
 
 void MainWindow::on_actionAbout_triggered()
@@ -49,109 +60,78 @@ void MainWindow::on_actionAbout_triggered()
 
 void MainWindow::on_actionHero_Editor_triggered()
 {
-    Hero_Editor mDialog;
-    mDialog.setWindowFlags( Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint );
-    mDialog.setWindowTitle("Hero Editor");
-    mDialog.setModal(true);
-            mDialog.exec();
+    editor_main_tab = 0;
+    Main_Editor *mDialog = new Main_Editor();
+    mDialog->setWindowTitle("Editor");
+        mDialog->show();
 }
 
-
-void MainWindow::on_actionEntwicklungsplanner_triggered()
+void MainWindow::on_actionGegner_Editor_triggered()
 {
-    Entwicklungsplaner mDialog;
-    mDialog.setWindowFlags( Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint );
-    mDialog.setWindowTitle("Entwicklungsplaner");
-    mDialog.setModal(true);
-            mDialog.exec();
-
-}
-
-void MainWindow::on_actionMonster_Editor_triggered()
-{
-    Monster_Editor mDialog;
-    mDialog.setWindowFlags( Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint );
-    mDialog.setWindowTitle("Monster Editor");
-    mDialog.setModal(true);
-            mDialog.exec();
-
-}
-
-void MainWindow::on_actionGegenstand_Editor_triggered()
-{
-    Gegenstand_Editor mDialog;
-    mDialog.setWindowFlags( Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint );
-    mDialog.setWindowTitle("Gegenstand Editor");
-    mDialog.setModal(true);
-            mDialog.exec();
-}
-
-void MainWindow::on_actionFeahigkeiten_triggered()
-{
-    Faehigkeiten_Editor mDialog;
-    mDialog.setWindowFlags( Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint );
-    mDialog.setWindowTitle("Faehigkeiten Editor");
-    mDialog.setModal(true);
-            mDialog.exec();
-}
-
-void MainWindow::on_actionKampfsimulation_triggered()
-{
-    Kampfsimulation mDialog;
-    mDialog.setWindowFlags( Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint );
-    mDialog.setWindowTitle("Kampfsimulation");
-    mDialog.setModal(true);
-            mDialog.exec();
-}
-
-void MainWindow::on_actionStatus_Editor_triggered()
-{
-    Effekt_Editor mDialog;
-    mDialog.setWindowFlags( Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint );
-    mDialog.setWindowTitle("Effekt Editor");
-    mDialog.setModal(true);
-            mDialog.exec();
-}
-
-void MainWindow::on_actionEinstellungen_settings_triggered()
-{
-    Option mDialog;
-    mDialog.setWindowFlags( Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint );
-    mDialog.setWindowTitle("Option / settings");
-    mDialog.setModal(true);
-            mDialog.exec();
-}
-
-
-void MainWindow::on_actionAusr_stungs_Editor_triggered()
-{
-    Ausruestung mDialog;
-    mDialog.setWindowFlags( Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint );
-    mDialog.setWindowTitle("Ausruestung Editor");
-    mDialog.setModal(true);
-            mDialog.exec();
+    editor_main_tab = 1;
+    Main_Editor *mDialog = new Main_Editor();
+    mDialog->setWindowTitle("Editor");
+        mDialog->show();
 }
 
 void MainWindow::on_actionKlassen_Editor_triggered()
 {
-    Klassen_Editor mDialog;
-    mDialog.setWindowFlags( Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint );
-    mDialog.setWindowTitle("Klassen Editor");
-    mDialog.setModal(true);
-            mDialog.exec();
+    editor_main_tab = 2;
+    Main_Editor *mDialog = new Main_Editor();
+    mDialog->setWindowTitle("Editor");
+        mDialog->show();
 }
 
-void MainWindow::on_actionEinstellungen_triggered()
+void MainWindow::on_actionAusr_stungs_Editor_triggered()
 {
-    Option mDialog;
-    mDialog.setWindowFlags( Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint );
-    mDialog.setWindowTitle("Option / settings");
-    mDialog.setModal(true);
-            mDialog.exec();
+    editor_main_tab = 3;
+    Main_Editor *mDialog = new Main_Editor();
+    mDialog->setWindowTitle("Editor");
+        mDialog->show();
 }
 
-//Funktion um eine Sprache zu laden aus der .ini und gleich zu benutzen
+void MainWindow::on_actionFaehigkeiten_Editor_triggered()
+{
+    editor_main_tab = 4;
+    Main_Editor *mDialog = new Main_Editor();
+    mDialog->setWindowTitle("Editor");
+        mDialog->show();
+}
+
+void MainWindow::on_actionGegenstand_Editor_triggered()
+{
+    editor_main_tab = 5;
+    Main_Editor *mDialog = new Main_Editor();
+    mDialog->setWindowTitle("Editor");
+        mDialog->show();
+}
+
+void MainWindow::on_actionEffekt_Editor_triggered()
+{
+    editor_main_tab = 6;
+    Main_Editor *mDialog = new Main_Editor();
+    mDialog->setWindowTitle("Editor");
+        mDialog->show();
+}
+
+void MainWindow::on_actionKampf_Editor_triggered()
+{
+    editor_main_tab = 7;
+    Main_Editor *mDialog = new Main_Editor();
+    mDialog->setWindowTitle("Editor");
+        mDialog->show();
+}
+
+void MainWindow::on_actionEntwicklungsplanner_triggered()
+{
+    editor_main_tab = 8;
+    Main_Editor *mDialog = new Main_Editor();
+    mDialog->setWindowTitle("Editor");
+        mDialog->show();
+}
+
 void MainWindow::laden_sprache()
+//Funktion um eine Sprache zu laden aus der .ini und gleich zu benutzen
 {
     QTranslator language;
     QString sprache;
@@ -162,7 +142,7 @@ void MainWindow::laden_sprache()
         sprache = settings->value("sprache").toString();
     settings->endGroup();
 
-    if (sprache == "Deutsch/German")
+    if (sprache == "Deutsch/German" || NULL)
     {
         language.load("german_DE");
         qApp->installTranslator(&language);
@@ -189,4 +169,13 @@ void MainWindow::laden_sprache()
         qApp->installTranslator(&language);
         ui->retranslateUi(this);
     }
+}
+
+void MainWindow::on_actionKampfsimulation_triggered()
+{
+    Kampfsimulator mDialog;
+    mDialog.setWindowFlags( Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint );
+    mDialog.setWindowTitle("Kampf Vorbereitung");
+    mDialog.setModal(true);
+            mDialog.exec();
 }

@@ -6,114 +6,160 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>979</width>
-    <height>605</height>
+    <width>694</width>
+    <height>394</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>710</x>
-     <y>10</y>
-     <width>258</width>
-     <height>126</height>
+     <x>0</x>
+     <y>0</y>
+     <width>691</width>
+     <height>391</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout_3">
-    <item>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="tab">
+    <attribute name="title">
+     <string>Tab 1</string>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="tab_2">
+    <attribute name="title">
+     <string>Sprache</string>
+    </attribute>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>420</x>
+       <y>20</y>
+       <width>264</width>
+       <height>139</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Wähle die Sprache für die Anwendung</string>
-        </property>
-       </widget>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="minimumSize">
+           <size>
+            <width>260</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>260</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Wähle die Sprache für die Anwendung</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="minimumSize">
+           <size>
+            <width>260</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>260</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Select the language for the application</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
       <item>
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>Select the language for the application</string>
-        </property>
-       </widget>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QComboBox" name="comboBox_sprache">
+          <property name="minimumSize">
+           <size>
+            <width>260</width>
+            <height>31</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>260</width>
+            <height>31</height>
+           </size>
+          </property>
+          <property name="sizeIncrement">
+           <size>
+            <width>254</width>
+            <height>31</height>
+           </size>
+          </property>
+          <property name="baseSize">
+           <size>
+            <width>3</width>
+            <height>31</height>
+           </size>
+          </property>
+          <item>
+           <property name="text">
+            <string>Deutsch/German</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Englisch/English</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Russisch/Russia</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Franzoesisch/French</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_sprache_speichern">
+          <property name="minimumSize">
+           <size>
+            <width>260</width>
+            <height>31</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>260</width>
+            <height>31</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Sprache verwenden / accept</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
-    </item>
-    <item>
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <item>
-       <widget class="QComboBox" name="comboBox_sprache">
-        <property name="sizeIncrement">
-         <size>
-          <width>254</width>
-          <height>31</height>
-         </size>
-        </property>
-        <property name="baseSize">
-         <size>
-          <width>3</width>
-          <height>31</height>
-         </size>
-        </property>
-        <item>
-         <property name="text">
-          <string>Deutsch/German</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Englisch/English</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Russisch/Russia</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Franzoesisch/French</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_sprache_speichern">
-        <property name="minimumSize">
-         <size>
-          <width>254</width>
-          <height>31</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>254</width>
-          <height>31</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>Sprache verwenden / accept</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>10</y>
-     <width>101</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Steuerung</string>
-   </property>
+    </widget>
+   </widget>
   </widget>
  </widget>
  <resources/>

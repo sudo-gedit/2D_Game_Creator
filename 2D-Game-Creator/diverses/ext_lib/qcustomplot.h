@@ -27,6 +27,11 @@
 #ifndef QCUSTOMPLOT_H
 #define QCUSTOMPLOT_H
 
+#include <QtCore>
+#include <QtGui>
+#include <QtWidgets>
+#include <QtPrintSupport>
+/*
 #include <QObject>
 #include <QWidget>
 #include <QPainter>
@@ -43,6 +48,7 @@
 #include <QStack>
 #include <qmath.h>
 #include <limits>
+*/
 
 // decl definitions for shared library compilation/usage:
 #if defined(QCUSTOMPLOT_COMPILE_LIBRARY)

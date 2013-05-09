@@ -18,19 +18,28 @@ Sortiert nach Priorität(Vorläufiger Plan):
 
 //Changelog:
 
+
+//// 09.05.2013 ////
+2D Game Creator Portieren  nach Qt5;
+Alle Funktionen neu Geschreiben;
+Fehlerbehebung;
+Code Bereinigung;
+
+Updates gibt es absofot wieder regelmässiger
+
 //// 19.02.2013 ////
-// Bei der Erstellung eines neuen Helens werden jetzt keine doppelt erstellt, wenn dieser schon vorher existierte.
-// Namen werden jetzt gleich bei jeder Änderung neu sortiert.
-// Fehlerbehebung;
-// Code Bereinigung; 
+Bei der Erstellung eines neuen Helens werden jetzt keine doppelt erstellt, wenn dieser schon vorher existierte;
+Namen werden jetzt gleich bei jeder Änderung neu sortiert;
+Fehlerbehebung;
+Code Bereinigung; 
 
 //// 10.02.2013 ////
-//Hero Editor; Deaktivierung von den Spinboxen für "Schutz in %" wenn unbenutzt;
-//Hero Editor; Ressourcen werden jetzt gelöscht wenn der Held gelöscht wird;
-//Hero Editor; Ressourcen werden jetzt umbenannt wenn der Held umbenannt wird;
-//Hero Editor; Es wird jetzt geprüft ob ein Name bereits vergeben wurde;
-//Fehlerbehebung;
-//Code Bereinigung;
+Hero Editor; Deaktivierung von den Spinboxen für "Schutz in %" wenn unbenutzt;
+Hero Editor; Ressourcen werden jetzt gelöscht wenn der Held gelöscht wird;
+Hero Editor; Ressourcen werden jetzt umbenannt wenn der Held umbenannt wird;
+Hero Editor; Es wird jetzt geprüft ob ein Name bereits vergeben wurde;
+Fehlerbehebung;
+Code Bereinigung;
 
 23.01.2013
 Letzte Funktionen des Graphen vom Hero_Editor Fertiggestellt;

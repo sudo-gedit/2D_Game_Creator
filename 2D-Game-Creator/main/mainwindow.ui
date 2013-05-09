@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1119</width>
-    <height>666</height>
+    <width>1185</width>
+    <height>671</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>50</y>
+      <y>150</y>
       <width>971</width>
       <height>241</height>
      </rect>
@@ -33,7 +33,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:small;&quot;&gt;Da das ein Hobby-Projekt ist, wird es noch etwas dauern bis eine funktionierende Version erscheint.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:small;&quot;&gt;Wenn du Bugs findest, melde diese bitte bei github:&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://github.com/sudo-gedit/2D_Game_Creator/issues&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://github.com/sudo-gedit/2D_Game_Creator/issues&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:small;&quot;&gt;A. Engelmann&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:small;&quot;&gt;Alexej Engelmann&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
@@ -43,40 +43,32 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1119</width>
+     <width>1185</width>
      <height>27</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuFile">
+   <widget class="QMenu" name="menuDatei">
     <property name="title">
      <string>Datei</string>
     </property>
-    <addaction name="actionNew"/>
-    <addaction name="actionOpen"/>
-    <addaction name="actionSave"/>
-    <addaction name="actionEinstellungen_settings"/>
+    <addaction name="actionNeues_Projekt"/>
+    <addaction name="action_ffne_Projekt"/>
+    <addaction name="actionSpeicher_Projekt"/>
+    <addaction name="actionEinstellungen_Settings"/>
     <addaction name="separator"/>
-    <addaction name="actionExit"/>
-   </widget>
-   <widget class="QMenu" name="menuDfg">
-    <property name="title">
-     <string>Help</string>
-    </property>
-    <addaction name="actionAbout"/>
-    <addaction name="action_ber_QT"/>
-    <addaction name="actionEinstellungen"/>
+    <addaction name="actionEditor_Beenden"/>
    </widget>
    <widget class="QMenu" name="menuEditor">
     <property name="title">
      <string>Editor</string>
     </property>
     <addaction name="actionHero_Editor"/>
+    <addaction name="actionGegner_Editor"/>
     <addaction name="actionKlassen_Editor"/>
     <addaction name="actionAusr_stungs_Editor"/>
-    <addaction name="actionFeahigkeiten"/>
+    <addaction name="actionFaehigkeiten_Editor"/>
     <addaction name="actionGegenstand_Editor"/>
-    <addaction name="actionStatus_Editor"/>
-    <addaction name="actionMonster_Editor"/>
+    <addaction name="actionEffekt_Editor"/>
     <addaction name="actionKampf_Editor"/>
     <addaction name="actionEntwicklungsplanner"/>
    </widget>
@@ -86,29 +78,24 @@ p, li { white-space: pre-wrap; }
     </property>
     <addaction name="actionKampfsimulation"/>
    </widget>
-   <addaction name="menuFile"/>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+    <addaction name="actionEinstellungen_Settings_2"/>
+   </widget>
+   <addaction name="menuDatei"/>
    <addaction name="menuEditor"/>
    <addaction name="menuSimulation"/>
-   <addaction name="menuDfg"/>
+   <addaction name="menuHelp"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
-   <property name="contextMenuPolicy">
-    <enum>Qt::NoContextMenu</enum>
-   </property>
-   <property name="movable">
-    <bool>false</bool>
-   </property>
    <property name="allowedAreas">
     <set>Qt::AllToolBarAreas</set>
    </property>
-   <property name="iconSize">
-    <size>
-     <width>25</width>
-     <height>25</height>
-    </size>
-   </property>
    <property name="floatable">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -116,9 +103,9 @@ p, li { white-space: pre-wrap; }
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionNew"/>
-   <addaction name="actionOpen"/>
-   <addaction name="actionSave"/>
+   <addaction name="actionNeues_Projekt"/>
+   <addaction name="action_ffne_Projekt"/>
+   <addaction name="actionSpeicher_Projekt"/>
    <addaction name="separator"/>
    <addaction name="actionEbene_1"/>
    <addaction name="actionEbene_2"/>
@@ -127,43 +114,19 @@ p, li { white-space: pre-wrap; }
    <addaction name="actionEbene_5"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <action name="actionNew">
-   <property name="checkable">
-    <bool>false</bool>
-   </property>
-   <property name="checked">
-    <bool>false</bool>
-   </property>
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
+  <action name="actionNeues_Projekt">
    <property name="icon">
-    <iconset resource="../res/ress_con.qrc">
+    <iconset resource="2D-Game-Creator/res/ress_con.qrc">
      <normaloff>:/icons/icon/in_app/new.gif</normaloff>
      <activeoff>:/icons/icon/in_app/new-hl.gif</activeoff>:/icons/icon/in_app/new.gif</iconset>
    </property>
    <property name="text">
     <string>Neues Projekt</string>
    </property>
-   <property name="toolTip">
-    <string>Neues Projekt</string>
-   </property>
-   <property name="autoRepeat">
-    <bool>true</bool>
-   </property>
-   <property name="visible">
-    <bool>true</bool>
-   </property>
-   <property name="menuRole">
-    <enum>QAction::NoRole</enum>
-   </property>
-   <property name="iconVisibleInMenu">
-    <bool>false</bool>
-   </property>
   </action>
-  <action name="actionOpen">
+  <action name="action_ffne_Projekt">
    <property name="icon">
-    <iconset resource="../res/ress_con.qrc">
+    <iconset resource="2D-Game-Creator/res/ress_con.qrc">
      <normaloff>:/icons/icon/in_app/load.gif</normaloff>
      <activeoff>:/icons/icon/in_app/load-hl.gif</activeoff>:/icons/icon/in_app/load.gif</iconset>
    </property>
@@ -171,9 +134,9 @@ p, li { white-space: pre-wrap; }
     <string>Öffne Projekt</string>
    </property>
   </action>
-  <action name="actionSave">
+  <action name="actionSpeicher_Projekt">
    <property name="icon">
-    <iconset resource="../res/ress_con.qrc">
+    <iconset resource="2D-Game-Creator/res/ress_con.qrc">
      <normaloff>:/icons/icon/in_app/save.gif</normaloff>
      <activeoff>:/icons/icon/in_app/save-hl.gif</activeoff>:/icons/icon/in_app/save.gif</iconset>
    </property>
@@ -181,69 +144,19 @@ p, li { white-space: pre-wrap; }
     <string>Speicher Projekt</string>
    </property>
   </action>
-  <action name="actionExit">
+  <action name="actionEinstellungen_Settings">
    <property name="text">
-    <string>Editor Beenden</string>
+    <string>Einstellungen / Settings</string>
    </property>
   </action>
-  <action name="actionAbout">
+  <action name="actionEditor_Beenden">
    <property name="text">
-    <string>about</string>
+    <string>Editor Beenden</string>
    </property>
   </action>
   <action name="actionHero_Editor">
    <property name="text">
     <string>Hero Editor</string>
-   </property>
-  </action>
-  <action name="action_ber_QT">
-   <property name="text">
-    <string>..über QT</string>
-   </property>
-  </action>
-  <action name="actionEntwicklungsplanner">
-   <property name="text">
-    <string>Entwicklungsplanner</string>
-   </property>
-  </action>
-  <action name="actionKampf_Editor">
-   <property name="text">
-    <string>Kampf Editor</string>
-   </property>
-  </action>
-  <action name="actionMonster_Editor">
-   <property name="text">
-    <string>Monster Editor</string>
-   </property>
-  </action>
-  <action name="actionFeahigkeiten">
-   <property name="text">
-    <string>Faehigkeiten Editor</string>
-   </property>
-  </action>
-  <action name="actionGegenstand_Editor">
-   <property name="text">
-    <string>Gegenstand Editor</string>
-   </property>
-  </action>
-  <action name="actionStatus_Editor">
-   <property name="text">
-    <string>Effekt Editor</string>
-   </property>
-  </action>
-  <action name="actionKampfsimulation">
-   <property name="text">
-    <string>Kampfsimulation</string>
-   </property>
-  </action>
-  <action name="actionEinstellungen">
-   <property name="text">
-    <string>Einstellungen / Settings</string>
-   </property>
-  </action>
-  <action name="actionEinstellungen_settings">
-   <property name="text">
-    <string>Einstellungen / Settings</string>
    </property>
   </action>
   <action name="actionKlassen_Editor">
@@ -256,77 +169,105 @@ p, li { white-space: pre-wrap; }
     <string>Ausrüstungs Editor</string>
    </property>
   </action>
+  <action name="actionFaehigkeiten_Editor">
+   <property name="text">
+    <string>Faehigkeiten Editor</string>
+   </property>
+  </action>
+  <action name="actionGegenstand_Editor">
+   <property name="text">
+    <string>Gegenstand Editor</string>
+   </property>
+  </action>
+  <action name="actionEffekt_Editor">
+   <property name="text">
+    <string>Effekt Editor</string>
+   </property>
+  </action>
+  <action name="actionGegner_Editor">
+   <property name="text">
+    <string>Gegner Editor</string>
+   </property>
+  </action>
+  <action name="actionKampf_Editor">
+   <property name="text">
+    <string>Kampf Editor</string>
+   </property>
+  </action>
+  <action name="actionEntwicklungsplanner">
+   <property name="text">
+    <string>Entwicklungsplanner</string>
+   </property>
+  </action>
+  <action name="actionKampfsimulation">
+   <property name="text">
+    <string>Kampfsimulation</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>Entwickler</string>
+   </property>
+  </action>
+  <action name="actionEinstellungen_Settings_2">
+   <property name="text">
+    <string>Einstellungen / Settings</string>
+   </property>
+  </action>
   <action name="actionEbene_1">
    <property name="icon">
-    <iconset resource="../res/ress_con.qrc">
+    <iconset resource="2D-Game-Creator/res/ress_con.qrc">
      <normaloff>:/icons/icon/in_app/e1a.gif</normaloff>
      <activeoff>:/icons/icon/in_app/e1b.gif</activeoff>:/icons/icon/in_app/e1a.gif</iconset>
    </property>
    <property name="text">
-    <string>Ebene 1</string>
+    <string>Ebene_1</string>
    </property>
   </action>
   <action name="actionEbene_2">
    <property name="icon">
-    <iconset resource="../res/ress_con.qrc">
+    <iconset resource="2D-Game-Creator/res/ress_con.qrc">
      <normaloff>:/icons/icon/in_app/e2a.gif</normaloff>
      <activeoff>:/icons/icon/in_app/e2b.gif</activeoff>:/icons/icon/in_app/e2a.gif</iconset>
    </property>
    <property name="text">
-    <string>Ebene 2</string>
+    <string>Ebene_2</string>
    </property>
   </action>
   <action name="actionEbene_3">
    <property name="icon">
-    <iconset resource="../res/ress_con.qrc">
+    <iconset resource="2D-Game-Creator/res/ress_con.qrc">
      <normaloff>:/icons/icon/in_app/e3a.gif</normaloff>
      <activeoff>:/icons/icon/in_app/e3b.gif</activeoff>:/icons/icon/in_app/e3a.gif</iconset>
    </property>
    <property name="text">
-    <string>Ebene 3</string>
+    <string>Ebene_3</string>
    </property>
   </action>
   <action name="actionEbene_4">
    <property name="icon">
-    <iconset resource="../res/ress_con.qrc">
+    <iconset resource="2D-Game-Creator/res/ress_con.qrc">
      <normaloff>:/icons/icon/in_app/e4a.gif</normaloff>
      <activeoff>:/icons/icon/in_app/e4b.gif</activeoff>:/icons/icon/in_app/e4a.gif</iconset>
    </property>
    <property name="text">
-    <string>Ebene 4</string>
+    <string>Ebene_4</string>
    </property>
   </action>
   <action name="actionEbene_5">
    <property name="icon">
-    <iconset resource="../res/ress_con.qrc">
+    <iconset resource="2D-Game-Creator/res/ress_con.qrc">
      <normaloff>:/icons/icon/in_app/e5a.gif</normaloff>
      <activeoff>:/icons/icon/in_app/e5b.gif</activeoff>:/icons/icon/in_app/e5a.gif</iconset>
    </property>
    <property name="text">
-    <string>Ebene 5</string>
+    <string>Ebene_5</string>
    </property>
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="../res/ress_con.qrc"/>
+  <include location="2D-Game-Creator/res/ress_con.qrc"/>
  </resources>
- <connections>
-  <connection>
-   <sender>actionExit</sender>
-   <signal>activated()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>350</x>
-     <y>232</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>
